@@ -1,0 +1,17 @@
+# /home/martin/.config/tmuxinator/4pane.yml
+
+name: 4pane
+windows:
+  - SSH:
+      layout: tiled
+      panes:
+        - node-one:
+            - node1
+        - node-two:
+            - node2
+        - node-three:
+            - node3
+  - Vim:
+      layout: even-vertial
+      panes:
+        - vim

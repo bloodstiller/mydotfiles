@@ -1,0 +1,211 @@
+#+TITLE: MDB Dev TMUX Config
+#+AUTHOR: MDB Dev
+#+DESCRIPTION: MDB's Personal TMUX Config.
+#+PROPERTY: header-args :tangle /home/martin/Nextcloud/90-99_Repos/92-PersonalRepos/92.02-Desktop/tmux/tmux.conf
+#+auto_tangle: t
+#+STARTUP: showeverything
+
+
+
+* Table of Contents :TOC:
+:PROPERTIES:
+:ID:       aeb50425-5f3f-4e7c-a599-dcee9fb14578
+:END:
+- [[#change-prefix-ctrl--space][Change Prefix CTRL + SPACE:]]
+- [[#split-windows][Split Windows:]]
+- [[#move-panes-using-meta--vim-movement-keys][Move Panes Using Meta + VIM Movement Keys:]]
+- [[#resize-panes-using-ctrl--vim-movement-keys][Resize Panes Using CTRL + VIM Movement Keys:]]
+- [[#switch-windows-using-shift--arrow-keys][Switch Windows Using Shift + Arrow Keys:]]
+- [[#enable-24bit-colour][Enable 24bit colour:]]
+- [[#navigate-windows][Navigate Windows:]]
+- [[#enable-mouse-movment][Enable Mouse Movment:]]
+- [[#easy-reload-config][Easy Reload Config:]]
+- [[#easy-copy--paste][Easy Copy & Paste:]]
+- [[#tmux-plugins][TMUX Plugins:]]
+  - [[#enable-tmux-plugin-manager][Enable TMUX Plugin Manager:]]
+  - [[#tmux-plugins-1][TMUX Plugins:]]
+  - [[#dracula-plugin-conf][Dracula Plugin Conf]]
+  - [[#sensible-settings][Sensible Settings:]]
+
+* Change Prefix CTRL + SPACE:
+:PROPERTIES:
+:ID:       c0997220-56da-44bd-926c-9e0fbc2fc9f7
+:END:
+#+begin_src conf
+# Send prefix
+set-option -g prefix C-Space
+unbind-key C-b
+bind-key C-Space send-prefix
+#+end_src
+
+* Split Windows:
+:PROPERTIES:
+:ID:       b8dab678-c872-43af-a015-84dc1adee80e
+:END:
+#+begin_src conf
+
+# Set easier window split keys rebinds the split key to META + q & META + w
+bind -n M-q split-window -v
+bind -n M-w split-window -h
+#+end_src
+
+* Move Panes Using Meta + VIM Movement Keys:
+:PROPERTIES:
+:ID:       4491e436-55d6-4ac7-a2bc-6d8847801a02
+:END:
+#+begin_src conf
+# Use Alt-arrow keys to switch panes
+bind -n M-h select-pane -L
+bind -n M-l select-pane -R
+bind -n M-k select-pane -U
+bind -n M-j select-pane -D
+#+end_src
+
+* Resize Panes Using CTRL + VIM Movement Keys:
+:PROPERTIES:
+:ID:       ef0e3de9-3595-40a0-aa46-5fd735cb3ebb
+:END:
+#+begin_src conf
+# Resize Panes Easily
+bind -n C-h resize-pane -L 2
+bind -n C-l resize-pane -R 2
+bind -n C-k resize-pane -U 2
+bind -n C-j resize-pane -D 2
+#+end_src
+
+* Switch Windows Using Shift + Arrow Keys:
+:PROPERTIES:
+:ID:       4c32b288-acfd-45d8-9d63-c47cb0503e8a
+:END:
+#+begin_src conf
+# Shift arrow to switch windows
+bind -n S-Left previous-window
+bind -n S-Right next-window
+#+end_src
+
+* Enable 24bit colour:
+:PROPERTIES:
+:ID:       f056465b-f59c-41e7-9d47-a576f9671f25
+:END:
+#+begin_src conf
+set-option -sa terminal-overrides ",xterm*:Tc"
+
+#+end_src
+
+* Navigate Windows:
+:PROPERTIES:
+:ID:       89e9c1c0-fa7a-4fd5-9c5f-2c2398679133
+:END:
+#+begin_src conf
+
+# Windows
+bind -n C-n new-window -c
+bind -n C-o next-window
+bind -n C-p previous-window
+#+end_src
+
+* Enable Mouse Movment:
+:PROPERTIES:
+:ID:       7a6f10a5-8e28-40bc-99a7-e224f21eb3e1
+:END:
+#+begin_src conf
+# Mouse mode
+setw -g mouse on
+#+end_src
+
+
+
+* Easy Reload Config:
+:PROPERTIES:
+:ID:       989e20fc-5fe2-47cd-938e-f10a07a34835
+:END:
+#+begin_src conf
+# Easy config reload
+bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded."
+#+end_src
+
+* Easy Copy & Paste:
+:PROPERTIES:
+:ID:       a1cd139b-e986-4d81-9d1f-87cbb26c0d4c
+:END:
+#+begin_src conf
+setw -g mode-keys vi
+# Enables CTLR + V to enter copy mode:
+bind-key -n C-v copy-mode
+
+#Keybindings for Vim like Copy & Paste:
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
+#+end_src
+
+
+
+
+* TMUX Plugins:
+:PROPERTIES:
+:ID:       b824b0e1-7207-42b0-bf74-9dfd169b39d8
+:END:
+- https://github.com/tmux-plugins/tmux-sensible
+** Enable TMUX Plugin Manager:
+:PROPERTIES:
+:ID:       521ca5ff-5409-426a-8c70-2ef1f3677bca
+:END:
+#+begin_src conf
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
+#+end_src
+
+** TMUX Plugins:
+:PROPERTIES:
+:ID:       354d9b12-181f-4892-b9cb-5b950b4f8564
+:END:
+#+begin_src conf
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'christoomey/vim-tmux-navigator'
+set -g @plugin 'jimeh/tmuxifier'
+set -g @plugin 'tmux-plugins/tmux/yank'
+#+end_src
+
+** Dracula Plugin Conf
+:PROPERTIES:
+:ID:       96392161-0c16-4fd1-8218-6c2d25469cde
+:END:
+#+begin_src conf
+
+set -g @plugin 'dracula/tmux'
+set -g @dracula-show-powerline true
+set -g @dracula-plugins "weather"
+set -g @dracula-show-flags true
+set -g @dracula-show-left-icon session
+set -g status-position top
+#+end_src
+
+
+** Sensible Settings:
+:PROPERTIES:
+:ID:       d071d3a3-1e77-4887-a2b0-f080ab884b5d
+:END:
+#+begin_src conf
+# Address vim mode switching delay (http://superuser.com/a/252717/65504)
+set -s escape-time 0
+
+# Increase scrollback buffer size from 2000 to 50000 lines
+set -g history-limit 50000
+
+# Increase tmux messages display duration from 750ms to 4s
+set -g display-time 4000
+
+# Refresh 'status-left' and 'status-right' more often, from every 15s to 5s
+set -g status-interval 5
+
+# Upgrade $TERM
+set -g default-terminal "screen-256color"
+
+# Focus events enabled for terminals that support them
+set -g focus-events on
+
+# Super useful when using "grouped sessions" and multi-monitor setup
+setw -g aggressive-resize on
+#+end_src

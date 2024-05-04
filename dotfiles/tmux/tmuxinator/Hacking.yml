@@ -1,0 +1,9 @@
+# /home/martin/.config/tmuxinator/Hacking.yml
+
+name: Hacking
+windows:
+  - SSH:
+      layout: main-vertical
+      panes:
+        - SSH KALI:
+            - ssh kali@192.168.100.174

@@ -86,6 +86,12 @@ dotfiles:
   d_doom:
     src: config/doom
     dst: ~/.config/doom
+  f_tmux.conf:
+    src: tmux.conf
+    dst: ~/.tmux.conf
+  d_tmux:
+    src: tmux
+    dst: ~/.tmux
 profiles:
   Lok:
     dotfiles:
@@ -115,6 +121,8 @@ profiles:
     - f_pyprland.toml
     - f_variables.conf
     - d_doom
+    - f_tmux.conf
+    - d_tmux
   zeus:
     dotfiles:
     - f_zshrc
