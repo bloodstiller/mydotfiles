@@ -47,9 +47,6 @@ dotfiles:
   d_waybar:
     src: config/waybar
     dst: ~/.config/waybar
-  d_doom:
-    src: config/doom
-    dst: ~/.config/doom
   f_autostart.conf:
     src: config/hypr/Autostart.conf
     dst: ~/.config/hypr/Autostart.conf
@@ -102,7 +99,6 @@ profiles:
     - d_wofi
     - d_sway
     - d_waybar
-    - d_doom
     - f_autostart.conf
     - f_envs.conf
     - f_hypridle.conf
