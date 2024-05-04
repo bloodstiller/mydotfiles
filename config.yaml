@@ -92,6 +92,9 @@ dotfiles:
   d_tmux:
     src: tmux
     dst: ~/.tmux
+  f_starship.toml:
+    src: config/starship.toml
+    dst: ~/.config/starship.toml
 profiles:
   Lok:
     dotfiles:
@@ -123,6 +126,7 @@ profiles:
     - d_doom
     - f_tmux.conf
     - d_tmux
+    - f_starship.toml
   zeus:
     dotfiles:
     - f_zshrc
