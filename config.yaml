@@ -1,0 +1,77 @@
+config:
+  backup: true
+  banner: true
+  create: true
+  dotpath: dotfiles
+  keepdot: false
+  link_dotfile_default: nolink
+  link_on_import: nolink
+  longkey: false
+dotfiles:
+  f_zshrc:
+    src: zshrc
+    dst: ~/.zshrc
+  d_alacritty:
+    src: config/alacritty
+    dst: ~/.config/alacritty
+  d_dunst:
+    src: config/dunst
+    dst: ~/.config/dunst
+  d_hooks:
+    src: config/hooks
+    dst: ~/.config/hooks
+  d_doom:
+    src: config/doom
+    dst: ~/.config/doom
+  d_hypr:
+    src: config/hypr
+    dst: ~/.config/hypr
+  d_i3:
+    src: config/i3
+    dst: ~/.config/i3
+  d_kitty:
+    src: config/kitty
+    dst: ~/.config/kitty
+  d_nvim:
+    src: config/nvim
+    dst: ~/.config/nvim
+  d_packages:
+    src: config/packages
+    dst: ~/.config/packages
+  d_qutebrowser:
+    src: config/qutebrowser
+    dst: ~/.config/qutebrowser
+  d_rofi:
+    src: config/rofi
+    dst: ~/.config/rofi
+  d_wofi:
+    src: config/wofi
+    dst: ~/.config/wofi
+  d_sway:
+    src: config/sway
+    dst: ~/.config/sway
+  d_waybar:
+    src: config/waybar
+    dst: ~/.config/waybar
+  d_hypr-laptop:
+    src: config/hypr-laptop
+    dst: ~/.config/hypr-laptop
+profiles:
+  Lok:
+    dotfiles:
+    - f_zshrc
+    - d_alacritty
+    - d_dunst
+    - d_hooks
+    - d_doom
+    - d_hypr
+    - d_i3
+    - d_kitty
+    - d_nvim
+    - d_packages
+    - d_qutebrowser
+    - d_rofi
+    - d_wofi
+    - d_sway
+    - d_waybar
+    - d_hypr-laptop
