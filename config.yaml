@@ -97,7 +97,7 @@ dotfiles:
     dst: ~/.config/starship.toml
   f_laptophyprland.conf:
     src: config/hypr/laptopHyprland.conf
-    dst: ~/.config/hypr/Hyprland.conf
+    dst: ~/.config/hypr/hyprland.conf
 profiles:
   Lok:
     dotfiles:
