@@ -1,0 +1,7 @@
+brave-bin
+dotdrop
+dropbox
+gbm
+jamesdsp
+pyprland
+spotify

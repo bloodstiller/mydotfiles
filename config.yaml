@@ -101,6 +101,9 @@ dotfiles:
   f_laptopconfig:
     src: config/waybar/laptopConfig
     dst: ~/.config/waybar/config
+  d_scripts:
+    src: config/scripts
+    dst: ~/.config/scripts
 profiles:
   Lok:
     dotfiles:
@@ -164,3 +167,4 @@ profiles:
     - f_starship.toml
     - f_laptophyprland.conf
     - f_laptopconfig
+    - d_scripts
