@@ -98,6 +98,9 @@ dotfiles:
   f_laptophyprland.conf:
     src: config/hypr/laptopHyprland.conf
     dst: ~/.config/hypr/hyprland.conf
+  f_laptopconfig:
+    src: config/waybar/laptopConfig
+    dst: ~/.config/waybar/config
 profiles:
   Lok:
     dotfiles:
@@ -160,3 +163,4 @@ profiles:
     - d_tmux
     - f_starship.toml
     - f_laptophyprland.conf
+    - f_laptopconfig
