@@ -150,3 +150,5 @@ profiles:
     - f_pyprland.toml
     - f_variables.conf
     - d_doom
+    - f_tmux.conf
+    - d_tmux
