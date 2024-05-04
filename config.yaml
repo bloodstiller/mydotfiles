@@ -20,12 +20,6 @@ dotfiles:
   d_hooks:
     src: config/hooks
     dst: ~/.config/hooks
-  d_doom:
-    src: config/doom
-    dst: ~/.config/doom
-  d_hypr:
-    src: config/hypr
-    dst: ~/.config/hypr
   d_i3:
     src: config/i3
     dst: ~/.config/i3
@@ -53,9 +47,15 @@ dotfiles:
   d_waybar:
     src: config/waybar
     dst: ~/.config/waybar
-  d_hypr-laptop:
-    src: config/hypr-laptop
-    dst: ~/.config/hypr-laptop
+  d_doom:
+    src: config/doom
+    dst: ~/.config/doom
+  f_autostart.conf:
+    src: config/hypr/Autostart.conf
+    dst: ~/.config/hypr/Autostart.conf
+  f_envs.conf:
+    src: config/hypr/Envs.conf
+    dst: ~/.config/hypr/Envs.conf
   f_hypridle.conf:
     src: config/hypr/hypridle.conf
     dst: ~/.config/hypr/hypridle.conf
@@ -65,39 +65,27 @@ dotfiles:
   f_hyprlock.conf:
     src: config/hypr/hyprlock.conf
     dst: ~/.config/hypr/hyprlock.conf
-  f_lok_hyprautostart.conf:
-    src: config/hypr/Lok_hyprAutostart.conf
-    dst: ~/.config/hypr/Lok_hyprAutostart.conf
-  f_lok_hyprenvs.conf:
-    src: config/hypr/Lok_hyprEnvs.conf
-    dst: ~/.config/hypr/Lok_hyprEnvs.conf
-  f_lok_hyprkeybindings.conf:
-    src: config/hypr/Lok_hyprKeybindings.conf
-    dst: ~/.config/hypr/Lok_hyprKeybindings.conf
-  f_lok_hyprmonitors.conf:
-    src: config/hypr/Lok_hyprMonitors.conf
-    dst: ~/.config/hypr/Lok_hyprMonitors.conf
-  f_lok_hyprvariables.conf:
-    src: config/hypr/Lok_hyprVariables.conf
-    dst: ~/.config/hypr/Lok_hyprVariables.conf
+  f_keybindings.conf:
+    src: config/hypr/Keybindings.conf
+    dst: ~/.config/hypr/Keybindings.conf
+  f_laptopenvs.conf:
+    src: config/hypr/laptopEnvs.conf
+    dst: ~/.config/hypr/laptopEnvs.conf
+  f_laptopmonitor.conf:
+    src: config/hypr/laptopMonitor.conf
+    dst: ~/.config/hypr/laptopMonitor.conf
+  f_laptopvariables.conf:
+    src: config/hypr/laptopVariables.conf
+    dst: ~/.config/hypr/laptopVariables.conf
+  f_monitors.conf:
+    src: config/hypr/Monitors.conf
+    dst: ~/.config/hypr/Monitors.conf
   f_pyprland.toml:
     src: config/hypr/pyprland.toml
     dst: ~/.config/hypr/pyprland.toml
-  f_zeus_hyperenvs.conf:
-    src: config/hypr/zeus_hyperEnvs.conf
-    dst: ~/.config/hypr/zeus_hyperEnvs.conf
-  f_zeus_hyprautostart.conf:
-    src: config/hypr/zeus_hyprAutostart.conf
-    dst: ~/.config/hypr/zeus_hyprAutostart.conf
-  f_zeus_hyprkeybindings.conf:
-    src: config/hypr/zeus_hyprKeybindings.conf
-    dst: ~/.config/hypr/zeus_hyprKeybindings.conf
-  f_zeus_hyprmonitors.conf:
-    src: config/hypr/zeus_hyprMonitors.conf
-    dst: ~/.config/hypr/zeus_hyprMonitors.conf
-  f_zeus_hyprvariables.conf:
-    src: config/hypr/zeus_hyprVariables.conf
-    dst: ~/.config/hypr/zeus_hyprVariables.conf
+  f_variables.conf:
+    src: config/hypr/Variables.conf
+    dst: ~/.config/hypr/Variables.conf
 profiles:
   Lok:
     dotfiles:
@@ -105,8 +93,6 @@ profiles:
     - d_alacritty
     - d_dunst
     - d_hooks
-    - d_doom
-    - d_hypr
     - d_i3
     - d_kitty
     - d_nvim
@@ -116,18 +102,16 @@ profiles:
     - d_wofi
     - d_sway
     - d_waybar
-    - d_hypr-laptop
+    - d_doom
+    - f_autostart.conf
+    - f_envs.conf
     - f_hypridle.conf
     - f_hyprland.conf
     - f_hyprlock.conf
-    - f_lok_hyprautostart.conf
-    - f_lok_hyprenvs.conf
-    - f_lok_hyprkeybindings.conf
-    - f_lok_hyprmonitors.conf
-    - f_lok_hyprvariables.conf
+    - f_keybindings.conf
+    - f_laptopenvs.conf
+    - f_laptopmonitor.conf
+    - f_laptopvariables.conf
+    - f_monitors.conf
     - f_pyprland.toml
-    - f_zeus_hyperenvs.conf
-    - f_zeus_hyprautostart.conf
-    - f_zeus_hyprkeybindings.conf
-    - f_zeus_hyprmonitors.conf
-    - f_zeus_hyprvariables.conf
+    - f_variables.conf
