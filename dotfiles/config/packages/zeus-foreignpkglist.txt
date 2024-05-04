@@ -5,3 +5,4 @@ gbm
 jamesdsp
 pyprland
 spotify
+ttf-all-the-icons

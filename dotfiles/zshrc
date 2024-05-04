@@ -353,4 +353,3 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 if [[ -z "$TMUX" && -z "$SSH_CONNECTION" && -n "$DISPLAY" ]]; then
   exec tmux new-session -A -s default \; source-file ~/.tmux.conf
 fi
-source /home/martin/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
