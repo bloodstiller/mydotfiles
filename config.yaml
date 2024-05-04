@@ -104,6 +104,12 @@ dotfiles:
   d_scripts:
     src: config/scripts
     dst: ~/.config/scripts
+  f_zshplugins.sh:
+    src: config/scripts/zshPlugins.sh
+    dst: ~/.config/scripts/zshPlugins.sh
+  f_installdracula.sh:
+    src: config/scripts/installDracula.sh
+    dst: ~/.config/scripts/installDracula.sh
 profiles:
   Lok:
     dotfiles:
@@ -169,3 +175,5 @@ profiles:
     - f_laptophyprland.conf
     - f_laptopconfig
     - d_scripts
+    - f_zshplugins.sh
+    - f_installdracula.sh
