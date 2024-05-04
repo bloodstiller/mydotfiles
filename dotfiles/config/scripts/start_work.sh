@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+# Vars
+chrome=/usr/bin/google-chrome-stable
+bvVersion="a/2.13.7"
+
+# Define URLs as an array
+declare -a urls=(
+    "https://omniis.zendesk.com/agent/dashboard"
+    "https://www.babblevoice.com/${bvVersion}/#/"
+    "https://www.babblevoice.com/${bvVersion}/admin/#/"
+    "https://www.babblevoice.com/p4a/applications/babble/?newsession=1"
+    "https://drive.google.com/drive/my-drive"
+    "https://docs.google.com/spreadsheets/d/1I3E14TsD69NZmuKexGW1iN44xL-MYOt1ct3MLHKRCXk/edit#gid=0"
+    "https://calendar.google.com/calendar/u/0/r?tab=rc"
+    "https://docs.google.com/spreadsheets/d/1ZQJw6ZH7aTLUpazo7gj7aWyOjzp36an05SVPD0QRz1M/edit#gid=282679378"
+)
+
+# Define functions
+launch_chrome() {
+    local urls=$@
+    /usr/bin/google-chrome-stable --new-window ${urls[@]/#/--new-tab } &
+}
+
+open_emails() {
+    /usr/bin/google-chrome-stable --new-window "https://mail.google.com/mail/u/0/#inbox" &
+}
+
+open_desktop() {
+    /usr/bin/google-chrome-stable --new-window "https://www.babblevoice.com/$bvVersion/desktop/#" &
+}
+
+#open_tasks() {
+#   /usr/bin/google-chrome-stable --new-window "https://fullscreen-for-googletasks.com/" &
+#}
+
+launch_slack() {
+    /usr/bin/slack &
+}
+
+launch_todoist() {
+    ~/Applications/Todoist-linux-8.12.2-x86_64_89afa4388cbce63f0a563938b4714e22.AppImage &
+}
+
+#launch_slack_web() {
+#    /usr/bin/google-chrome-stable --new-window "https://app.slack.com/client/T40M8SKPA/C41ALLC91" &
+#}
+# Launch Google Chrome with all required browser-based apps
+launch_chrome "${urls[@]}"
+
+# Open emails for alerts
+open_emails
+
+# Open desktop for calls
+open_desktop
+
+# Open Google Tasks
+#open_tasks
+
+#
+
+# Launch Slack
+launch_slack
