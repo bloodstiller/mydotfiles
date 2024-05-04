@@ -95,6 +95,9 @@ dotfiles:
   f_starship.toml:
     src: config/starship.toml
     dst: ~/.config/starship.toml
+  f_laptophyprland.conf:
+    src: config/hypr/laptopHyprland.conf
+    dst: ~/.config/hypr/Hyprland.conf
 profiles:
   Lok:
     dotfiles:
@@ -144,7 +147,6 @@ profiles:
     - f_autostart.conf
     - f_envs.conf
     - f_hypridle.conf
-    - f_hyprland.conf
     - f_hyprlock.conf
     - f_keybindings.conf
     - f_laptopenvs.conf
@@ -156,3 +158,5 @@ profiles:
     - d_doom
     - f_tmux.conf
     - d_tmux
+    - f_starship.toml
+    - f_laptophyprland.conf
