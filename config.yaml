@@ -83,6 +83,9 @@ dotfiles:
   f_variables.conf:
     src: config/hypr/Variables.conf
     dst: ~/.config/hypr/Variables.conf
+  d_doom:
+    src: config/doom
+    dst: ~/.config/doom
 profiles:
   Lok:
     dotfiles:
@@ -111,3 +114,4 @@ profiles:
     - f_monitors.conf
     - f_pyprland.toml
     - f_variables.conf
+    - d_doom
