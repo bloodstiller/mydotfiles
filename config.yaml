@@ -136,6 +136,7 @@ profiles:
     - f_tmux.conf
     - d_tmux
     - f_starship.toml
+    - d_scripts
   zeus:
     dotfiles:
     - f_zshrc
