@@ -195,7 +195,6 @@ profiles:
     - f_laptophyprland.conf
     - f_laptopconfig
     - d_scripts
-    - d_waybar
     - f_waybar_laptopconfig
     - d_waybar_scripts
     - d_themes
