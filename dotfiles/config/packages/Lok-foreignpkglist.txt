@@ -3,6 +3,7 @@ ags
 alacritty-themes
 anydesk-bin
 appimagelauncher
+brave-bin
 cryptomator-bin
 debtap
 dotdrop

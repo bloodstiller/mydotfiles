@@ -266,12 +266,13 @@ alias hpsync="ssh -L 9988:localhost:8384 martin@192.168.2.241"
 alias ls='exa -T -L=1 -a -B -h -l -g --icons'
 alias lsl='exa -T -L=2 -a -B -h -l -g --icons'
 alias lss='exa -T -L=1 -B -h -l -g --icons'
-alias sw='/home/martin/Dropbox/90-99_Repos/92-PersonalRepos/92.06-Scripts/start_work.sh 2>/dev/null'
+alias sw='/home/martin/.config/scripts/start_work.sh 2>/dev/null'
 alias virtnet='sudo virsh net-start default &'
 alias doom='~/.config/emacs/bin/doom'
 alias bx='~/Dropbox/40-49_Career/46-Boxes/46.02-HTB'
 alias cpts='~/Dropbox/40-49_Career/41-Courses/41.22-CPTS'
 alias cat='bat'
+alias dt='/home/martin/.config/mydotfiles'
 
 ############ VM's ###############
 ## Easily Launch VM's and RDP Sessions:
@@ -327,10 +328,12 @@ nbx () {
 }
 
 # New engagement folder structure:
-alias npt="~/Dropbox/90-99_Repos/92-PersonalRepos/92.06-Scripts/newpentest.sh"
+alias npt="/home/martin/.config/scripts/newpentest.sh"
 
 # Restart Waybar:
-alias wbr="~/Dropbox/90-99_Repos/92-PersonalRepos/92.06-Scripts/waybarRestart.sh"
+alias wbr="/home/martin/.config/scripts/waybarRestart.sh"
+
+
 
 #PGP STUFF
 alias key='0x79ea004594bd7e09'
