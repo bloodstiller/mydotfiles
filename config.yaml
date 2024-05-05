@@ -122,6 +122,12 @@ dotfiles:
   f_style.css:
     src: config/waybar/style.css
     dst: ~/.config/waybar/style.css
+  f_clean_cache.hook:
+    src: config/hooks/clean_cache.hook
+    dst: ~/.config/hooks/clean_cache.hook
+  f_maintainpackages.hook:
+    src: config/hooks/maintainPackages.hook
+    dst: ~/.config/hooks/maintainPackages.hook
 profiles:
   Lok:
     dotfiles:
@@ -155,6 +161,8 @@ profiles:
     - d_tmux
     - f_starship.toml
     - d_scripts
+    - f_clean_cache.hook
+    - f_maintainpackages.hook
   zeus:
     dotfiles:
     - f_zshrc
