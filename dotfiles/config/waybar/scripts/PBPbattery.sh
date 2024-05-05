@@ -1,10 +1,9 @@
-
 #!/bin/bash
 #simple Shellscript for waybar/i3blocks/polybar on Pinebook pro
 #05012020 geri123@gmx.net Gerhard S.
 
-PERCENT=$(cat /sys/class/power_supply/cw2015-battery/capacity)
-STATUS=$(cat /sys/class/power_supply/cw2015-battery/status)
+PERCENT=$(cat /sys/class/power_supply/BAT0/capacity)
+STATUS=$(cat /sys/class/power_supply/BAT0/status)
 case $((
  $PERCENT >= 0 && $PERCENT <= 20 ? 1 :
  $PERCENT > 20 && $PERCENT <= 40 ? 2 :

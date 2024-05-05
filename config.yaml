@@ -113,6 +113,15 @@ dotfiles:
   d_themes:
     src: config/waybar/Themes
     dst: ~/.config/waybar/Themes
+  f_colors.css:
+    src: config/waybar/colors.css
+    dst: ~/.config/waybar/colors.css
+  f_mediaplayer.py:
+    src: config/waybar/mediaplayer.py
+    dst: ~/.config/waybar/mediaplayer.py
+  f_style.css:
+    src: config/waybar/style.css
+    dst: ~/.config/waybar/style.css
 profiles:
   Lok:
     dotfiles:
@@ -182,3 +191,6 @@ profiles:
     - f_waybar_laptopconfig
     - d_waybar_scripts
     - d_themes
+    - f_colors.css
+    - f_mediaplayer.py
+    - f_style.css
