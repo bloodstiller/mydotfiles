@@ -348,7 +348,6 @@ function reveal () {
                 gpg --decrypt --output ${output} "${1}" && echo "${1} -> ${output}"
 }
 eval "$(starship init zsh)"
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #Autostart tmux if not already in a tmux session and not in SSH also sources to ensure compatiblity.
 if [[ -z "$TMUX" && -z "$SSH_CONNECTION" && -n "$DISPLAY" ]]; then
   exec tmux new-session -A -s default \; source-file ~/.tmux.conf
