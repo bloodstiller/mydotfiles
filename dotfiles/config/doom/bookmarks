@@ -3,11 +3,11 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
- (filename . "~/Dropbox/20240504092409-arch_install_script.org")
+ (filename . "~/Dropbox/20240504152058-new_dotfiles.org")
  (front-context-string)
- (rear-context-string . " install script\n")
- (position . 97)
- (last-modified 26165 61613 466355 138000))
+ (rear-context-string . "e: New Dotfiles\n")
+ (position . 90)
+ (last-modified 26166 17483 628429 442000))
 ("org-refile-last-stored"
  (filename . "~/Dropbox/01-09_System/01-Emacs/01.02-OrgGtd/gtd_archive_2023")
  (front-context-string . "* DONE finish th")

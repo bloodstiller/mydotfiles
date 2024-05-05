@@ -1,7 +1,7 @@
 #+TITLE: MDB Dev Doom Config
 #+AUTHOR: MDB Dev
 #+DESCRIPTION: MDB's Personal Doom Emacs Config.
-#+PROPERTY: header-args :tangle /home/martin/Dropbox/90-99_Repos/92-PersonalRepos/92.01-Doom/config.el
+#+PROPERTY: header-args :tangle /home/martin/.config/doom/config.el
 #+auto_tangle: t
 #+STARTUP: showeverything
 
@@ -13,6 +13,7 @@
 - [[#general-settings][General Settings:]]
   - [[#user-information][User Information:]]
   - [[#set-theme-and-line-numbers][Set Theme and line Numbers:]]
+  - [[#beacon][Beacon:]]
   - [[#graphics-pixel-precision-scrolling][Graphics: Pixel-precision scrolling:]]
 - [[#fonts][Fonts:]]
 - [[#bookmarks-and-buffers][BOOKMARKS AND BUFFERS]]
@@ -35,27 +36,19 @@
   - [[#org---set-attach-directory][ORG - Set ATTACH Directory:]]
   - [[#org---auto-tangle][ORG - Auto Tangle:]]
   - [[#org---cosmetics][ORG - Cosmetics:]]
-  - [[#org---gtd-shortcuts][ORG - GTD Shortcuts:]]
-  - [[#org---gtd-define-directory][ORG - GTD Define Directory:]]
   - [[#org---gtd-areas-of-focus][ORG - GTD Areas of Focus:]]
   - [[#org---start-all-documents-in-overview-mode][ORG - Start all documents in overview mode:]]
   - [[#org---add-id-to-all-org-headindgs-on-save][ORG - Add ID to all ORG headindgs on save:]]
-  - [[#org---workspace-shortcuts][ORG - Workspace Shortcuts:]]
 - [[#org---roam][ORG - ROAM:]]
   - [[#roam---location][Roam - Location:]]
-  - [[#roam---integrate-markdown-files][Roam - Integrate Markdown Files:]]
   - [[#roam---make-git-ignored-files-in-subdirectories-still-searchable][Roam - (make git ignored files in subdirectories still searchable)]]
   - [[#roam---capture-templates][Roam - Capture Templates:]]
   - [[#roam---render-large-files-faster][Roam - Render Large Files Faster:]]
 - [[#markdown][Markdown:]]
   - [[#markdown-line-numbers-display][Markdown: Line Numbers Display:]]
   - [[#markdown-set-custom-headers][Markdown: Set Custom Headers:]]
-  - [[#markdown-functions-to-insert-date--calendar][Markdown: Functions To Insert Date & Calendar:]]
   - [[#markdown-functions-to-allow-markdown-preview-whilst-typing][Markdown: Functions To Allow Markdown preview whilst typing:]]
   - [[#markdown-keymaps][Markdown: Keymaps:]]
-- [[#neotree-shortcuts][NeoTree Shortcuts:]]
-- [[#dired-customization][Dired Customization:]]
-  - [[#basic-dired-commands][Basic dired commands]]
 - [[#quality-of-life][Quality Of Life:]]
   - [[#save-easier][Save Easier:]]
   - [[#search-easier][Search Easier:]]
@@ -65,12 +58,6 @@
   - [[#zoom-in--out][Zoom In & Out:]]
   - [[#enable-emojis][Enable Emojis]]
   - [[#insert-date-shortcut][Insert Date Shortcut:]]
-  - [[#enable-centaur-tabs][Enable CENTAUR Tabs:]]
-  - [[#beacon][Beacon:]]
-  - [[#calendar][Calendar:]]
-  - [[#multivterm-setup][MultiVterm Setup:]]
-  - [[#golden-ratio-mode][Golden Ratio Mode:]]
-- [[#floating-frames][Floating Frames:]]
 
 * ABOUT THIS CONFIG:
 :PROPERTIES:
@@ -104,6 +91,15 @@ Doom Emacs is a distribution of Emacs that uses the "evil" keybindings (Vim keyb
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
+#+end_src
+** Beacon:
+:PROPERTIES:
+:ID:       c2f8ec18-84bb-4079-85a8-17157bb2478b
+:END:
+Never lose your cursor.  When you scroll, your cursor will shine!  This is a global minor-mode. Turn it on everywhere with:
+
+#+begin_src emacs-lisp
+(beacon-mode 1)
 #+end_src
 ** Graphics: Pixel-precision scrolling:
 :PROPERTIES:
@@ -366,9 +362,9 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
      ;  :desc "Edit Repeating File" "r" #'(lambda () (interactive) (find-file "~/Emacs/Org/REPEATING.org"))))
 (map! :leader
       (:prefix ("= d" . "Open Doom Files")
-       :desc "Edit Doom config.el"   "c" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/90-99_Repos/92-PersonalRepos/92.01-Doom/README.org"))
-       :desc "Edit Doom init.el"   "i" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/90-99_Repos/92-PersonalRepos/92.01-Doom/init.el"))
-       :desc "Edit Doom packages.el"   "p" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/90-99_Repos/92-PersonalRepos/92.01-Doom/packages.el"))))
+       :desc "Edit Doom config.el"   "c" #'(lambda () (interactive) (find-file "/home/martin/.config/doom/README.org"))
+       :desc "Edit Doom init.el"   "i" #'(lambda () (interactive) (find-file "/home/martin/.config/doom/init.el"))
+       :desc "Edit Doom packages.el"   "p" #'(lambda () (interactive) (find-file "/home/martin/.config/doom/packages.el"))))
 (map! :leader
       (:prefix ("= b" . "Open Blog Files")
        :desc "Open Blog Root Folder"   "r" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/40-49_Career/44-Blog"))
@@ -451,15 +447,6 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
        )))
 #+end_src
 
-#+RESULTS:
-| i | inbox                     | entry | (file+headline /home/martin/Dropbox/01-09_System/01-Emacs/01.02-OrgGtd/inbox.org inbox)    | * TODO %? | :empty-lines | 0 |
-| n | Personal Notes/Scatch Pad | entry | (file+headline ~/Emacs/Org/NOTES.org Personal Notes)                                       | ** %?     | :empty-lines | 0 |
-| w | Work-Todo                 | entry | (file /home/martin/Dropbox/01-09_System/01-Emacs/01.02-OrgGtd/inbox.org)                   | * WORK %? | :empty-lines | 1 |
-| W | Work-Note                 | entry | (file /home/martin/Dropbox/01-09_System/01-Emacs/01.02-OrgGtd/inbox.org)                   | * NOTE %? | :empty-lines | 0 |
-| a | Achievments               | entry | (file+datetree ~/Emacs/Brain/2.Areas/PersonalDevelopment/ACHIEVMENTS.org Achievments)      | * %?      | :empty-lines | 0 |
-| g | Gratidude Diary           | entry | (file+datetree ~/Emacs/Brain/2.Areas/PersonalDevelopment/GRATITUDE.org Gratitude Diary)    | * %?      | :empty-lines | 0 |
-| l | Links                     | entry | (file /home/martin/Dropbox/01-09_System/01-Emacs/01.02-OrgGtd/inbox.org)                   | * LINK %? | :empty-lines | 0 |
-| R | Weekly Review             | entry | (file+datetree ~/Emacs/Brain/2.Areas/PersonalDevelopment/WeeklyReviews.org Weekly Reviews) | * %?      | :empty-lines | 0 |
 
 ** ORG - Import MD to ORG:
 :PROPERTIES:
@@ -716,14 +703,6 @@ This means that the markers used for emphasis will no longer be visible and inst
 :END:
 - Not needed due to org modern, but retaining incase I need to revert
 #+begin_src emacs-lisp
-;;Change how bullets look
-;; Original ones nicked from org-bullets
-;;(setq org-superstar-headline-bullets-list
-;;  '(
-;;    ?◉
-;;    ?○
-;;    ?✸
-;;    ?▷))
 
 (setq org-superstar-headline-bullets-list '("› "))
 #+end_src
@@ -785,84 +764,6 @@ This means that the markers used for emphasis will no longer be visible and inst
 (require 'org-indent)
 (setq org-startup-indented t)
 #+end_src
-*** Cosmetics - Modern:
-:PROPERTIES:
-:ID: 480811fe-1546-4a71-a33b-c45c290efd66
-:END:
-- Disabled for now
-#+begin_src emacs-lisp
-;(with-eval-after-load 'org (global-org-modern-mode))
-;;; Minimal UI
-;(package-initialize)
-;(menu-bar-mode -1)
-;(tool-bar-mode -1)
-;(scroll-bar-mode -1)
-;
-;
-;(setq
- ;;; Edit settings
- ;org-auto-align-tags nil
- ;org-tags-column 0
- ;org-catch-invisible-edits 'show-and-error
- ;org-special-ctrl-a/e t
- ;org-insert-heading-respect-content t
-;
- ;;; Org styling, hide markup etc.
- ;org-hide-emphasis-markers t
- ;org-pretty-entities t
- ;org-ellipsis " ⯯"
-;
- ;;; Agenda styling
- ;org-agenda-tags-column 0
- ;org-agenda-block-separator ?─
- ;org-agenda-time-grid
- ;'((daily today require-timed)
-   ;(800 1000 1200 1400 1600 1800 2000)
-   ;" ┄┄┄┄┄ " "┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
- ;org-agenda-current-time-string
- ;"⭠ now ─────────────────────────────────────────────────")
-;
-;;Sets it on globally
-;;(global-org-modern-mode)
-
-#+end_src
-
-** ORG - GTD Shortcuts:
-:PROPERTIES:
-:ID:       3aeed176-7493-4336-b0c4-2f4d9f38c7fd
-:END:
-#+begin_src emacs-lisp
-;Org GTD
-;;(use-package! org-gtd :after org)
-;(after! org
-;(use-package! org-gtd
-;  :config
-;  (setq org-edna-use-inheritance t)
-;  (org-edna-mode)
-;  (map! :leader
-;        (:prefix ("d" . "org-gtd")
-;         :desc "Capture"        "c"  #'org-gtd-capture
-;         :desc "Engage"         "e"  #'org-gtd-engage
-;         :desc "Process inbox"  "i"  #'org-gtd-process-inbox
-;         :desc "Process item"   "p"  #'org-gtd-clarify-item
-;         :desc "Organize"       "o"  #'org-gtd-organize
-;         :desc "Archive"       "A"   #'org-gtd-archive-item-at-point
-;         :desc "Show all next"  "n"  #'org-gtd-show-all-next
-;         :desc "Set Area of Focus on item"  "a"  #'org-gtd-area-of-focus-set-on-item-at-point
-;         :desc "Review Area of Focus"  "r"  #'org-gtd-review-area-of-focus
-;         :desc "Refile Task"  "R"  #'org-refile
-;         :desc "Stuck projects" "s"  #'org-gtd-review-stuck-projects))
-;  (map! :map org-gtd-clarify-map
-;        :desc "Organize this item" "C-c c" #'org-gtd-organize)))
-#+end_src
-
-** ORG - GTD Define Directory:
-:PROPERTIES:
-:ID:       9f7e9473-0aaf-4ae7-8105-a45e9a7f59f2
-:END:
-#+begin_src emacs-lisp
-;(setq org-gtd-directory "/home/martin/Dropbox/01-09_System/01-Emacs/01.02-OrgGtd")
-#+end_src
 
 ** ORG - GTD Areas of Focus:
 :PROPERTIES:
@@ -900,19 +801,6 @@ This means that the markers used for emphasis will no longer be visible and inst
           (lambda ()
             (add-hook 'before-save-hook 'my/org-add-ids-to-headlines-in-file nil 'local)))
 #+end_src
-** ORG - Workspace Shortcuts:
-:PROPERTIES:
-:ID:       24f8b799-06e3-4490-a99f-efe0ed851a80
-:END:
-- To match tmux shortcuts
-#+begin_src emacs-lisp
-;;(map!
-     ;;:prefix "SPACE-TAB"
-     ;;"C-n" #'+workspace/new
-     ;;"C-x" #'+workspace/delete
-     ;;"C-p" #'+workspace:/switch-next
-     ;;"C-o" #'+workspace:/switch-previous)
-#+end_src
 
 * ORG - ROAM:
 :PROPERTIES:
@@ -928,19 +816,6 @@ This means that the markers used for emphasis will no longer be visible and inst
 (setq org-roam-directory "~/Dropbox")
 
 #+end_src
-** Roam - Integrate Markdown Files:
-:PROPERTIES:
-:ID:       125eaf04-552a-4e28-8589-f15a687d758d
-:END:
-#+begin_src emacs-lisp
-(use-package! md-roam
-  :config
-  (setq org-roam-file-extensions '("org" "md"))
-  (setq md-roam-file-extension "md")
-  (org-roam-db-autosync-mode 1) ; autosync-mode triggers db-sync. md
-  (setq org-roam-title-sources '((mdtitle title mdheadline headline) (mdalias alias))))
-#+end_src
-
 
 ** Roam - (make git ignored files in subdirectories still searchable)
 :PROPERTIES:
@@ -1060,28 +935,6 @@ This means that the markers used for emphasis will no longer be visible and inst
 '(markdown-bold-face :weight black :foreground "#A061F9"))
 #+end_src
 
-** Markdown: Functions To Insert Date & Calendar:
-:PROPERTIES:
-:ID:       2a30c269-af20-43db-afe7-60be10426de6
-:END:
-#+begin_src emacs-lisp
-;Markdown: Functions To Insert Date & Calendar:
-(defun dt/insert-todays-date (prefix)
-  (interactive "P")
-  (let ((format (cond
-                 ((not prefix) "%A, %B %d, %Y")
-                 ((equal prefix '(4)) "%m-%d-%Y")
-                 ((equal prefix '(16)) "%Y-%m-%d"))))
-    (insert (format-time-string format))))
-
-(require 'calendar)
-(defun dt/insert-any-date (date)
-  "Insert DATE using the current locale."
-  (interactive (list (calendar-read-date)))
-  (insert (calendar-date-string date)))
-
-
-#+end_src
 ** Markdown: Functions To Allow Markdown preview whilst typing:
 :PROPERTIES:
 :ID:       4e16c322-0c20-4d06-b4ca-6cadd0622c6a
@@ -1137,111 +990,6 @@ This means that the markers used for emphasis will no longer be visible and inst
 (setq markdown-indent-on-enter 'indent-and-new-item)
 #+end_src
 
-* NeoTree Shortcuts:
-:PROPERTIES:
-:ID:       30bcb5ac-2e52-4abe-9b4e-2b093a85960b
-:END:
-
-Neotree is a file tree viewer.  When you open neotree, it jumps to the current file thanks to neo-smart-open.  The neo-window-fixed-size setting makes the neotree width be adjustable.  Doom Emacs had no keybindings set for neotree.  Since Doom Emacs uses 'SPC t' for 'toggle' keybindings, I used 'SPC t n' for toggle-neotree.
-
-
-| COMMAND        | DESCRIPTION               | KEYBINDING |
-|----------------+---------------------------+------------|
-| neotree-toggle | _Toggle neotree_            | SPC t n    |
-| neotree- dir   | _Open directory in neotree_ | SPC d n    |
-
-#+begin_src emacs-lisp
-
-;; Open neotree with (SPC t n) open dir with (SPC d n)
-(after! neotree
-  (setq neo-smart-open t
-        neo-window-fixed-size nil))
-(after! doom-themes
-  (setq doom-neotree-enable-variable-pitch t))
-(map! :leader
-      :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
-      :desc "Open directory in neotree" "d n" #'neotree-dir)
-
-#+end_src
-
-* Dired Customization:
-:PROPERTIES:
-:ID:       5b9e95af-6dea-4f5e-a6ce-eeae4e7f5e34
-:END:
-** Basic dired commands
-:PROPERTIES:
-:ID:       ead0bc64-2b15-4961-8376-5d927207109d
-:END:
-
-| COMMAND                | DESCRIPTION                                 | KEYBINDING |
-|------------------------+---------------------------------------------+------------|
-| dired-view-file        | _View file in dired_                          | SPC d v    |
-| dired-up-directory     | _Go up in directory tree_                     | h          |
-| dired-find-file        | _Go down in directory tree (or open if file)_ | l          |
-| dired-next-line        | _Move down to next line_                      | j          |
-| dired-previous-line    | _Move up to previous line_                    | k          |
-| dired-mark             | _Mark file at point_                          | m          |
-| dired-unmark           | _Unmark file at point_                        | u          |
-| dired-do-copy          | _Copy current file or marked files_           | C          |
-| dired-do-rename        | _Rename current file or marked files_         | R          |
-| dired-hide-details     | _Toggle detailed listings on/off_             | (          |
-| dired-git-info-mode    | _Toggle git information on/off_               | )          |
-| dired-create-directory | _Create new empty directory_                  | +          |
-| dired-diff             | _Compare file at point with another_          | =          |
-| dired-subtree-toggle   | _Toggle viewing subtree at point_             | TAB        |
-
-
-#+begin_src emacs-lisp
-
-;; dired customizaion
-
-(map! :leader
-      (:prefix ("D" . "dired")
-       :desc "Open dired" "d" #'dired
-       :desc "Dired jump to current" "j" #'dired-jump)
-      (:after dired
-       (:map dired-mode-map
-        :desc "Peep-dired image previews" "D p" #'peep-dired
-        :desc "Dired view file" "D v" #'dired-view-file)))
-
-(evil-define-key 'normal dired-mode-map
-  (kbd "M-RET") 'dired-display-file
-  (kbd "h") 'dired-up-directory
-  (kbd "l") 'dired-open-file ; use dired-find-file instead of dired-open.
-  (kbd "m") 'dired-mark
-  (kbd "t") 'dired-toggle-marks
-  (kbd "u") 'dired-unmark
-  (kbd "C") 'dired-do-copy
-  (kbd "D") 'dired-do-delete
-  (kbd "J") 'dired-goto-file
-  (kbd "M") 'dired-do-chmod
-  (kbd "O") 'dired-do-chown
-  (kbd "P") 'dired-do-print
-  (kbd "R") 'dired-do-rename
-  (kbd "T") 'dired-do-touch
-  (kbd "Y") 'dired-copy-filenamecopy-filename-as-kill ; copies filename to kill ring.
-  (kbd "Z") 'dired-do-compress
-  (kbd "+") 'dired-create-directory
-  (kbd "-") 'dired-do-kill-lines
-  (kbd "% l") 'dired-downcase
-  (kbd "% m") 'dired-mark-files-regexp
-  (kbd "% u") 'dired-upcase
-  (kbd "* %") 'dired-mark-files-regexp
-  (kbd "* .") 'dired-mark-extension
-  (kbd "* /") 'dired-mark-directories
-  (kbd "; d") 'epa-dired-do-decrypt
-  (kbd "; e") 'epa-dired-do-encrypt)
-;; Get file icons in dired
-(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
-;; With dired-open plugin, you can launch external programs for certain extensions
-;; For example, I set all .png files to open in 'sxiv' and all .mp4 files to open in 'mpv'
-(setq dired-open-extensions '(("gif" . "sxiv")
-                              ("jpg" . "sxiv")
-                              ("png" . "sxiv")
-                              ("mkv" . "mpv")
-                              ("mp4" . "mpv")))
-
-#+end_src
 * Quality Of Life:
 :PROPERTIES:
 :ID:       9738f0a2-351e-4da6-a97b-cc4951baa6be
@@ -1367,153 +1115,4 @@ Some custom functions to insert the date.  The function 'insert-todays-date' can
       (:prefix ("i d" . "Insert date")
         :desc "Insert any date"    "a" #'dt/insert-any-date
         :desc "Insert todays date" "t" #'dt/insert-todays-date))
-#+end_src
-
-** Enable CENTAUR Tabs:
-:PROPERTIES:
-:ID:       e3b2e96d-3b72-48f6-8dba-c7819e23c41c
-:END:
-To use tabs in Doom Emacs, be sure to uncomment "tabs" in Doom's init.el.  Displays tabs at the top of the window similar to tabbed web browsers such as Firefox.  I don't actually use tabs in Emacs.  I placed this in my config to help others who may want tabs.  In the default configuration of Doom Emacs, 'SPC t' is used for "toggle" keybindings, so I choose 'SPC t c' to toggle centaur-tabs.  The "g" prefix for keybindings is used for a bunch of evil keybindings in Doom, but "g" plus the arrow keys were not used, so I thought I would bind those for tab navigation.  But I did leave the default "g t" and "g T" intact if you prefer to use those for centaur-tabs-forward/backward.
-
-| COMMAND                     | DESCRIPTION               | KEYBINDING       |
-|-----------------------------+---------------------------+------------------|
-| centaur-tabs-mode           | Toggle tabs globally      | SPC t c          |
-| centaur-tabs-local-mode     | Toggle tabs local display   | SPC t C          |
-| centaur-tabs-forward        | Next tab                    | g <right> or g t |
-| centaur-tabs-backward       | Previous tab                | g <left> or g T  |
-| centaur-tabs-forward-group  | Next tab group              | g <down>         |
-| centaur-tabs-backward-group | Previous tab group          | g <up>           |
-
-#+begin_src emacs-lisp
-;Centaur Tabs:
-;;(setq centaur-tabs-set-bar 'over
-      ;;centaur-tabs-set-icons t
-      ;;centaur-tabs-gray-out-icons 'buffer
-      ;;centaur-tabs-height 24
-      ;;centaur-tabs-set-modified-marker t
-      ;;centaur-tabs-style "bar"
-      ;;centaur-tabs-modified-marker "•")
-;;(map! :leader
-      ;;:desc "Toggle tabs globally" "t c" #'centaur-tabs-mode
-      ;;:desc "Toggle tabs local display" "t C" #'centaur-tabs-local-mode)
-;;(evil-define-key 'normal centaur-tabs-mode-map (kbd "g <right>") 'centaur-tabs-forward        ; default Doom binding is 'g t'
-;;
-                                               ;;(kbd "g <left>")  'centaur-tabs-backward       ; default Doom binding is 'g T'
-                                               ;;(kbd "g <down>")  'centaur-tabs-forward-group
-                                               ;;(kbd "g <up>")    'centaur-tabs-backward-group)
-#+end_src
-
-** Beacon:
-:PROPERTIES:
-:ID:       c2f8ec18-84bb-4079-85a8-17157bb2478b
-:END:
-Never lose your cursor.  When you scroll, your cursor will shine!  This is a global minor-mode. Turn it on everywhere with:
-
-#+begin_src emacs-lisp
-(beacon-mode 1)
-#+end_src
-
-** Calendar:
-:PROPERTIES:
-:ID:       3dc5b650-f7fa-4df0-b922-f5c710b9e7cf
-:END:
-#+begin_src emacs-lisp
-
-;; Calendar
-; https://stackoverflow.com/questions/9547912/emacs-calendar-show-more-than-3-months
-(defun dt/year-calendar (&optional year)
-  (interactive)
-  (require 'calendar)
-  (let* (
-      (current-year (number-to-string (nth 5 (decode-time (current-time)))))
-      (month 0)
-      (year (if year year (string-to-number (format-time-string "%Y" (current-time))))))
-    (switch-to-buffer (get-buffer-create calendar-buffer))
-    (when (not (eq major-mode 'calendar-mode))
-      (calendar-mode))
-    (setq displayed-month month)
-    (setq displayed-year year)
-    (setq buffer-read-only nil)
-    (erase-buffer)
-    ;; horizontal rows
-    (dotimes (j 4)
-      ;; vertical columns
-      (dotimes (i 3)
-        (calendar-generate-month
-          (setq month (+ month 1))
-          year
-          ;; indentation / spacing between months
-          (+ 5 (* 25 i))))
-      (goto-char (point-max))
-      (insert (make-string (- 10 (count-lines (point-min) (point-max))) ?\n))
-      (widen)
-      (goto-char (point-max))
-      (narrow-to-region (point-max) (point-max)))
-    (widen)
-    (goto-char (point-min))
-    (setq buffer-read-only t)))
-
-(defun dt/scroll-year-calendar-forward (&optional arg event)
-  "Scroll the yearly calendar by year in a forward direction."
-  (interactive (list (prefix-numeric-value current-prefix-arg)
-                     last-nonmenu-event))
-  (unless arg (setq arg 0))
-  (save-selected-window
-    (if (setq event (event-start event)) (select-window (posn-window event)))
-    (unless (zerop arg)
-      (let* (
-              (year (+ displayed-year arg)))
-        (dt/year-calendar year)))
-    (goto-char (point-min))
-    (run-hooks 'calendar-move-hook)))
-
-(defun dt/scroll-year-calendar-backward (&optional arg event)
-  "Scroll the yearly calendar by year in a backward direction."
-  (interactive (list (prefix-numeric-value current-prefix-arg)
-                     last-nonmenu-event))
-  (dt/scroll-year-calendar-forward (- (or arg 1)) event))
-
-(map! :leader
-      :desc "Scroll year calendar backward" "<left>" #'dt/scroll-year-calendar-backward
-      :desc "Scroll year calendar forward" "<right>" #'dt/scroll-year-calendar-forward)
-
-(defalias 'year-calendar 'dt/year-calendar)
-
-(use-package! calfw)
-(use-package! calfw-org)
-
-#+end_src
-
-** MultiVterm Setup:
-:PROPERTIES:
-:ID:       da7e817d-777c-49cc-b762-35c2fac946b1
-:END:
-#+begin_src emacs-lisp
-(use-package! multi-vterm
-  :after vterm)
-#+end_src
-** Golden Ratio Mode:
-:PROPERTIES:
-:ID:       ce292ade-4d83-4ff8-ae9e-d46d3d7c8dfc
-:END:
-Splits windows in such a way that it gives more space to the current window. More intuitive way of creating windows in Emacs.
-#+begin_src emacs-lisp
-;(use-package! golden-ratio)
-;(golden-ratio-mode 1)
-;(setq golden-ratio-auto-scale t)
-#+end_src
-* Floating Frames:
-:PROPERTIES:
-:ID:       d74a20c0-7aeb-49f1-b908-689bc3cd28e6
-:END:
-#+begin_src emacs-lisp
-;;(require 'mini-frame)
-;;(mini-frame-mode 1)
-;;(setq mini-frame-detach-on-hide t)
-;;;;(setq mini-frame-standalone 't)
-;;(setq mini-frame-show-parameters
-      ;;'((top . 0.7)
-        ;;(width . 0.8)
-        ;;(height . 0.8)
-        ;;(left . 0.5)))
 #+end_src

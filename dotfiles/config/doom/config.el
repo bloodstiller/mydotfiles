@@ -6,6 +6,8 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
+(beacon-mode 1)
+
 (when (version< "29.0.50" emacs-version)
   (pixel-scroll-precision-mode))
 
@@ -123,9 +125,9 @@
      ;  :desc "Edit Repeating File" "r" #'(lambda () (interactive) (find-file "~/Emacs/Org/REPEATING.org"))))
 (map! :leader
       (:prefix ("= d" . "Open Doom Files")
-       :desc "Edit Doom config.el"   "c" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/90-99_Repos/92-PersonalRepos/92.01-Doom/README.org"))
-       :desc "Edit Doom init.el"   "i" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/90-99_Repos/92-PersonalRepos/92.01-Doom/init.el"))
-       :desc "Edit Doom packages.el"   "p" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/90-99_Repos/92-PersonalRepos/92.01-Doom/packages.el"))))
+       :desc "Edit Doom config.el"   "c" #'(lambda () (interactive) (find-file "/home/martin/.config/doom/README.org"))
+       :desc "Edit Doom init.el"   "i" #'(lambda () (interactive) (find-file "/home/martin/.config/doom/init.el"))
+       :desc "Edit Doom packages.el"   "p" #'(lambda () (interactive) (find-file "/home/martin/.config/doom/packages.el"))))
 (map! :leader
       (:prefix ("= b" . "Open Blog Files")
        :desc "Open Blog Root Folder"   "r" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/40-49_Career/44-Blog"))
@@ -352,15 +354,6 @@
     ("+" (underline bold :weight italic :foreground "#FF5555" )))))
     ;;("+" (bold :strike-through nil :foreground "#ffb86c" #cd5c5c )))))
 
-;;Change how bullets look
-;; Original ones nicked from org-bullets
-;;(setq org-superstar-headline-bullets-list
-;;  '(
-;;    ?◉
-;;    ?○
-;;    ?✸
-;;    ?▷))
-
 (setq org-superstar-headline-bullets-list '("› "))
 
 ;; Custom bulleted list
@@ -389,65 +382,6 @@
 (require 'org-indent)
 (setq org-startup-indented t)
 
-;(with-eval-after-load 'org (global-org-modern-mode))
-;;; Minimal UI
-;(package-initialize)
-;(menu-bar-mode -1)
-;(tool-bar-mode -1)
-;(scroll-bar-mode -1)
-;
-;
-;(setq
- ;;; Edit settings
- ;org-auto-align-tags nil
- ;org-tags-column 0
- ;org-catch-invisible-edits 'show-and-error
- ;org-special-ctrl-a/e t
- ;org-insert-heading-respect-content t
-;
- ;;; Org styling, hide markup etc.
- ;org-hide-emphasis-markers t
- ;org-pretty-entities t
- ;org-ellipsis " ⯯"
-;
- ;;; Agenda styling
- ;org-agenda-tags-column 0
- ;org-agenda-block-separator ?─
- ;org-agenda-time-grid
- ;'((daily today require-timed)
-   ;(800 1000 1200 1400 1600 1800 2000)
-   ;" ┄┄┄┄┄ " "┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
- ;org-agenda-current-time-string
- ;"⭠ now ─────────────────────────────────────────────────")
-;
-;;Sets it on globally
-;;(global-org-modern-mode)
-
-;Org GTD
-;;(use-package! org-gtd :after org)
-;(after! org
-;(use-package! org-gtd
-;  :config
-;  (setq org-edna-use-inheritance t)
-;  (org-edna-mode)
-;  (map! :leader
-;        (:prefix ("d" . "org-gtd")
-;         :desc "Capture"        "c"  #'org-gtd-capture
-;         :desc "Engage"         "e"  #'org-gtd-engage
-;         :desc "Process inbox"  "i"  #'org-gtd-process-inbox
-;         :desc "Process item"   "p"  #'org-gtd-clarify-item
-;         :desc "Organize"       "o"  #'org-gtd-organize
-;         :desc "Archive"       "A"   #'org-gtd-archive-item-at-point
-;         :desc "Show all next"  "n"  #'org-gtd-show-all-next
-;         :desc "Set Area of Focus on item"  "a"  #'org-gtd-area-of-focus-set-on-item-at-point
-;         :desc "Review Area of Focus"  "r"  #'org-gtd-review-area-of-focus
-;         :desc "Refile Task"  "R"  #'org-refile
-;         :desc "Stuck projects" "s"  #'org-gtd-review-stuck-projects))
-;  (map! :map org-gtd-clarify-map
-;        :desc "Organize this item" "C-c c" #'org-gtd-organize)))
-
-;(setq org-gtd-directory "/home/martin/Dropbox/01-09_System/01-Emacs/01.02-OrgGtd")
-
 ;(setq org-gtd-areas-of-focus '("Home" "Health" "Career" "Finance" "Goal" "Systems" "Relationships" "Personal Development"))
 
 ;ORG - Start all documents in overview mode:
@@ -465,23 +399,9 @@
           (lambda ()
             (add-hook 'before-save-hook 'my/org-add-ids-to-headlines-in-file nil 'local)))
 
-;;(map!
-     ;;:prefix "SPACE-TAB"
-     ;;"C-n" #'+workspace/new
-     ;;"C-x" #'+workspace/delete
-     ;;"C-p" #'+workspace:/switch-next
-     ;;"C-o" #'+workspace:/switch-previous)
-
 ;Roam Main Dir
 (require 'org-roam)
 (setq org-roam-directory "~/Dropbox")
-
-(use-package! md-roam
-  :config
-  (setq org-roam-file-extensions '("org" "md"))
-  (setq md-roam-file-extension "md")
-  (org-roam-db-autosync-mode 1) ; autosync-mode triggers db-sync. md
-  (setq org-roam-title-sources '((mdtitle title mdheadline headline) (mdalias alias))))
 
 ; Roam - (make git ignored files in subdirectories still searchable)
 (after! org-roam
@@ -563,21 +483,6 @@
 '(markdown-list-face :weight black :foreground "#BD93F9")
 '(markdown-bold-face :weight black :foreground "#A061F9"))
 
-;Markdown: Functions To Insert Date & Calendar:
-(defun dt/insert-todays-date (prefix)
-  (interactive "P")
-  (let ((format (cond
-                 ((not prefix) "%A, %B %d, %Y")
-                 ((equal prefix '(4)) "%m-%d-%Y")
-                 ((equal prefix '(16)) "%Y-%m-%d"))))
-    (insert (format-time-string format))))
-
-(require 'calendar)
-(defun dt/insert-any-date (date)
-  "Insert DATE using the current locale."
-  (interactive (list (calendar-read-date)))
-  (insert (calendar-date-string date)))
-
 ;; Enables markdown preview whilst creating doc.
  (defvar nb/current-line '(0 . 0)
    "(start . end) of current line in current buffer")
@@ -620,64 +525,6 @@
 
 ; Make emacs auto indent when we create a new list item.
 (setq markdown-indent-on-enter 'indent-and-new-item)
-
-;; Open neotree with (SPC t n) open dir with (SPC d n)
-(after! neotree
-  (setq neo-smart-open t
-        neo-window-fixed-size nil))
-(after! doom-themes
-  (setq doom-neotree-enable-variable-pitch t))
-(map! :leader
-      :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
-      :desc "Open directory in neotree" "d n" #'neotree-dir)
-
-;; dired customizaion
-
-(map! :leader
-      (:prefix ("D" . "dired")
-       :desc "Open dired" "d" #'dired
-       :desc "Dired jump to current" "j" #'dired-jump)
-      (:after dired
-       (:map dired-mode-map
-        :desc "Peep-dired image previews" "D p" #'peep-dired
-        :desc "Dired view file" "D v" #'dired-view-file)))
-
-(evil-define-key 'normal dired-mode-map
-  (kbd "M-RET") 'dired-display-file
-  (kbd "h") 'dired-up-directory
-  (kbd "l") 'dired-open-file ; use dired-find-file instead of dired-open.
-  (kbd "m") 'dired-mark
-  (kbd "t") 'dired-toggle-marks
-  (kbd "u") 'dired-unmark
-  (kbd "C") 'dired-do-copy
-  (kbd "D") 'dired-do-delete
-  (kbd "J") 'dired-goto-file
-  (kbd "M") 'dired-do-chmod
-  (kbd "O") 'dired-do-chown
-  (kbd "P") 'dired-do-print
-  (kbd "R") 'dired-do-rename
-  (kbd "T") 'dired-do-touch
-  (kbd "Y") 'dired-copy-filenamecopy-filename-as-kill ; copies filename to kill ring.
-  (kbd "Z") 'dired-do-compress
-  (kbd "+") 'dired-create-directory
-  (kbd "-") 'dired-do-kill-lines
-  (kbd "% l") 'dired-downcase
-  (kbd "% m") 'dired-mark-files-regexp
-  (kbd "% u") 'dired-upcase
-  (kbd "* %") 'dired-mark-files-regexp
-  (kbd "* .") 'dired-mark-extension
-  (kbd "* /") 'dired-mark-directories
-  (kbd "; d") 'epa-dired-do-decrypt
-  (kbd "; e") 'epa-dired-do-encrypt)
-;; Get file icons in dired
-(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
-;; With dired-open plugin, you can launch external programs for certain extensions
-;; For example, I set all .png files to open in 'sxiv' and all .mp4 files to open in 'mpv'
-(setq dired-open-extensions '(("gif" . "sxiv")
-                              ("jpg" . "sxiv")
-                              ("png" . "sxiv")
-                              ("mkv" . "mpv")
-                              ("mp4" . "mpv")))
 
 ;Back to a simpler time…
 (map! :g "C-s" #'save-buffer)
@@ -731,102 +578,3 @@
       (:prefix ("i d" . "Insert date")
         :desc "Insert any date"    "a" #'dt/insert-any-date
         :desc "Insert todays date" "t" #'dt/insert-todays-date))
-
-;Centaur Tabs:
-;;(setq centaur-tabs-set-bar 'over
-      ;;centaur-tabs-set-icons t
-      ;;centaur-tabs-gray-out-icons 'buffer
-      ;;centaur-tabs-height 24
-      ;;centaur-tabs-set-modified-marker t
-      ;;centaur-tabs-style "bar"
-      ;;centaur-tabs-modified-marker "•")
-;;(map! :leader
-      ;;:desc "Toggle tabs globally" "t c" #'centaur-tabs-mode
-      ;;:desc "Toggle tabs local display" "t C" #'centaur-tabs-local-mode)
-;;(evil-define-key 'normal centaur-tabs-mode-map (kbd "g <right>") 'centaur-tabs-forward        ; default Doom binding is 'g t'
-;;
-                                               ;;(kbd "g <left>")  'centaur-tabs-backward       ; default Doom binding is 'g T'
-                                               ;;(kbd "g <down>")  'centaur-tabs-forward-group
-                                               ;;(kbd "g <up>")    'centaur-tabs-backward-group)
-
-(beacon-mode 1)
-
-;; Calendar
-; https://stackoverflow.com/questions/9547912/emacs-calendar-show-more-than-3-months
-(defun dt/year-calendar (&optional year)
-  (interactive)
-  (require 'calendar)
-  (let* (
-      (current-year (number-to-string (nth 5 (decode-time (current-time)))))
-      (month 0)
-      (year (if year year (string-to-number (format-time-string "%Y" (current-time))))))
-    (switch-to-buffer (get-buffer-create calendar-buffer))
-    (when (not (eq major-mode 'calendar-mode))
-      (calendar-mode))
-    (setq displayed-month month)
-    (setq displayed-year year)
-    (setq buffer-read-only nil)
-    (erase-buffer)
-    ;; horizontal rows
-    (dotimes (j 4)
-      ;; vertical columns
-      (dotimes (i 3)
-        (calendar-generate-month
-          (setq month (+ month 1))
-          year
-          ;; indentation / spacing between months
-          (+ 5 (* 25 i))))
-      (goto-char (point-max))
-      (insert (make-string (- 10 (count-lines (point-min) (point-max))) ?\n))
-      (widen)
-      (goto-char (point-max))
-      (narrow-to-region (point-max) (point-max)))
-    (widen)
-    (goto-char (point-min))
-    (setq buffer-read-only t)))
-
-(defun dt/scroll-year-calendar-forward (&optional arg event)
-  "Scroll the yearly calendar by year in a forward direction."
-  (interactive (list (prefix-numeric-value current-prefix-arg)
-                     last-nonmenu-event))
-  (unless arg (setq arg 0))
-  (save-selected-window
-    (if (setq event (event-start event)) (select-window (posn-window event)))
-    (unless (zerop arg)
-      (let* (
-              (year (+ displayed-year arg)))
-        (dt/year-calendar year)))
-    (goto-char (point-min))
-    (run-hooks 'calendar-move-hook)))
-
-(defun dt/scroll-year-calendar-backward (&optional arg event)
-  "Scroll the yearly calendar by year in a backward direction."
-  (interactive (list (prefix-numeric-value current-prefix-arg)
-                     last-nonmenu-event))
-  (dt/scroll-year-calendar-forward (- (or arg 1)) event))
-
-(map! :leader
-      :desc "Scroll year calendar backward" "<left>" #'dt/scroll-year-calendar-backward
-      :desc "Scroll year calendar forward" "<right>" #'dt/scroll-year-calendar-forward)
-
-(defalias 'year-calendar 'dt/year-calendar)
-
-(use-package! calfw)
-(use-package! calfw-org)
-
-(use-package! multi-vterm
-  :after vterm)
-
-;(use-package! golden-ratio)
-;(golden-ratio-mode 1)
-;(setq golden-ratio-auto-scale t)
-
-;;(require 'mini-frame)
-;;(mini-frame-mode 1)
-;;(setq mini-frame-detach-on-hide t)
-;;;;(setq mini-frame-standalone 't)
-;;(setq mini-frame-show-parameters
-      ;;'((top . 0.7)
-        ;;(width . 0.8)
-        ;;(height . 0.8)
-        ;;(left . 0.5)))
