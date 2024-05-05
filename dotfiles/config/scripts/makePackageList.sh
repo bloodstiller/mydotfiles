@@ -8,7 +8,3 @@ HOSTNAME=$(hostname)
 
 # Run pacman command and save AUR packages to hostname-foreignpkglist.txt
 /usr/bin/pacman -Qqem > /home/martin/.config/packages/${HOSTNAME}-foreignpkglist.txt
-
-chmod 644 ${HOSTNAME}-foreignpkglist.txt
-
-chmod 644 ${HOSTNAME}-pkglist.txt
