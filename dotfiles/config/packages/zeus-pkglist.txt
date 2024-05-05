@@ -48,6 +48,7 @@ gnome-text-editor
 gnome-tweaks
 gnome-usage
 gnome-weather
+grim
 gutenprint
 haveged
 hdparm
@@ -84,6 +85,7 @@ pv
 rebuild-detector
 ripgrep
 rofi
+scrot
 sg3_utils
 shellcheck
 shfmt
@@ -91,6 +93,7 @@ sof-firmware
 splix
 starship
 sushi
+swappy
 thunar
 tldr
 totem

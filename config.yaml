@@ -104,6 +104,15 @@ dotfiles:
   d_scripts:
     src: config/scripts
     dst: ~/.config/scripts
+  f_waybar_laptopconfig:
+    src: config/waybar/laptopConfig
+    dst: ~/.config/waybar/laptopConfig
+  d_waybar_scripts:
+    src: config/waybar/scripts
+    dst: ~/.config/waybar/scripts
+  d_themes:
+    src: config/waybar/Themes
+    dst: ~/.config/waybar/Themes
 profiles:
   Lok:
     dotfiles:
@@ -169,3 +178,7 @@ profiles:
     - f_laptophyprland.conf
     - f_laptopconfig
     - d_scripts
+    - d_waybar
+    - f_waybar_laptopconfig
+    - d_waybar_scripts
+    - d_themes
