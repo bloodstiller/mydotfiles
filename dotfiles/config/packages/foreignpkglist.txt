@@ -1,0 +1,8 @@
+brave-bin
+dotdrop
+dropbox
+gbm
+jamesdsp
+pyprland
+spotify
+ttf-all-the-icons
