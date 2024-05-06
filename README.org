@@ -2,7 +2,7 @@
 
 Test readme
 
-* [[file:~/doom/README.org][Doom Readme]]
+* [[file:/doom/README.org][Doom Readme]]
 :PROPERTIES:
 :ID:       06932204-8e9f-44c5-8bfd-ff424f3d1581
 :END:
