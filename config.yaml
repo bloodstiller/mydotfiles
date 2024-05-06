@@ -86,9 +86,6 @@ dotfiles:
   d_doom:
     src: config/doom
     dst: ~/.config/doom
-  f_tmux.conf:
-    src: tmux.conf
-    dst: ~/.tmux.conf
   d_tmux:
     src: tmux
     dst: ~/.tmux
@@ -134,6 +131,9 @@ dotfiles:
   d_rsnapshot:
     src: config/rsnapshot
     dst: ~/.config/rsnapshot
+  d_config_tmux:
+    src: config/tmux
+    dst: ~/.config/tmux
 profiles:
   Lok:
     dotfiles:
@@ -163,7 +163,6 @@ profiles:
     - f_pyprland.toml
     - f_variables.conf
     - d_doom
-    - f_tmux.conf
     - d_tmux
     - f_starship.toml
     - d_scripts
@@ -171,6 +170,7 @@ profiles:
     - f_maintainpackages.hook
     - d_service
     - d_rsnapshot
+    - d_config_tmux
   zeus:
     dotfiles:
     - f_zshrc
@@ -197,7 +197,6 @@ profiles:
     - f_pyprland.toml
     - f_variables.conf
     - d_doom
-    - f_tmux.conf
     - d_tmux
     - f_starship.toml
     - f_laptophyprland.conf
