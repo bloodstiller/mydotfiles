@@ -128,6 +128,12 @@ dotfiles:
   f_maintainpackages.hook:
     src: config/hooks/maintainPackages.hook
     dst: ~/.config/hooks/maintainPackages.hook
+  d_service:
+    src: config/service
+    dst: ~/.config/service
+  d_rsnapshot:
+    src: config/rsnapshot
+    dst: ~/.config/rsnapshot
 profiles:
   Lok:
     dotfiles:
@@ -163,6 +169,8 @@ profiles:
     - d_scripts
     - f_clean_cache.hook
     - f_maintainpackages.hook
+    - d_service
+    - d_rsnapshot
   zeus:
     dotfiles:
     - f_zshrc
