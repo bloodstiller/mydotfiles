@@ -118,6 +118,7 @@ python-qtconsole
 qbittorrent
 qutebrowser
 rebuild-detector
+rsnapshot
 sbcl
 scrot
 sg3_utils

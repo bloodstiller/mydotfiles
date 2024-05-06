@@ -9,6 +9,7 @@
 :PROPERTIES:
 :ID:       2f1cd35e-e7ad-4aeb-a0cc-ea5d26475f92
 :END:
+- [[#literate-config][Literate Config:]]
 - [[#set-prefix][Set Prefix]]
 - [[#windows-control][Windows Control:]]
   - [[#set-window-splits][Set Window Splits:]]
@@ -36,6 +37,15 @@
   - [[#enable-dracula-colour-theme][Enable Dracula Colour Theme:]]
   - [[#initialize-tmux-plugin-manager-keep-at-bottom][Initialize TMUX plugin manager (keep at bottom)]]
 
+* Literate Config:
+:PROPERTIES:
+:ID:       6f08e094-c0f0-4871-9faa-2e49c6f6d359
+:END:
+- This is my personal TMUX config it is structured as a literate configuration.
+- Inspired by the methodology presented at [[https://leanpub.com/lit-config/read][Literate Configuration]].
+- This approach blends detailed documentation directly with the code, offering clear insights into the purpose and functionality of each configuration snippet, making it both user-friendly and easy to maintain.
+- Great video by DT Tube here on how to write literate configs:
+  - https://www.youtube.com/watch?v=eF4cJlBNtdQ&themeRefresh=1
 * Set Prefix
 :PROPERTIES:
 :ID:       84e72dac-18d7-4f9a-b2d7-753fe5fa9c94

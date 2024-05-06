@@ -9,7 +9,7 @@
 :PROPERTIES:
 :ID:       b541533f-3271-4bc6-8dcb-bdd0dc44261b
 :END:
-- [[#about-this-config][ABOUT THIS CONFIG:]]
+- [[#literate-config][Literate Config:]]
 - [[#general-settings][General Settings:]]
   - [[#user-information][User Information:]]
   - [[#set-theme-and-line-numbers][Set Theme and line Numbers:]]
@@ -59,16 +59,16 @@
   - [[#enable-emojis][Enable Emojis]]
   - [[#insert-date-shortcut][Insert Date Shortcut:]]
 
-* ABOUT THIS CONFIG:
+* Literate Config:
 :PROPERTIES:
-:ID:       45cba343-2440-4a1d-a839-fdeebea985d3
+:ID:       98115602-c008-4e0b-8d95-497de1561a6c
 :END:
-This is my personal Doom Emacs config.
-
-Doom Emacs is a distribution of Emacs that uses the "evil" keybindings (Vim keybindings) and includes a number of nice extensions and a bit of configuration out of the box.  I am maintaining this config not just for myself, but also for those that want to explore some of what is possible with Emacs.  I will add a lot of examples of plugins and settings, some of them I may not even use personally.
-
+- This is my personal Doom Emacs config it is structured as a literate configuration.
+- Inspired by the methodology presented at [[https://leanpub.com/lit-config/read][Literate Configuration]].
+- This approach blends detailed documentation directly with the code, offering clear insights into the purpose and functionality of each configuration snippet, making it both user-friendly and easy to maintain.
+- Great video by DT Tube here on how to write literate configs:
+  - https://www.youtube.com/watch?v=eF4cJlBNtdQ&themeRefresh=1
 - /Alot of this is lifted from DT Tube but with my own customization etc./ However please check out his config and videos https://gitlab.com/dwt1/distro.tube
-
 * General Settings:
 :PROPERTIES:
 :ID:       553f0eaf-80e3-4469-935c-e5170383929e
