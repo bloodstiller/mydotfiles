@@ -169,7 +169,7 @@ setw -g mouse on
 :ID:       439c8794-683d-4489-bcf1-de94ab78fc9e
 :END:
 - I use doom emacs alot and that has modeline, I need a way for these two elements to be seperate. The easiest way is put it the top.
-#+begin_src
+#+begin_src conf
 set -g status-position top
 #+end_src
 
