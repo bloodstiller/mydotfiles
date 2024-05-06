@@ -2,40 +2,27 @@
 
 
 
-* [[file:/dotfiles/config/doom/README.org][Doom Emacs Config]]:
-:PROPERTIES:
-:ID:       06932204-8e9f-44c5-8bfd-ff424f3d1581
-:END:
-* [[file:/dotfiles/config/alacritty/README.org][Alacritty Config]
+* [[file:/dotfiles/config/alacritty/README.org][Alacritty Config]]
 :PROPERTIES:
 :ID:       ea92a271-4599-4bed-a34b-0f915e35aca7
 :END:
-
-* [[file:/dotfiles/config/alacritty/README.org][Alacritty Config]
+* [[file:/dotfiles/config/doom/README.org][Doom Emacs Config]]
 :PROPERTIES:
 :ID:       346dba04-757e-40ec-81f8-5b52d5107e5c
 :END:
-* [[file:/dotfiles/config/alacritty/README.org][Alacritty Config]
+* [[file:/dotfiles/config/tmux/README.org][Tmux Config]]
 :PROPERTIES:
 :ID:       6f1b661a-9248-42d4-8781-527236703d61
 :END:
-* [[file:/dotfiles/config/alacritty/README.org][Alacritty Config]
+* [[file:/dotfiles/config/hooks/README.org][Custom Hooks For Pacman]]
 :PROPERTIES:
 :ID:       e9d23159-a82c-464c-b964-3aca10dc2053
 :END:
-* [[file:/dotfiles/config/alacritty/README.org][Alacritty Config]
+* [[file:/dotfiles/config/hypr/README.org][Hyprland Config]]
 :PROPERTIES:
 :ID:       cea43a08-011a-4274-8b73-dbe67bcda00c
 :END:
-* [[file:/dotfiles/config/alacritty/README.org][Alacritty Config]
+* [[file:/dotfiles/config/zsh/README.org][zsh Config]]
 :PROPERTIES:
 :ID:       b0265cb6-5e63-4977-a03a-c55f4551b563
-:END:
-* [[file:/dotfiles/config/alacritty/README.org][Alacritty Config]
-:PROPERTIES:
-:ID:       3250ac51-badb-49cf-b344-8d448d571072
-:END:
-* [[file:/dotfiles/config/alacritty/README.org][Alacritty Config]
-:PROPERTIES:
-:ID:       2d80bfc1-8a35-4e87-86d9-946c9f8d0f73
 :END:
