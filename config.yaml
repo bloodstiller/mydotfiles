@@ -86,9 +86,6 @@ dotfiles:
   d_doom:
     src: config/doom
     dst: ~/.config/doom
-  d_tmux:
-    src: tmux
-    dst: ~/.tmux
   f_starship.toml:
     src: config/starship.toml
     dst: ~/.config/starship.toml
@@ -163,7 +160,6 @@ profiles:
     - f_pyprland.toml
     - f_variables.conf
     - d_doom
-    - d_tmux
     - f_starship.toml
     - d_scripts
     - f_clean_cache.hook
@@ -197,7 +193,6 @@ profiles:
     - f_pyprland.toml
     - f_variables.conf
     - d_doom
-    - d_tmux
     - f_starship.toml
     - f_laptophyprland.conf
     - f_laptopconfig
