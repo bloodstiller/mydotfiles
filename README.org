@@ -2,7 +2,7 @@
 
 Test readme
 
-* [[file:/mydotfiles/config/doom/README.org][Doom Dot Files]]
+* [[file:/config/doom/README.org][Doom Emacs Dot Files]]
 :PROPERTIES:
 :ID:       06932204-8e9f-44c5-8bfd-ff424f3d1581
 :END:
