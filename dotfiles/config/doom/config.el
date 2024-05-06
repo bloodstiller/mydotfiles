@@ -326,6 +326,23 @@
   :config
   (setq org-auto-tangle-default t))
 
+;(setq org-gtd-areas-of-focus '("Home" "Health" "Career" "Finance" "Goal" "Systems" "Relationships" "Personal Development"))
+
+;ORG - Start all documents in overview mode:
+; I have large org files with lots of nested headings, this makes it less cumbersome.
+(setq org-startup-folded t)
+
+;ORG - Add ID to all ORG headindgs on save:
+(add-hook 'org-capture-prepare-finalize-hook 'org-id-get-create)
+(defun my/org-add-ids-to-headlines-in-file ()
+;  "Add ID properties to all headlines in the current file which
+;do not already have one."
+  (interactive)
+  (org-map-entries 'org-id-get-create))
+(add-hook 'org-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'my/org-add-ids-to-headlines-in-file nil 'local)))
+
 ;; Export using my custom smart quotes.
 (setq org-export-with-smart-quotes t)
 
@@ -381,23 +398,6 @@
 
 (require 'org-indent)
 (setq org-startup-indented t)
-
-;(setq org-gtd-areas-of-focus '("Home" "Health" "Career" "Finance" "Goal" "Systems" "Relationships" "Personal Development"))
-
-;ORG - Start all documents in overview mode:
-; I have large org files with lots of nested headings, this makes it less cumbersome.
-(setq org-startup-folded t)
-
-;ORG - Add ID to all ORG headindgs on save:
-(add-hook 'org-capture-prepare-finalize-hook 'org-id-get-create)
-(defun my/org-add-ids-to-headlines-in-file ()
-;  "Add ID properties to all headlines in the current file which
-;do not already have one."
-  (interactive)
-  (org-map-entries 'org-id-get-create))
-(add-hook 'org-mode-hook
-          (lambda ()
-            (add-hook 'before-save-hook 'my/org-add-ids-to-headlines-in-file nil 'local)))
 
 ;Roam Main Dir
 (require 'org-roam)
