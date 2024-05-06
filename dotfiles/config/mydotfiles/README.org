@@ -1,0 +1,5 @@
+#+title: Readme
+
+Test readme
+
+- [Doom Config](/doom/README.org)
