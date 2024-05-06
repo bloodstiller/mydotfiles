@@ -428,7 +428,7 @@ alias urlencode='python3 -c "import sys, urllib.parse as ul; \
 :ID:       6c75ab30-4f03-4e4c-a556-e9a11b481a76
 :END:
   #+begin_src bash
-  alias dtu='dotdrop install'
+  alias dti='dotdrop install'
   #+end_src
 
 

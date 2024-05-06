@@ -1,0 +1,171 @@
+#+title: hooks Config
+#+AUTHOR: MDB Dev
+#+DESCRIPTION: HooksConfig
+#+auto_tangle: t
+#+STARTUP: showeverything
+
+* TABLE OF CONTENTS :TOC:
+:PROPERTIES:
+:ID:       7b27e6a5-a656-4187-af6e-0dddf08a9831
+:END:
+- [[#literate-config][Literate Config:]]
+- [[#clean-cache-hook][Clean Cache Hook:]]
+- [[#maintain-a-list-of-installed-packages][Maintain a list of installed packages:]]
+  - [[#makepackagelistsh-script-as-used-above][makePackageList.sh Script as used above:]]
+
+* Literate Config:
+:PROPERTIES:
+:ID:       29336749-8516-4457-9579-31b85f3bcbe1
+:END:
+- This is my personal hyprland config it is structured as a literate configuration.
+- Inspired by the methodology presented at [[https://leanpub.com/lit-config/read][Literate Configuration]].
+- This approach blends detailed documentation directly with the code, offering clear insights into the purpose and functionality of each configuration snippet, making it both user-friendly and easy to maintain.
+- Great video by DT Tube here on how to write literate configs:
+  - https://www.youtube.com/watch?v=eF4cJlBNtdQ&themeRefresh=1
+
+* Clean Cache Hook:
+:PROPERTIES:
+:ID:       6dceb345-42ef-43d4-8b17-e05eafc49c5e
+:header-args: :tangle ~/.config/hooks/clean_cache.hook
+:END:
+#+begin_src hook
+# /etc/pacman.d/hooks/clean_cache.hook
+[Trigger]
+Operation = Remove
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = Keep the last cache and the currently installed; clear cache for unused packages
+When = PostTransaction
+Exec = /usr/bin/paccache -rvuk0 && /usr/bin/paccache -rvk2
+
+#+end_src
+* Maintain a list of installed packages:
+:PROPERTIES:
+:ID:       72ea8910-615e-4d2a-864a-d0eddd295720
+:header-args: :tangle ~/.config/hooks/maintainPackages.hook
+:END:
+- Maintain a list of installed packages:
+
+#+begin_src hook
+[Trigger]
+Operation = Install
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Maintains a list of installed pacman & AUR packages that can be used to easily rebuild.
+When = PostTransaction
+Exec = /bin/sh -c '/home/martin/.config/scripts/makePackageList.sh'
+#+end_src
+
+
+** makePackageList.sh Script as used above:
+:PROPERTIES:
+:ID:       319f0023-d5b0-4f55-949a-b9e716d6cf1a
+:header-args: :tangle ~/.config/scripts/makePackageList.sh
+:END:
+*** Set base directory
+:PROPERTIES:
+:ID:       d1069fa3-5c1b-4ca7-8aa7-886a006a5c0d
+:END:
+#+begin_src bash
+#!/bin/bash
+# Set base directory
+BASE_DIR="/home/martin/.config/packages"
+#+end_src
+*** Create base directory if it doesn't exist:
+:PROPERTIES:
+:ID:       5243bc77-868e-4ae2-b0fe-7dd55d58d78c
+:END:
+#+begin_src bash
+
+# Create base directory if it doesn't exist
+mkdir -p ${BASE_DIR}
+#+end_src
+
+*** Get hostname:
+:PROPERTIES:
+:ID:       39334e09-dd44-4fea-a973-985152d8e2be
+:END:
+#+begin_src bash
+HOSTNAME=$(hostname)
+#+end_src
+
+*** Define file paths:
+:PROPERTIES:
+:ID:       7c7912ec-d119-4dc0-80e8-b2ff98b732b1
+:END:
+#+begin_src bash
+PKG_LIST="${BASE_DIR}/${HOSTNAME}-pkglist.txt"
+FOREIGN_PKG_LIST="${BASE_DIR}/${HOSTNAME}-foreignpkglist.txt"
+#+end_src
+
+*** Run pacman command and save output to: ~hostname-pkglist.txt~
+:PROPERTIES:
+:ID:       7b40b34c-3046-4dc6-aa1b-a2139d185c64
+:END:
+#+begin_src bash
+/usr/bin/pacman -Qqetn > "${PKG_LIST}"
+if [ $? -eq 0 ]; then
+    echo "Native packages list created successfully."
+else
+    echo "Failed to create native packages list."
+    exit 1
+fi
+#+end_src
+
+*** Run pacman command and save AUR packages to ~hostname-foreignpkglist.txt~
+:PROPERTIES:
+:ID:       c27b28d6-8f80-4c60-b3be-5710094d02b6
+:END:
+#+begin_src bash
+/usr/bin/pacman -Qqem > "${FOREIGN_PKG_LIST}"
+if [ $? -eq 0 ]; then
+    echo "Foreign packages list created successfully."
+else
+    echo "Failed to create foreign packages list."
+    exit 1
+fi
+#+end_src
+
+*** Set permissions and ownership
+:PROPERTIES:
+:ID:       1c5ed696-8be8-4c05-9319-5f177718ffeb
+:END:
+#+begin_src bash
+chmod 644 "${PKG_LIST}" "${FOREIGN_PKG_LIST}"
+chown martin:martin "${PKG_LIST}" "${FOREIGN_PKG_LIST}"
+echo "Permissions and ownership have been set."
+#+end_src
+
+*** Set Script as Executable
+:PROPERTIES:
+:ID:       8f80c276-1b48-4c75-83a4-3b2b58fe81b4
+:header-args: :tangle ~/.config/scripts/makePackageList.sh :shebang #!/bin/bash :mkdirp yes :perms (identity #o755)
+:END:
+- Don't delete this empty bash code block, it's integral for this to become executable after running!
+#+begin_src bash
+#+end_src
+
+**** This block is actually very interesting, but you can't see why
+:PROPERTIES:
+:ID:       10fea59f-54f7-4a33-9a70-6424f0e0cbd4
+:END:
+  - It contains the header (which is invisible)
+    - ~:header-args: :tangle ~/.config/scripts/makePackageList.sh :shebang #!/bin/bash :mkdirp yes :perms (identity #o755)~
+- ~:tangle ~/.config/scripts/makePackageList.sh~
+  - Specifies the output file for the tangled script.
+- ~:shebang #!/bin/bash~
+  - Adds a shebang line at the beginning of the tangled script.
+  - Ensures the script is executed using Bash when run directly from a shell.
+- ~:mkdirp yes~
+  - Ensures that the directory path to the output file is created if it does not already exist.
+- Prevents errors by making necessary directories before tangling the script.
+- ~:perms (identity #o755)~
+  - Sets the file permissions of the tangled script.
+  - #o755 translates to chmod 755, making the script readable, writable, and executable by the owner, and readable and executable by others.

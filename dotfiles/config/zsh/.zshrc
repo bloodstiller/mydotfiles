@@ -175,7 +175,7 @@ alias urlencode='python3 -c "import sys, urllib.parse as ul; \
 
   alias dtu='dotdrop update'
 
-  alias dtu='dotdrop install'
+  alias dti='dotdrop install'
 
 alias dt='/home/martin/.config/mydotfiles'
 
