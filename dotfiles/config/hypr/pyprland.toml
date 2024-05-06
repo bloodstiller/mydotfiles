@@ -32,14 +32,3 @@ max_size = "1920px 100%"
 margin = 50
 lazy = false
 unfocus = "hide"
-
-
-#[scratchpads.emacsFromTop]
-#animation = "fromLeft"
-#command = "emacs --client -c -n"
-#class = "EmacsDrop"
-#size = "75% 60%"
-#max_size = "1920px 100%"
-#margin = 50
-#lazy = false
-#unfocus = "hide"

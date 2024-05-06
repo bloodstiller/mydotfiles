@@ -131,6 +131,9 @@ dotfiles:
   d_zsh:
     src: config/zsh
     dst: ~/.config/zsh
+  f_readme.org:
+    src: config/hypr/README.org
+    dst: ~/.config/hypr/README.org
 profiles:
   Lok:
     dotfiles:
@@ -167,6 +170,7 @@ profiles:
     - d_rsnapshot
     - d_config_tmux
     - d_zsh
+    - f_readme.org
   zeus:
     dotfiles:
     - d_alacritty
