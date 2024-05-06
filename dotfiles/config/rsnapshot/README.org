@@ -1,0 +1,278 @@
+#+TITLE: Rsnapshot Config & Timers
+#+AUTHOR: MDB Dev
+#+DESCRIPTION: Personal RSnapshot
+#+auto_tangle: t
+#+STARTUP: showeverything
+
+* TABLE OF CONTENTS :TOC:
+:PROPERTIES:
+:ID:       2d23a87d-b005-4058-94fb-f62ab9e8b9da
+:END:
+- [[#literate-config][Literate Config:]]
+- [[#note][NOTE:]]
+- [[#rsnapshot-config][Rsnapshot Config:]]
+  - [[#set-storage-location][Set Storage Location:]]
+  - [[#external-program-dependencies][External Program Dependencies:]]
+  - [[#set-backup-frequency][Set Backup Frequency:]]
+  - [[#set-verbose-level][Set Verbose level:]]
+  - [[#logging][Logging:]]
+  - [[#prevent-multiple-instances-running][Prevent Multiple Instances Running:]]
+  - [[#specify-what-to-backup][Specify What to Backup:]]
+- [[#rsnapshot-service][Rsnapshot Service:]]
+- [[#rsnapshot-timers][Rsnapshot Timers:]]
+  - [[#hourly-timer][Hourly Timer:]]
+  - [[#daily-timer][Daily Timer:]]
+  - [[#weekly-timer][Weekly Timer:]]
+  - [[#monthly-timer][Monthly Timer:]]
+
+* Literate Config:
+:PROPERTIES:
+:ID:       59cc58b6-9476-4683-9587-77563fe74455
+:END:
+- This is my personal rsnapshot config it is structured as a literate configuration.
+- Inspired by the methodology presented at [[https://leanpub.com/lit-config/read][Literate Configuration]].
+- This approach blends detailed documentation directly with the code, offering clear insights into the purpose and functionality of each configuration snippet, making it both user-friendly and easy to maintain.
+- Great video by DT Tube here on how to write literate configs:
+  - https://www.youtube.com/watch?v=eF4cJlBNtdQ&themeRefresh=1
+* NOTE:
+:PROPERTIES:
+:ID:       36565762-652b-4b94-bb30-09c80c56a575
+:END:
+- The tab spacing in this config is integral for it to work, otherwise it will not function as it should.
+* Rsnapshot Config:
+:PROPERTIES:
+:ID:       c3ef2222-eb91-4dbb-b891-21f744981fdf
+:header-args: :tangle ~/.config/rsnapshot/rsnapshot.conf
+:END:
+** Set Storage Location:
+:PROPERTIES:
+:ID:       9de0e6a2-422a-469a-ae21-54bd5d4c2b39
+:END:
+#+begin_src conf
+snapshot_root	/run/media/martin/4TB/RSnapShotBackups
+#+end_src
+** External Program Dependencies:
+:PROPERTIES:
+:ID:       42495265-68af-4076-a0e4-553b26ad1f5e
+:END:
+*** cp:
+:PROPERTIES:
+:ID:       d6397dc2-c19f-4d73-8888-6e7f2ef7c82f
+:END:
+#+begin_src conf
+cmd_cp		/usr/bin/cp
+#+end_src
+*** rm:
+:PROPERTIES:
+:ID:       5dc9561c-5bd6-45a7-9241-5337dc901a1b
+:END:
+#+begin_src conf
+cmd_rm		/usr/bin/rm
+#+end_src
+*** rsync:
+:PROPERTIES:
+:ID:       76855485-b736-412c-b3b0-9cc9daa6fc56
+:END:
+
+- *Must be enabled*.
+- rsync must be enabled for anything to work. This is the only command that
+#+begin_src conf
+cmd_rsync	/usr/bin/rsync
+#+end_src
+*** ssh:
+:PROPERTIES:
+:ID:       4d6e1283-3f8e-420c-9065-15af3f64dff7
+:END:
+- Enables remote ssh backups over rsync.
+#+begin_src conf
+cmd_ssh	/usr/bin/ssh
+#+end_src
+*** logger:
+:PROPERTIES:
+:ID:       56fa9c50-fa68-4fc9-9514-a6723ad9a245
+:END:
+- Enables syslog support.
+#+begin_src conf
+cmd_logger	/usr/bin/logger
+#+end_src
+*** du:
+:PROPERTIES:
+:ID:       68d65e1b-6b8c-402e-8aba-2c4ce1b0a5a7
+:END:
+#+begin_src conf
+cmd_du		/usr/bin/du
+#+end_src
+*** rsnapshot-diff:
+:PROPERTIES:
+:ID:       a4b7afff-cf56-4495-99e6-6f844568ab23
+:END:
+- Specify the path to rsnapshot-diff.
+#+begin_src conf
+cmd_rsnapshot_diff	/usr/bin/rsnapshot-diff
+#+end_src
+
+** Set Backup Frequency:
+:PROPERTIES:
+:ID:       4af5c4b9-132f-4dc7-975f-e33834516f71
+:END:
+- Must be unique and in ascending order
+- This will be enough backups for me.
+#+begin_src conf
+retain	hourly	1
+retain	daily	1
+retain	weekly	1
+retain	monthly	12
+#+end_src
+
+** Set Verbose level:
+:PROPERTIES:
+:ID:       ee008ebc-2cf1-4025-aa5d-546ab8afe4b4
+:END:
+- Levels
+ 1. Quiet
+    - Print fatal errors only
+ 2. Default
+    - Print errors and warnings only
+ 3. Verbose
+    - Show equivalent shell commands being executed
+ 4. Extra Verbose
+    - Show extra verbose information
+ 5. Debug mode
+    - Everything
+#+begin_src conf
+verbose		2
+#+end_src
+
+** Logging:
+:PROPERTIES:
+:ID:       a89be7fd-4b75-42b9-b76c-f5b730f080f9
+:END:
+*** Set log level:
+:PROPERTIES:
+:ID:       fcce8b49-3767-4b31-9832-12ada56e9f7c
+:END:
+- Same as "verbose" above, but controls the amount of data sent to the
+#+begin_src conf
+loglevel	3
+#+end_src
+*** Set log output:
+:PROPERTIES:
+:ID:       7969ab72-a0bc-4a20-8c09-b10c493cfe1e
+:END:
+#+begin_src conf
+logfile	/var/log/rsnapshot
+#+end_src
+
+** Prevent Multiple Instances Running:
+:PROPERTIES:
+:ID:       7b3b473e-2e43-4000-86e9-575f31ee031f
+:END:
+ - If enabled, rsnapshot will write a lockfile to prevent two instances from running simultaneously (and messing up the snapshot_root).
+ - If you enable this, make sure the lockfile directory is not world writable. Otherwise anyone can prevent the program from running.
+#+begin_src conf
+lockfile	/var/run/rsnapshot.pid
+#+end_src
+
+** Specify What to Backup:
+:PROPERTIES:
+:ID:       59f6630e-5ac2-4758-ad78-a924fd38d5dc
+:END:
+#+begin_src conf
+backup	/home/		LokHome/
+backup	/etc/		LokEtc/
+backup	/usr/local/	LokUsrLocal/
+#+end_src
+* Rsnapshot Service:
+:PROPERTIES:
+:ID:       06ca0db5-d891-4a58-abc5-dcd41523aa11
+:header-args: :tangle ~/.config/service/rsnapshotService/rsnapshot@.service
+:END:
+- Create a service for rsnapshot to run.
+- This tangled into indidivual a ~rsnapshot@.service~ file and placed in my services folder.
+  - Taken from https://wiki.archlinux.org/title/Rsnapshot
+
+#+begin_src service
+[Unit]
+Description=rsnapshot (%I) backup
+
+[Service]
+Type=oneshot
+Nice=19
+IOSchedulingClass=idle
+ExecStart=/usr/bin/rsnapshot %I
+#+end_src
+* Rsnapshot Timers:
+:PROPERTIES:
+:ID:       24952a60-9852-425d-a509-0810cb262ae1
+:END:
+- Specify timers to run at specific intervals for use with the service.
+- These are all tangled into indidivual ~.timer~ files in the ~Services folder~
+  - Taken from https://wiki.archlinux.org/title/Rsnapshot
+** Hourly Timer:
+:PROPERTIES:
+:ID:       07709410-d362-4660-b9d0-bd78ef5d66c3
+:header-args: :tangle ~/.config/service/rsnapshotService/rsnapshot-hourly.timer
+:END:
+#+begin_src service
+[Unit]
+Description=rsnapshot hourly backup
+
+[Timer]
+OnCalendar=hourly
+Persistent=true
+Unit=rsnapshot@hourly.service
+
+[Install]
+WantedBy=timers.target
+#+end_src
+** Daily Timer:
+:PROPERTIES:
+:ID:       a13e8b6e-dfb4-479b-a050-d9b2c40e09a5
+:header-args: :tangle ~/.config/service/rsnapshotService/rsnapshot-daily.timer
+:END:
+#+begin_src service
+[Unit]
+Description=rsnapshot daily backup
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+Unit=rsnapshot@daily.service
+
+[Install]
+WantedBy=timers.target
+#+end_src
+** Weekly Timer:
+:PROPERTIES:
+:ID:       f290a9ed-6a41-488b-b8f2-7a4211d73858
+:header-args: :tangle ~/.config/service/rsnapshotService/rsnapshot-weekly.timer
+:END:
+#+begin_src service
+[Unit]
+Description=rsnapshot weekly backup
+
+[Timer]
+OnCalendar=weekly
+Persistent=true
+Unit=rsnapshot@weekly.service
+
+[Install]
+WantedBy=timers.target
+#+end_src
+** Monthly Timer:
+:PROPERTIES:
+:ID:       aac33eb9-305f-473a-a635-4c800390e87c
+:header-args: :tangle ~/.config/service/rsnapshotService/rsnapshot-monthly.timer
+:END:
+#+begin_src service
+[Unit]
+Description=rsnapshot monthly backup
+
+[Timer]
+OnCalendar=monthly
+Persistent=true
+Unit=rsnapshot@monthly.service
+
+[Install]
+WantedBy=timers.target
+#+end_src
