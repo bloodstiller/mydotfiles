@@ -34,6 +34,7 @@
   - [[#alias---start-default-network-for-network-manager][Alias - Start default network for network-manager:]]
   - [[#alias---easy-url-encoding-and-decoding][Alias - Easy url encoding and decoding:]]
   - [[#alias---capture-entire-tmux-pane-from-start-of-session][Alias - Capture entire tmux pane from start of session:]]
+  - [[#alias---dotrop][Alias - Dotrop:]]
 - [[#navigation][Navigation:]]
   - [[#navigate---to-dotrdrop-folder-to-manage-dotfiles-easier][Navigate - to dotrdrop folder to manage dotfiles easier:]]
   - [[#navigate---to-my-course-notes][Navigate - to my course notes:]]
@@ -410,6 +411,26 @@ alias urlencode='python3 -c "import sys, urllib.parse as ul; \
     #+begin_src bash
     alias tmux-save-pane='tmux capture-pane -pS -'
     #+end_src
+** Alias - Dotrop:
+:PROPERTIES:
+:ID:       3849946d-fb6c-47aa-aa44-13a0741acbe5
+:END:
+- I use dotdrop for managing my dotfiles. This makes executing commands easier.
+*** Alias - Dotrop Update:
+:PROPERTIES:
+:ID:       095b0031-ef32-409b-bdc6-00dec693d4f7
+:END:
+  #+begin_src bash
+  alias dtu='dotdrop update'
+  #+end_src
+*** Alias - Dotrop Install:
+:PROPERTIES:
+:ID:       6c75ab30-4f03-4e4c-a556-e9a11b481a76
+:END:
+  #+begin_src bash
+  alias dtu='dotdrop install'
+  #+end_src
+
 
 * Navigation:
 :PROPERTIES:

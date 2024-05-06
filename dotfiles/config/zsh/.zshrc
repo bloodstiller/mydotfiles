@@ -173,6 +173,10 @@ alias urlencode='python3 -c "import sys, urllib.parse as ul; \
 
     alias tmux-save-pane='tmux capture-pane -pS -'
 
+  alias dtu='dotdrop update'
+
+  alias dtu='dotdrop install'
+
 alias dt='/home/martin/.config/mydotfiles'
 
 alias cpts='~/Dropbox/40-49_Career/41-Courses/41.22-CPTS'
