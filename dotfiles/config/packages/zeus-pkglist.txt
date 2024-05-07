@@ -12,6 +12,7 @@ bridge-utils
 brightnessctl
 btop
 cups-pdf
+discord
 downgrade
 duf
 dunst
@@ -89,6 +90,7 @@ scrot
 sg3_utils
 shellcheck
 shfmt
+slurp
 sof-firmware
 splix
 starship

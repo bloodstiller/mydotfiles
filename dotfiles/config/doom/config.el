@@ -23,7 +23,7 @@
   '(font-lock-keyword-face :slant italic))
 
 ;;Setup Bookmarks
-(setq bookmark-default-file "/home/martin/Dropbox/90-99_Repos/92-PersonalRepos/92.01-Doom/bookmarks")
+(setq bookmark-default-file "~/.config/doom/bookmarks/")
 
 (map! :leader
       (:prefix ("b". "buffer")
@@ -46,8 +46,6 @@
 (global-auto-revert-mode 1)
 (setq global-auto-revert-non-file-buffers t)
 
-;; If you use `org' and don't want your org iles in the default location below,
-;; change `org-directory'. It must be set before org loads!
 (setq org-directory "/home/martin/Dropbox/01-09_System/01-Emacs/01.02-OrgGtd/")
 
 (setq org-agenda-files '("/home/martin/Dropbox/01-09_System/01-Emacs/01.02-OrgGtd/inbox.org"
@@ -113,21 +111,16 @@
         )
       )
 
-;; Used to open specific commonly used files
-
 (map! :leader
       (:prefix ("=" . "open file")
        :desc "Edit TODO File" "t" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/01-09_System/01-Emacs/01.02-OrgGtd/org-gtd-tasks.org"))
        :desc "Edit Goals File"   "g" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/01-09_System/01-Emacs/01.02-OrgGtd/Goals.org"))
        :desc "Edit inbox File" "i" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/01-09_System/01-Emacs/01.02-OrgGtd/inbox.org"))))
-     ;  :desc "Edit WORK File" "w" #'(lambda () (interactive) (find-file "~/Emacs/Org/WORK_TODO.org"))
-    ; :desc "Edit LINKS File" "l" #'(lambda () (interactive) (find-file "~/Emacs/Brain/_inbox/LINKS.org"))
-     ;  :desc "Edit Repeating File" "r" #'(lambda () (interactive) (find-file "~/Emacs/Org/REPEATING.org"))))
+
 (map! :leader
-      (:prefix ("= d" . "Open Doom Files")
-       :desc "Edit Doom config.el"   "c" #'(lambda () (interactive) (find-file "/home/martin/.config/doom/README.org"))
-       :desc "Edit Doom init.el"   "i" #'(lambda () (interactive) (find-file "/home/martin/.config/doom/init.el"))
-       :desc "Edit Doom packages.el"   "p" #'(lambda () (interactive) (find-file "/home/martin/.config/doom/packages.el"))))
+      (:prefix ("= d" . "Open Doom Config")
+       :desc "Edit Doom config.el"   "c" #'(lambda () (interactive) (find-file "/home/martin/.config/doom/README.org"))))
+
 (map! :leader
       (:prefix ("= b" . "Open Blog Files")
        :desc "Open Blog Root Folder"   "r" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/40-49_Career/44-Blog"))
@@ -148,12 +141,6 @@
        :desc "Open Finances Folder" "7" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/70-79_Finances"))
        :desc "Open Hobbies Folder" "8" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/80-89_Hobbies"))
        :desc "Open Repos Folder" "9" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/90-99_Repos"))))
-(map! :leader
-      (:prefix ("= h" . "Open Hacking Files")
-       :desc "Open Hacking CTF's Directory"   "c" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/40-49-Career/46-Boxes/"))
-       ;;:desc "Open Hacking root Folder" "r" #'(lambda () (interactive) (find-file "~/Emacs/Brain/3.Resources/Pentesting/"))
-       ;;:desc "Open Hacking Org File" "t" #'(lambda () (interactive) (find-file "~/Emacs/Org/HACKING.org"))
-       :desc "Hacking Best tools Doc" "b" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/40-49-Career/47-Pentesting_Resources/47.01 Best Tools/1.BestTools.org"))))
 
 ;;Org capture templates;
 (after! org
@@ -169,11 +156,6 @@
          entry (file+headline "/home/martin/Dropbox/01-09_System/01-Emacs/01.01-OrgMode/ScrathPad.org" "Personal Notes")
          "** %?"
          :empty-lines 0)
-;; To create work todos
-        ;("w" "Work-Todo"
-        ; entry (file+headline "~/Emacs/Org/WORK_TODO.org" "Work-TODO")
-        ; "* WORK %?"
-        ; :empty-lines 0)
         ("w" "Work-Todo" entry (file "/home/martin/Dropbox/01-09_System/01-Emacs/01.02-OrgGtd/inbox.org")
          "* WORK %?"
          :empty-lines 1)
@@ -201,9 +183,6 @@
          "* %?"
           :empty-lines 0)
        )))
-
-;; $DOOMDIR/config.el
-;;(use-package! org-pandoc-import :after org)
 
 ;;;;;;;;;;;;;;;;;;;;;ORG CRYPT
 ;; ORG CRYPT TAG Setup for inline encryption
@@ -309,30 +288,22 @@
 ;;Adjust images to an actual size that doesn't take up the entire screen.
 (setq org-image-actual-width 600)
 
-; This still does not work (unsure why)
 (require 'org-download)
 (setq-default org-download-image-dir "/home/martin/Dropbox/screenshots/")
 ;;Allows dropping to dir-ed
 (add-hook 'dired-mode-hook 'org-download-enable)
 
-;; Actually Set ATTACH directory where images are stored
 (setq org-attach-directory "/home/martin/Dropbox/screenshots/")
 
 ;; Enables auto tangling/exporting of code blocks to a unified code file form org mode.
-;; It means I can jsut write code blocks in org with detailed documentation and this will export it all accordingly.
 (use-package! org-auto-tangle
   :defer t
   :hook (org-mode . org-auto-tangle-mode)
   :config
   (setq org-auto-tangle-default t))
 
-;(setq org-gtd-areas-of-focus '("Home" "Health" "Career" "Finance" "Goal" "Systems" "Relationships" "Personal Development"))
-
-;ORG - Start all documents in overview mode:
-; I have large org files with lots of nested headings, this makes it less cumbersome.
 (setq org-startup-folded t)
 
-;ORG - Add ID to all ORG headindgs on save:
 (add-hook 'org-capture-prepare-finalize-hook 'org-id-get-create)
 (defun my/org-add-ids-to-headlines-in-file ()
 ;  "Add ID properties to all headlines in the current file which
@@ -373,13 +344,10 @@
 
 (setq org-superstar-headline-bullets-list '("› "))
 
-;; Custom bulleted list
 (setq org-superstar-item-bullet-alist '((?* . ?⋆)
                                         (?+ . ?‣)
                                         (?- . ?•)))
 
-;; Custom drop down icon.
-;; Not needed due to modern
 (setq org-ellipsis " ⯯")
 
 (setq-hook! org-mode
@@ -399,11 +367,9 @@
 (require 'org-indent)
 (setq org-startup-indented t)
 
-;Roam Main Dir
 (require 'org-roam)
 (setq org-roam-directory "~/Dropbox")
 
-; Roam - (make git ignored files in subdirectories still searchable)
 (after! org-roam
   (setq org-roam-list-files-commands '(find fd fdfind rg)))
 
@@ -540,8 +506,6 @@
 (define-key evil-motion-state-map (kbd "C-k") #'evil-window-up)
 (define-key evil-motion-state-map (kbd "C-l") #'evil-window-right)
 
-(atomic-chrome-start-server)
-
 ; Zoom in and Out easily
 (defun my/increase-text-height ()
   (interactive)
@@ -557,24 +521,3 @@
 ;; Enables Emofis
 (use-package emojify
   :hook (after-init . global-emojify-mode))
-
-;insert date shortcut
-; Taken from dt/distro-tube.
-(defun dt/insert-todays-date (prefix)
-  (interactive "P")
-  (let ((format (cond
-                 ((not prefix) "%A, %B %d, %Y")
-                 ((equal prefix '(4)) "%m-%d-%Y")
-                 ((equal prefix '(16)) "%Y-%m-%d"))))
-    (insert (format-time-string format))))
-
-(require 'calendar)
-(defun dt/insert-any-date (date)
-  "Insert DATE using the current locale."
-  (interactive (list (calendar-read-date)))
-  (insert (calendar-date-string date)))
-
-(map! :leader
-      (:prefix ("i d" . "Insert date")
-        :desc "Insert any date"    "a" #'dt/insert-any-date
-        :desc "Insert todays date" "t" #'dt/insert-todays-date))

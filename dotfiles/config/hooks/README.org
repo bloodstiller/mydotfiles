@@ -11,7 +11,7 @@
 - [[#literate-config][Literate Config:]]
 - [[#clean-cache-hook][Clean Cache Hook:]]
 - [[#maintain-a-list-of-installed-packages][Maintain a list of installed packages:]]
-  - [[#makepackagelistsh-script-as-used-above][makePackageList.sh Script as used above:]]
+- [[#makepackagelistsh-script-as-used-above][makePackageList.sh Script as used above:]]
 
 * Literate Config:
 :PROPERTIES:
@@ -64,7 +64,7 @@ Exec = /bin/sh -c '/home/martin/.config/scripts/makePackageList.sh'
 #+end_src
 
 
-** makePackageList.sh Script as used above:
+* makePackageList.sh Script as used above:
 :PROPERTIES:
 :ID:       319f0023-d5b0-4f55-949a-b9e716d6cf1a
 :END:
@@ -74,6 +74,7 @@ Exec = /bin/sh -c '/home/martin/.config/scripts/makePackageList.sh'
   #+end_src
   - *Breakdown*:
     - ~:tangle ~/.config/scripts/makePackageList.sh~
+
       - Specifies the output file for the tangled script.
     - ~:shebang #!/bin/bash~
       - Adds a shebang line at the beginning of the tangled script.
@@ -91,11 +92,11 @@ Exec = /bin/sh -c '/home/martin/.config/scripts/makePackageList.sh'
 *** Script:
 :PROPERTIES:
 :ID:       1b9756ed-e51a-43aa-b039-3e96ec6ab899
+:header-args: :tangle ~/.config/scripts/makePackageList.sh :shebang #!/bin/bash :mkdirp yes :perms (identity #o755)
 :END:
 **** Set base directory
 :PROPERTIES:
 :ID:       d1069fa3-5c1b-4ca7-8aa7-886a006a5c0d
-:header-args: :tangle ~/.config/scripts/makePackageList.sh :shebang #!/bin/bash :mkdirp yes :perms (identity #o755)
 :END:
 #+begin_src bash
 # Set base directory

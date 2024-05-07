@@ -550,8 +550,8 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 :PROPERTIES:
 :ID:       cfc78081-d49a-43db-8163-8f182d59d9b1
 :END:
-- This still does not work (unsure why).
 #+begin_src emacs-lisp
+; This still does not work (unsure why)
 (require 'org-download)
 (setq-default org-download-image-dir "/home/martin/Dropbox/screenshots/")
 ;;Allows dropping to dir-ed
@@ -563,8 +563,8 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 :PROPERTIES:
 :ID:       1c5ee3a0-b4bc-49df-9086-52337c770f97
 :END:
-- Actually Set ATTACH directory where images are stored
 #+begin_src emacs-lisp
+;; Actually Set ATTACH directory where images are stored
 (setq org-attach-directory "/home/martin/Dropbox/screenshots/")
 #+end_src
 
@@ -578,6 +578,7 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 #+begin_src emacs-lisp
 
 ;; Enables auto tangling/exporting of code blocks to a unified code file form org mode.
+;; It means I can jsut write code blocks in org with detailed documentation and this will export it all accordingly.
 (use-package! org-auto-tangle
   :defer t
   :hook (org-mode . org-auto-tangle-mode)
@@ -600,9 +601,9 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 :PROPERTIES:
 :ID:       d646dd8f-c35f-4058-a9ac-26fb8ec0e5ab
 :END:
-- Add ID to all ORG headindgs on save:
-  - I want the option to be able to import org roam if need be. This adds ID's to all headings so I can then easily back link.
+
 #+begin_src emacs-lisp
+;ORG - Add ID to all ORG headindgs on save:
 (add-hook 'org-capture-prepare-finalize-hook 'org-id-get-create)
 (defun my/org-add-ids-to-headlines-in-file ()
 ;  "Add ID properties to all headlines in the current file which
@@ -622,7 +623,7 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 :PROPERTIES:
 :ID:       b1d5ffa4-9843-4b35-bd8e-66586ae4ce92
 :END:
-- I use custom smart quotes so this helps me have them remain when exporting.
+I use custom smart quotes so this helps me have them remain when exporting.
 #+begin_src emacs-lisp
 ;; Export using my custom smart quotes.
 (setq org-export-with-smart-quotes t)
@@ -632,7 +633,7 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 :PROPERTIES:
 :ID:       628eec6c-1afa-438a-bd7d-f6044a8990d0
 :END:
-- This means that the markers used for emphasis will no longer be visible and instead just the outcome.
+This means that the markers used for emphasis will no longer be visible and instead just the outcome.
 
 #+begin_src emacs-lisp
 
@@ -675,26 +676,32 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 :PROPERTIES:
 :ID:       801b5f53-05e7-4ca6-a193-c3525b8d7f33
 :END:
+- Not needed due to org modern, but retaining incase I need to revert
 #+begin_src emacs-lisp
+
 (setq org-superstar-headline-bullets-list '("› "))
 #+end_src
+
 **** Cosmetics - Item Bullets:
 :PROPERTIES:
 :ID:       17b3ea4d-35d1-4850-9402-0316d1469cf2
 :END:
-- Custom bulleted list
+
 #+begin_src emacs-lisp
 
+;; Custom bulleted list
 (setq org-superstar-item-bullet-alist '((?* . ?⋆)
                                         (?+ . ?‣)
                                         (?- . ?•)))
 #+end_src
+
 **** Cosmetics - Dropdown Icon:
 :PROPERTIES:
 :ID:       e52b4479-8c54-4516-92a4-71d3b3ce6a3b
 :END:
-- Custom drop down icon.
 #+begin_src emacs-lisp
+;; Custom drop down icon.
+;; Not needed due to modern
 (setq org-ellipsis " ⯯")
 #+end_src
 
@@ -741,8 +748,8 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 :PROPERTIES:
 :ID:       2f17e7b4-9201-4924-ae58-d7be6a5b6894
 :END:
-- Set Roam Main Dir
 #+begin_src emacs-lisp
+;Roam Main Dir
 (require 'org-roam)
 (setq org-roam-directory "~/Dropbox")
 
@@ -752,8 +759,8 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 :PROPERTIES:
 :ID:       d248366b-fa72-457c-abba-d0ef83e8a540
 :END:
-- Roam - (make git ignored files in subdirectories still searchable)
 #+begin_src emacs-lisp
+; Roam - (make git ignored files in subdirectories still searchable)
 (after! org-roam
   (setq org-roam-list-files-commands '(find fd fdfind rg)))
 
@@ -762,19 +769,6 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 :PROPERTIES:
 :ID:       0b82e2bd-d707-4757-97bf-8c912fce2043
 :END:
-| **Path To Template**                                           | **Description** | **Keybinding** |
-|--------------------------------------------------------------+------------------+--------------|
-| ~/Dropbox/01-09_System/04-Templates/ServiceTemplate.org      |  Service       | s            |
-| ~/Dropbox/01-09_System/04-Templates/ToolTemplate.org         |  Tool          | t            |
-| ~/Dropbox/01-09_System/04-Templates/MethodTemplate.org       |  Method        | m            |
-| ~/Dropbox/01-09_System/04-Templates/AttackTemplate.org       |  Attack Type   | a            |
-| ~/Dropbox/01-09_System/04-Templates/Application.org          |  Application   | A            |
-| ~/Dropbox/01-09_System/04-Templates/CPTSSection.org          |  CPTS Module   | c            |
-| ~/Dropbox/01-09_System/04-Templates/ProjectStartTemplate.org |  Start Project | p            |
-| ~/Dropbox/01-09_System/04-Templates/ProjectEndTemplate.org   |  End Project   | P            |
-| ~/Dropbox/01-09_System/04-Templates/BoxTemplate.org          |  Box           | b            |
-|--------------------------------------------------------------+------------------+--------------|
-
 #+begin_src emacs-lisp
 ;Roam - Capture Templates:
 (setq org-roam-capture-templates
@@ -823,9 +817,10 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 :PROPERTIES:
 :ID:       7160b423-b9b2-4244-bc8f-2d392e3bb157
 :END:
-- I have very large files for some things so this helps
-  - Taken from: https://github.com/org-roam/org-roam/issues/2399
-
+- Taken from: https://github.com/org-roam/org-roam/issues/2399
+:PROPERTIES:
+:ID:       de5b649e-05c0-482c-acae-b664dcd3870c
+:END:
 #+begin_src emacs-lisp
 (defun vr/org-roam-buffer-render-contents-advice (orig-fun &rest args)
   (let ((org-startup-indented nil))
@@ -983,13 +978,19 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 (define-key evil-motion-state-map (kbd "C-k") #'evil-window-up)
 (define-key evil-motion-state-map (kbd "C-l") #'evil-window-right)
 #+end_src
+*** Emacs Everywhere:
+:PROPERTIES:
+:ID:       7bd2fc2b-ddd8-4f93-84e6-691d7aea86ef
+:END:
+- Required for browser integration
+#+begin_src emacs-lisp
+(atomic-chrome-start-server)
+#+end_src
+
 *** Zoom In & Out:
 :PROPERTIES:
 :ID:       a8225754-e2fb-40dd-b44e-12455616f8d5
 :END:
- - Easily zoom with:
-   - In ~C-=~
-   - Out ~C--~
 #+begin_src emacs-lisp
 ; Zoom in and Out easily
 (defun my/increase-text-height ()
@@ -1008,7 +1009,7 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 :PROPERTIES:
 :ID:       d555b53b-459b-485a-8c57-94e5ffd2f1cf
 :END:
-- Emojify is an Emacs extension to display emojis. It can display github style emojis like :smile: or plain ascii ones like :).
+Emojify is an Emacs extension to display emojis. It can display github style emojis like :smile: or plain ascii ones like :).
 
 #+begin_src emacs-lisp
 
@@ -1018,6 +1019,41 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 
 #+end_src
 
+*** Insert Date Shortcut:
+:PROPERTIES:
+:ID:       f1f8fa34-9690-41d2-90b6-22903507573f
+:END:
+Some custom functions to insert the date.  The function 'insert-todays-date' can be used one of three different ways: (1) just the keybinding without the universal argument prefix, (2) with one universal argument prefix, or (3) with two universal argument prefixes.  The universal argument prefix is 'SPC-u' in Doom Emacs (C-u in standard GNU Emacs).  The function 'insert-any-date' only outputs to one format, which is the same format as 'insert-todays-date' without a prefix.
+
+| COMMAND               | EXAMPLE OUTPUT              | KEYBINDING            |
+|-----------------------+-----------------------------+-----------------------|
+| dt/insert-todays-date |Friday, November 19, 2021     | SPC i d t             |
+| dt/insert-todays-date |11-19-2021                   | SPC u SPC i d t       |
+| dt/insert-todays-date |2021-11-19                   | SPC u SPC u SPC i d t |
+| dt/insert-any-date    |Friday, November 19, 2021    | SPC i d a             |
+
+#+begin_src emacs-lisp
+;insert date shortcut
+; Taken from dt/distro-tube.
+(defun dt/insert-todays-date (prefix)
+  (interactive "P")
+  (let ((format (cond
+                 ((not prefix) "%A, %B %d, %Y")
+                 ((equal prefix '(4)) "%m-%d-%Y")
+                 ((equal prefix '(16)) "%Y-%m-%d"))))
+    (insert (format-time-string format))))
+
+(require 'calendar)
+(defun dt/insert-any-date (date)
+  "Insert DATE using the current locale."
+  (interactive (list (calendar-read-date)))
+  (insert (calendar-date-string date)))
+
+(map! :leader
+      (:prefix ("i d" . "Insert date")
+        :desc "Insert any date"    "a" #'dt/insert-any-date
+        :desc "Insert todays date" "t" #'dt/insert-todays-date))
+#+end_src
 * packages.el:
 :PROPERTIES:
 :ID:       e8e9c48f-7898-45fd-b2eb-9a1d542991b6
