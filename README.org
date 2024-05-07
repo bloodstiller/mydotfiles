@@ -2,39 +2,19 @@
 
 
 
-* [[file:/dotfiles/config/alacritty/README.org][Alacritty Config]]
-:PROPERTIES:
-:ID:       ea92a271-4599-4bed-a34b-0f915e35aca7
-:END:
-- Contains my alacritty literate config.
-* [[file:/dotfiles/config/doom/README.org][Doom Emacs Config]]
-:PROPERTIES:
-:ID:       346dba04-757e-40ec-81f8-5b52d5107e5c
-:END:
-- Contains my Doom Emacs literate config.
-* [[file:/dotfiles/config/tmux/README.org][Tmux Config]]
-:PROPERTIES:
-:ID:       6f1b661a-9248-42d4-8781-527236703d61
-:END:
-- Contains my tmux literate config.
-* [[file:/dotfiles/config/hooks/README.org][Custom Hooks For Pacman]]
-:PROPERTIES:
-:ID:       e9d23159-a82c-464c-b964-3aca10dc2053
-:END:
-- Contains my custom packman hooks literate config.
-* [[file:/dotfiles/config/hypr/README.org][Hyprland Config]]
-:PROPERTIES:
-:ID:       cea43a08-011a-4274-8b73-dbe67bcda00c
-:END:
-- Contains my hyperland literate config.
-* [[file:/dotfiles/config/zsh/README.org][zsh Config]]
-:PROPERTIES:
-:ID:       b0265cb6-5e63-4977-a03a-c55f4551b563
-:END:
-- Contains my zsh literate config.
-
-* [[file:/dotfiles/config/rsnapshot/README.org][Rsnapshot Conf & Service Files]]
-:PROPERTIES:
-:ID:       b0265cb6-5e63-4977-a03a-c55f4551b563
-:END:
-- Contains my rsnapshot conf and service files literate config.
+- [[file:/dotfiles/config/alacritty/README.org][Alacritty Config]]:
+  - Contains my alacritty literate config.
+- [[file:/dotfiles/config/doom/README.org][Doom Emacs Config]]:
+  - Contains my Doom Emacs literate config.
+- [[file:/dotfiles/config/tmux/README.org][Tmux Config]]:
+  - Contains my tmux literate config.
+- [[file:/dotfiles/config/hooks/README.org][Custom Hooks For Pacman]]:
+  - Contains my custom packman hooks literate config.
+- [[file:/dotfiles/config/hypr/README.org][Hyprland Config]]:
+  - Contains my hyperland literate config.
+- [[file:/dotfiles/config/zsh/README.org][zsh Config]]:
+  - Contains my zsh literate config.
+- [[file:/dotfiles/config/rsnapshot/README.org][Rsnapshot Conf & Service Files]]:
+  - Contains my rsnapshot conf and service files literate config.
+- [[file:/dotfiles/config/waybar/README.org][Way Bar Config]]
+  - Contains my waybar literate config.
