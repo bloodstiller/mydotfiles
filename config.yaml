@@ -210,3 +210,11 @@ profiles:
     - f_colors.css
     - f_mediaplayer.py
     - f_style.css
+    - f_clean_cache.hook
+    - f_maintainpackages.hook
+    - d_service
+    - d_rsnapshot
+    - d_config_tmux
+    - d_zsh
+    - f_readme.org
+    - f_mydotfiles_readme.org
