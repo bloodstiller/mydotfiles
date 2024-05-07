@@ -29,6 +29,3 @@ fi
 chmod 644 "${PKG_LIST}" "${FOREIGN_PKG_LIST}"
 chown martin:martin "${PKG_LIST}" "${FOREIGN_PKG_LIST}"
 echo "Permissions and ownership have been set."
-
-#!/bin/bash
-

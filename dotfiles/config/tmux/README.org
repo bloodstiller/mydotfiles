@@ -142,7 +142,6 @@ bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded."
 #+begin_src conf
 setw -g mode-keys vi
 #+end_src
-
 * Quality of Life Improvements:
 :PROPERTIES:
 :ID:       85581813-11cb-46d3-9954-6f9b798e728a
@@ -187,7 +186,7 @@ set -s escape-time 0
 :END:
 - I have a lot of output when I am running scans etc, this is useful.
 #+begin_src conf
-set -g history-limit 50000
+set -g history-limit 100000
 #+end_src
 
 ** Increase tmux messages display duration from 750ms to 4s
@@ -246,8 +245,11 @@ setw -g aggressive-resize on
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'christoomey/vim-tmux-navigator'
 set -g @plugin 'jimeh/tmuxifier'
-set -g @plugin 'tmux-plugins/tmux/yank'
+set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-logging'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-sessionist'
 #+end_src
 
 ** Enable Dracula Colour Theme:

@@ -67,14 +67,32 @@ Exec = /bin/sh -c '/home/martin/.config/scripts/makePackageList.sh'
 ** makePackageList.sh Script as used above:
 :PROPERTIES:
 :ID:       319f0023-d5b0-4f55-949a-b9e716d6cf1a
-:header-args: :tangle ~/.config/scripts/makePackageList.sh
+:header-args: :tangle ~/.config/scripts/makePackageList.sh :shebang #!/bin/bash :mkdirp yes :perms (identity #o755)
 :END:
+- Unfortunatley this will not display within the README as the properties tray is ommited when rendering but the tray has the following tangle aruments to allow the script to be executable once created.
+  - ~:header-args: :tangle ~/.config/scripts/makePackageList.sh :shebang #!/bin/bash :mkdirp yes :perms (identity #o755)~
+    - Breakdown:
+      - ~:tangle ~/.config/scripts/makePackageList.sh~
+        - Specifies the output file for the tangled script.
+      - ~:shebang #!/bin/bash~
+        - Adds a shebang line at the beginning of the tangled script.
+        - Ensures the script is executed using Bash when run directly from a shell.
+      - ~:mkdirp yes~
+        - Ensures that the directory path to the output file is created if it does not already exist. Prevents errors by making necessary directories before tangling the script.
+      - ~:perms (identity #o755)~
+        - Sets the file permissions of the tangled script.
+        - #o755 translates to chmod 755, making the script readable, writable, and executable by the owner, and readable and executable by others.
+    - More information can be found here - https://orgmode.org/manual/Extracting-Source-Code.html
+      #+BEGIN_QUOTE
+      The ‘shebang’ header argument can turn results into executable script files. By setting it to a string value—for example, ‘:shebang "#!/bin/bash"’—Org inserts that string as the first line of the tangled file that the code block is extracted to. Org then turns on the tangled file’s executable permission.
+      #+END_QUOTE
+
+
 *** Set base directory
 :PROPERTIES:
 :ID:       d1069fa3-5c1b-4ca7-8aa7-886a006a5c0d
 :END:
 #+begin_src bash
-#!/bin/bash
 # Set base directory
 BASE_DIR="/home/martin/.config/packages"
 #+end_src
@@ -143,29 +161,3 @@ chown martin:martin "${PKG_LIST}" "${FOREIGN_PKG_LIST}"
 echo "Permissions and ownership have been set."
 #+end_src
 
-*** Set Script as Executable
-:PROPERTIES:
-:ID:       8f80c276-1b48-4c75-83a4-3b2b58fe81b4
-:header-args: :tangle ~/.config/scripts/makePackageList.sh :shebang #!/bin/bash :mkdirp yes :perms (identity #o755)
-:END:
-- Don't delete this empty bash code block, it's integral for this to become executable after running!
-#+begin_src bash
-#+end_src
-
-**** This block is actually very interesting, but you can't see why
-:PROPERTIES:
-:ID:       10fea59f-54f7-4a33-9a70-6424f0e0cbd4
-:END:
-  - It contains the header (which is invisible)
-    - ~:header-args: :tangle ~/.config/scripts/makePackageList.sh :shebang #!/bin/bash :mkdirp yes :perms (identity #o755)~
-- ~:tangle ~/.config/scripts/makePackageList.sh~
-  - Specifies the output file for the tangled script.
-- ~:shebang #!/bin/bash~
-  - Adds a shebang line at the beginning of the tangled script.
-  - Ensures the script is executed using Bash when run directly from a shell.
-- ~:mkdirp yes~
-  - Ensures that the directory path to the output file is created if it does not already exist.
-- Prevents errors by making necessary directories before tangling the script.
-- ~:perms (identity #o755)~
-  - Sets the file permissions of the tangled script.
-  - #o755 translates to chmod 755, making the script readable, writable, and executable by the owner, and readable and executable by others.

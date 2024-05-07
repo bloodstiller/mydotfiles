@@ -1,0 +1,309 @@
+#+TITLE: Waybar Config
+#+AUTHOR: MDB Dev
+#+DESCRIPTION: Personal waybar Config
+#+PROPERTY: header-args :tangle /home/martin/.config/waybar/config
+#+auto_tangle: t
+#+STARTUP: showeverything
+* TOC: :TOC:
+:PROPERTIES:
+:ID:       fc50f8cb-fb96-4c14-8cd2-c6e4f9059c25
+:END:
+- [[#literate-config][Literate Config:]]
+- [[#opening-bracket][Opening Bracket:]]
+- [[#basic-configuration][Basic Configuration:]]
+  - [[#set-waybar-layer][Set Waybar Layer:]]
+  - [[#set-waybar-position][Set Waybar Position:]]
+  - [[#set-waybar-height][Set Waybar height:]]
+- [[#module-positions][Module Positions:]]
+  - [[#modules---left][Modules - Left:]]
+  - [[#modules---center][Modules - center:]]
+  - [[#modules---right][Modules - Right:]]
+- [[#modules-configuration][Modules Configuration:]]
+  - [[#workspace-configuration][Workspace Configuration:]]
+  - [[#hyperland-module-configuration][Hyperland Module Configuration:]]
+  - [[#idle-inhibitor-module-configuration][Idle Inhibitor Module Configuration:]]
+  - [[#tray-module-configuration][Tray Module Configuration:]]
+  - [[#clock-module-configuration][Clock Module Configuration:]]
+  - [[#cpu-module-configuration][CPU Module Configuration:]]
+  - [[#cpu-temprature-module-configuration][CPU Temprature Module Configuration:]]
+  - [[#ram-module-configuration][RAM Module Configuration:]]
+  - [[#network-module-configuration][Network Module Configuration:]]
+  - [[#audio-module-configuration][Audio Module Configuration:]]
+  - [[#disk-settings-module-configuration][Disk Settings Module Configuration:]]
+- [[#closing-bracket][Closing Bracket:]]
+
+* Literate Config:
+:PROPERTIES:
+:ID:       6f08e094-c0f0-4871-9faa-2e49c6f6d359
+:END:
+- This is my personal Waybar config it is structured as a literate configuration.
+- Inspired by the methodology presented at [[https://leanpub.com/lit-config/read][Literate Configuration]].
+- This approach blends detailed documentation directly with the code, offering clear insights into the purpose and functionality of each configuration snippet, making it both user-friendly and easy to maintain.
+- Great video by DT Tube here on how to write literate configs:
+  - https://www.youtube.com/watch?v=eF4cJlBNtdQ&themeRefresh=1
+* Opening Bracket:
+:PROPERTIES:
+:ID:       7dcc60df-f55e-4b39-945d-8df9ee5ad27f
+:END:
+- Seems strange I know. But I find it easier to edit this format if I completely remove the openieng and closing brackets. This way I can move blocks within easier.
+#+begin_src conf
+{
+#+end_src
+
+* Basic Configuration:
+:PROPERTIES:
+:ID:       090a80c2-5850-424b-848e-9a13a29c4845
+:END:
+** Set Waybar Layer:
+:PROPERTIES:
+:ID:       472876e6-9bb7-4ba3-b1d8-7819a3764e7a
+:END:
+#+begin_src conf
+    // Waybar at top layer:
+    "layer": "top",
+#+end_src
+** Set Waybar Position:
+:PROPERTIES:
+:ID:       bef07a38-94b7-4142-aca2-70474ad74d1a
+:END:
+#+begin_src conf
+    // Waybar position (top|bottom|left|right):
+    "position": "top",
+#+end_src
+** Set Waybar height:
+:PROPERTIES:
+:ID:       51a6bc66-fb3a-465a-b83c-2a327a1a7760
+:END:
+#+begin_src conf
+    // Waybar height:
+    "height": 32, // Waybar height
+#+end_src
+
+* Module Positions:
+:PROPERTIES:
+:ID:       56522153-02ce-48a4-8300-acb6146ca9ed
+:END:
+** Modules - Left:
+:PROPERTIES:
+:ID:       9fa00ad9-7839-408a-a6d4-2cb97798a21c
+:END:
+#+begin_src conf
+    // Modules-Left:
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "hyprland/submap",
+        "idle_inhibitor"
+    ],
+#+end_src
+** Modules - center:
+:PROPERTIES:
+:ID:       2b7cb82a-4aa6-49c9-93ba-39588e08626b
+:END:
+#+begin_src conf
+    // Modules-Center:
+    "modules-center": [
+    "disk",
+    ],
+#+end_src
+** Modules - Right:
+:PROPERTIES:
+:ID:       08edae0c-5deb-49fa-987a-ead12b660932
+:END:
+#+begin_src conf
+    // Modules-Right:
+    "modules-right": [
+        "network",
+        "memory",
+        "temperature",
+        "cpu",
+        "pulseaudio",
+        "clock",
+        "tray"
+        //"custom/PBPbattery",
+        //"backlight#icon",
+        //"backlight#value",
+        //"custom/keyboard-layout",
+        //"battery",
+        //"custom/weather",
+        //"custom/power",
+    ],
+#+end_src
+* Modules Configuration:
+:PROPERTIES:
+:ID:       574b7fb9-247f-4fb4-837c-5a83f98ab8d7
+:END:
+** Workspace Configuration:
+:PROPERTIES:
+:ID:       c3291d70-6cf4-4d2b-8517-30ef7d83370a
+:END:
+#+begin_src conf
+     // Configure-Workspaces:
+     "hyprland/workspaces": {
+     "disable-scroll": false,
+     "active-only": false,
+     "disable-markup" : false,
+     "all-outputs": true,
+     "format": "  {icon}  ",
+     "format-icons": {
+          "1": "",
+          "2": "",
+          "3": "",
+          "10": "",
+          "4": "",
+          "5": "",
+          "focused": "",
+          "default": ""
+         }
+     },
+#+end_src
+** Hyperland Module Configuration:
+:PROPERTIES:
+:ID:       e8f456ad-a4e9-400e-bcd6-f90695a5b234
+:END:
+#+begin_src conf
+     // Hyperland Module Configuration:
+     "hyprland/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+     },
+#+end_src
+** Idle Inhibitor Module Configuration:
+:PROPERTIES:
+:ID:       932a4986-25bf-4fbb-9689-6d24fa1adf5c
+:END:
+#+begin_src conf
+     // Idle Inhibitor Module Configuration:
+     "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "  No Sleep",
+            "deactivated": "  "
+        }
+     },
+
+#+end_src
+** Tray Module Configuration:
+:PROPERTIES:
+:ID:       147582c4-2d2a-4f07-90ad-1ae292a47034
+:END:
+#+begin_src conf
+     // Tray Module Configuration:
+     "tray": {
+         "icon-size": 15,
+         "spacing": 15
+     },
+#+end_src
+** Clock Module Configuration:
+:PROPERTIES:
+:ID:       5d95dc74-b1af-4a32-90cf-a6001f1c9d75
+:END:
+#+begin_src conf
+     // Clock Module Configuration:
+     "clock": {
+         "format": "{:%Y-%m-%d %H:%M} ",
+         "on-click": "firefox https://calendar.proton.me/u/2/month",
+         "Format-alt": "{:%Y-%m-%d} "
+     },
+#+end_src
+** CPU Module Configuration:
+:PROPERTIES:
+:ID:       dfac6301-b06b-4cc1-80c4-9acfd1aa0981
+:END:
+#+begin_src conf
+     // CPU Module-Configuration:
+     "cpu": {
+         "interval": 5,
+         "format": " {usage}% used @ {avg_frequency}GHz", // Icon: microchip
+         "on-click": "alacritty -e 'btop'",
+         "states": {
+             "warning": 70,
+             "critical": 90,
+         },
+     },
+#+end_src
+** CPU Temprature Module Configuration:
+:PROPERTIES:
+:ID:       ba07b333-f130-4371-a732-9d6dc499e7d9
+:END:
+#+begin_src conf
+     // CPU Temprature Module Configuration:
+     "temperature": {
+          "thermal-zone": 2,
+         "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+         "critical-threshold": 80,
+         // "format-critical": "{temperatureC}°C ",
+         "format": "{temperatureC}°C  "
+     },
+#+end_src
+** RAM Module Configuration:
+:PROPERTIES:
+:ID:       1d04b29b-e2eb-4f27-be6b-23f0fc95a126
+:END:
+#+begin_src conf
+     // RAM Module Configuration:
+     "memory": {
+         "interval": 5,
+         "format": "Using {used}Gb of {total}Gb",
+         "on-click": "alacritty -e 'btop'",
+         "states": {
+             "warning": 80,
+             "critical": 95
+         }
+     },
+#+end_src
+** Network Module Configuration:
+:PROPERTIES:
+:ID:       3c0bb56f-caa5-471c-8c32-dd974cac0720
+:END:
+#+begin_src conf
+    // Network Module Configuration:
+    "network": {
+        // "interface": "wlp2s0", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-disconnected": "Disconnected ⚠ ",
+        "on-click": "gnome-nettool",
+        "interval" : 7
+    },
+#+end_src
+
+** Audio Module Configuration:
+:PROPERTIES:
+:ID:       fbc04ee2-4160-41d9-a9da-53799602e1de
+:END:
+#+begin_src conf
+    // Audio Module Configuration:
+    "pulseaudio": {
+        //"scroll-step": 1,
+        "format": "{volume}% {icon} ",
+        "format-bluetooth": "{volume}% {icon} ",
+        "format-muted": " ",
+        "on-click": "jamesdsp",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "default": ["", ""]
+            }
+     },
+#+end_src
+** Disk Settings Module Configuration:
+:PROPERTIES:
+:ID:       3ccbf699-ab0c-416b-83ec-c831b4f1b1a3
+:END:
+#+begin_src conf
+    // Disk Settings Module Configuration:
+        "disk": {
+            "path": "/",
+            "format": "{free} free in ~{path}",
+            "on-click": "gnome-disks",
+            "interval": 30,
+    }
+#+end_src
+* Closing Bracket:
+:PROPERTIES:
+:ID:       92ba0aeb-c65d-4164-99b3-af85e43b09ec
+:END:
+#+begin_src conf
+}
+#+end_src

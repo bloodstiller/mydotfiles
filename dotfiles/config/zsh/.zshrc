@@ -233,8 +233,8 @@ function reveal () {
                 gpg --decrypt --output ${output} "${1}" && echo "${1} -> ${output}"
 }
 
-if [[ -z "$TMUX" && -z "$SSH_CONNECTION" && -n "$DISPLAY" ]]; then
-  exec tmux new-session -A -s default \; source-file ~/.tmux.conf
-fi
+#if [[ -z "$TMUX" && -z "$SSH_CONNECTION" && -n "$DISPLAY" ]]; then
+#  exec tmux new-session -A -s default \; source-file ~/.tmux.conf
+#fi
 
   eval "$(starship init zsh)"

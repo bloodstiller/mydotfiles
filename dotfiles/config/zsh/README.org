@@ -669,10 +669,12 @@ function reveal () {
 :ID:       48b21f7a-ab4b-400d-9de3-01f750b543ae
 :END:
 - I prefer to have persistent sessions running when I am logged in. This ensures TMUX is running.
+  - Have since retired this as it was messing with my ability to save track terminal output using tmux logging.
+  - I now use https://github.com/tmux-plugins/tmux-resurrect to achieve the same purpose.
 #+begin_src bash
-if [[ -z "$TMUX" && -z "$SSH_CONNECTION" && -n "$DISPLAY" ]]; then
-  exec tmux new-session -A -s default \; source-file ~/.tmux.conf
-fi
+#if [[ -z "$TMUX" && -z "$SSH_CONNECTION" && -n "$DISPLAY" ]]; then
+#  exec tmux new-session -A -s default \; source-file ~/.tmux.conf
+#fi
 #+end_src
 * Starship Prompt:
 :PROPERTIES:
