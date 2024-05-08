@@ -171,11 +171,13 @@ alias urldecode='python3 -c "import sys, urllib.parse as ul; \
 alias urlencode='python3 -c "import sys, urllib.parse as ul; \
     print (ul.quote_plus(sys.argv[1]))"'
 
-    alias tmux-save-pane='tmux capture-pane -pS -'
+alias tmux-save-pane='tmux capture-pane -pS -'
 
-  alias dtu='dotdrop update'
+alias dtu='dotdrop update'
 
-  alias dti='dotdrop install'
+alias dti='dotdrop install'
+
+BROWSER=/usr/bin/brave
 
 alias dt='/home/martin/.config/mydotfiles'
 
@@ -237,4 +239,4 @@ function reveal () {
 #  exec tmux new-session -A -s default \; source-file ~/.tmux.conf
 #fi
 
-  eval "$(starship init zsh)"
+eval "$(starship init zsh)"

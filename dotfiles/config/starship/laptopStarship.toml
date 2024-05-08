@@ -90,3 +90,8 @@ style = "bold green"
 
 [php]
 format = "via [🔹 $version](147 bold) "
+
+[battery]
+full_symbol = '🔋 '
+charging_symbol = '⚡ '
+discharging_symbol = '💀 '

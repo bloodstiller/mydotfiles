@@ -137,6 +137,18 @@ dotfiles:
   f_mydotfiles_readme.org:
     src: config/mydotfiles/README.org
     dst: ~/.config/mydotfiles/README.org
+  f_laptopstarship.toml:
+    src: config/starship/laptopStarship.toml
+    dst: ~/.config/starship/laptopStarship.toml
+  f_starship_readme.org:
+    src: config/starship/README.org
+    dst: ~/.config/starship/README.org
+  f_starship_starship.toml:
+    src: config/starship/starship.toml
+    dst: ~/.config/starship/starship.toml
+  f_test.toml:
+    src: config/starship/test.toml
+    dst: ~/.config/starship/test.toml
 profiles:
   Lok:
     dotfiles:
@@ -175,6 +187,10 @@ profiles:
     - d_zsh
     - f_readme.org
     - f_mydotfiles_readme.org
+    - f_laptopstarship.toml
+    - f_starship_readme.org
+    - f_starship_starship.toml
+    - f_test.toml
   zeus:
     dotfiles:
     - d_alacritty

@@ -35,6 +35,7 @@
   - [[#alias---easy-url-encoding-and-decoding][Alias - Easy url encoding and decoding:]]
   - [[#alias---capture-entire-tmux-pane-from-start-of-session][Alias - Capture entire tmux pane from start of session:]]
   - [[#alias---dotrop][Alias - Dotrop:]]
+- [[#set-envs][Set ENVS:]]
 - [[#navigation][Navigation:]]
   - [[#navigate---to-dotrdrop-folder-to-manage-dotfiles-easier][Navigate - to dotrdrop folder to manage dotfiles easier:]]
   - [[#navigate---to-my-course-notes][Navigate - to my course notes:]]
@@ -408,9 +409,9 @@ alias urlencode='python3 -c "import sys, urllib.parse as ul; \
 :END:
 - This will save the entire tmux pane from the first commmand to where it is now and output to a desired folder.
   - Use ~tmux-save-pane > <outputfile>~
-    #+begin_src bash
-    alias tmux-save-pane='tmux capture-pane -pS -'
-    #+end_src
+#+begin_src bash
+alias tmux-save-pane='tmux capture-pane -pS -'
+#+end_src
 ** Alias - Dotrop:
 :PROPERTIES:
 :ID:       3849946d-fb6c-47aa-aa44-13a0741acbe5
@@ -421,16 +422,22 @@ alias urlencode='python3 -c "import sys, urllib.parse as ul; \
 :ID:       095b0031-ef32-409b-bdc6-00dec693d4f7
 :END:
   #+begin_src bash
-  alias dtu='dotdrop update'
+alias dtu='dotdrop update'
   #+end_src
 *** Alias - Dotrop Install:
 :PROPERTIES:
 :ID:       6c75ab30-4f03-4e4c-a556-e9a11b481a76
 :END:
-  #+begin_src bash
-  alias dti='dotdrop install'
-  #+end_src
-
+#+begin_src bash
+alias dti='dotdrop install'
+#+end_src
+* Set ENVS:
+:PROPERTIES:
+:ID:       306eebfd-689f-4c25-bcdc-9098090ce0b2
+:END:
+#+begin_src bash
+BROWSER=/usr/bin/brave
+#+end_src
 
 * Navigation:
 :PROPERTIES:
@@ -682,6 +689,6 @@ function reveal () {
 :END:
 - I like things to look good.
   - *Note* This has to stay at the bottom of the config.
-  #+begin_src bash
-  eval "$(starship init zsh)"
-  #+end_src
+#+begin_src bash
+eval "$(starship init zsh)"
+#+end_src
