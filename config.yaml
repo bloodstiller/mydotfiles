@@ -140,6 +140,264 @@ dotfiles:
   f_starship_starship.toml:
     src: config/starship/starship.toml
     dst: ~/.config/starship/starship.toml
+  f_alacritty.toml:
+    src: config/alacritty/alacritty.toml
+    dst: ~/.config/alacritty/alacritty.toml
+  f_alacritty.yml:
+    src: config/alacritty/alacritty.yml
+    dst: ~/.config/alacritty/alacritty.yml
+  f_alacritty.yml.1686430734744.bak:
+    src: config/alacritty/alacritty.yml.1686430734744.bak
+    dst: ~/.config/alacritty/alacritty.yml.1686430734744.bak
+  f_dracula.yml:
+    src: config/alacritty/dracula.yml
+    dst: ~/.config/alacritty/dracula.yml
+  f_alacritty_readme.org:
+    src: config/alacritty/README.org
+    dst: ~/.config/alacritty/README.org
+  f_current-theme.conf:
+    src: config/kitty/current-theme.conf
+    dst: ~/.config/kitty/current-theme.conf
+  f_dracula.conf:
+    src: config/kitty/dracula.conf
+    dst: ~/.config/kitty/dracula.conf
+  f_kitty.conf:
+    src: config/kitty/kitty.conf
+    dst: ~/.config/kitty/kitty.conf
+  f_kitty.conf.bak:
+    src: config/kitty/kitty.conf.bak
+    dst: ~/.config/kitty/kitty.conf.bak
+    chmod: '600'
+  f_babblevoiceinstaller.bat:
+    src: config/scripts/babblevoiceInstaller.bat
+    dst: ~/.config/scripts/babblevoiceInstaller.bat
+    chmod: '755'
+  f_cyber_coffee.sh:
+    src: config/scripts/cyber_coffee.sh
+    dst: ~/.config/scripts/cyber_coffee.sh
+    chmod: '755'
+  f_emacsclient-on-startup.ps1:
+    src: config/scripts/emacsclient-on-startup.ps1
+    dst: ~/.config/scripts/emacsclient-on-startup.ps1
+    chmod: '755'
+  f_installdracula.sh:
+    src: config/scripts/installDracula.sh
+    dst: ~/.config/scripts/installDracula.sh
+    chmod: '755'
+  f_jsstudy.sh:
+    src: config/scripts/jsstudy.sh
+    dst: ~/.config/scripts/jsstudy.sh
+    chmod: '755'
+  f_kalilaunch.sh:
+    src: config/scripts/kaliLaunch.sh
+    dst: ~/.config/scripts/kaliLaunch.sh
+    chmod: '755'
+  f_loop.sh:
+    src: config/scripts/loop.sh
+    dst: ~/.config/scripts/loop.sh
+    chmod: '755'
+  f_makepackagelist.sh:
+    src: config/scripts/makePackageList.sh
+    dst: ~/.config/scripts/makePackageList.sh
+    chmod: '755'
+  f_mnt_scsi.service:
+    src: config/scripts/mnt_scsi.service
+    dst: ~/.config/scripts/mnt_scsi.service
+    chmod: '755'
+  f_mnt_scsi.sh:
+    src: config/scripts/mnt_scsi.sh
+    dst: ~/.config/scripts/mnt_scsi.sh
+    chmod: '755'
+  f_newpentest.sh:
+    src: config/scripts/newpentest.sh
+    dst: ~/.config/scripts/newpentest.sh
+    chmod: '755'
+  f_oscp.sh:
+    src: config/scripts/oscp.sh
+    dst: ~/.config/scripts/oscp.sh
+    chmod: '755'
+  f_remove-keygrips.sh:
+    src: config/scripts/remove-keygrips.sh
+    dst: ~/.config/scripts/remove-keygrips.sh
+    chmod: '755'
+  f_start_work.ps1:
+    src: config/scripts/start_work.ps1
+    dst: ~/.config/scripts/start_work.ps1
+    chmod: '755'
+  f_start_work.sh:
+    src: config/scripts/start_work.sh
+    dst: ~/.config/scripts/start_work.sh
+    chmod: '755'
+  f_study.sh:
+    src: config/scripts/study.sh
+    dst: ~/.config/scripts/study.sh
+    chmod: '755'
+  f_vmbackup.sh:
+    src: config/scripts/vmbackup.sh
+    dst: ~/.config/scripts/vmbackup.sh
+    chmod: '755'
+  f_waybarrestart.sh:
+    src: config/scripts/waybarRestart.sh
+    dst: ~/.config/scripts/waybarRestart.sh
+    chmod: '755'
+  f_wayland_screenshot.sh:
+    src: config/scripts/wayland_screenshot.sh
+    dst: ~/.config/scripts/wayland_screenshot.sh
+    chmod: '755'
+  f_windowslaunch.sh:
+    src: config/scripts/windowsLaunch.sh
+    dst: ~/.config/scripts/windowsLaunch.sh
+    chmod: '755'
+  f_zshplugins.sh:
+    src: config/scripts/zshPlugins.sh
+    dst: ~/.config/scripts/zshPlugins.sh
+    chmod: '755'
+  f_config:
+    src: config/waybar/config
+    dst: ~/.config/waybar/config
+  f_laptopconfig:
+    src: config/waybar/laptopConfig
+    dst: ~/.config/waybar/laptopConfig
+  f_laptoptest:
+    src: config/waybar/laptopTest
+    dst: ~/.config/waybar/laptopTest
+  f_waybar_readme.org:
+    src: config/waybar/README.org
+    dst: ~/.config/waybar/README.org
+  f_hypr_laptophyprland.conf:
+    src: config/hypr/laptopHyprland.conf
+    dst: ~/.config/hypr/laptopHyprland.conf
+  f_tmux_readme.org:
+    src: config/tmux/README.org
+    dst: ~/.config/tmux/README.org
+  f_dunstrc:
+    src: config/dunst/dunstrc
+    dst: ~/.config/dunst/dunstrc
+  f_hooks_readme.org:
+    src: config/hooks/README.org
+    dst: ~/.config/hooks/README.org
+  f_i3_config:
+    src: config/i3/config
+    dst: ~/.config/i3/config
+  f_i3blocks.conf:
+    src: config/i3/i3blocks.conf
+    dst: ~/.config/i3/i3blocks.conf
+  f_keybindings:
+    src: config/i3/keybindings
+    dst: ~/.config/i3/keybindings
+  d_i3_scripts:
+    src: config/i3/scripts
+    dst: ~/.config/i3/scripts
+  f_init.lua:
+    src: config/nvim/init.lua
+    dst: ~/.config/nvim/init.lua
+  f_lazy-lock.json:
+    src: config/nvim/lazy-lock.json
+    dst: ~/.config/nvim/lazy-lock.json
+  f_lazyvim.json:
+    src: config/nvim/lazyvim.json
+    dst: ~/.config/nvim/lazyvim.json
+  f_license:
+    src: config/nvim/LICENSE
+    dst: ~/.config/nvim/LICENSE
+  d_lua:
+    src: config/nvim/lua
+    dst: ~/.config/nvim/lua
+  f_norg.lua:
+    src: config/nvim/norg.lua
+    dst: ~/.config/nvim/norg.lua
+  f_readme.md:
+    src: config/nvim/README.md
+    dst: ~/.config/nvim/README.md
+  f_stylua.toml:
+    src: config/nvim/stylua.toml
+    dst: ~/.config/nvim/stylua.toml
+  f_lok-foreignpkglist.txt:
+    src: config/packages/Lok-foreignpkglist.txt
+    dst: ~/.config/packages/Lok-foreignpkglist.txt
+  f_lok-pkglist.txt:
+    src: config/packages/Lok-pkglist.txt
+    dst: ~/.config/packages/Lok-pkglist.txt
+  f_zeus-foreignpkglist.txt:
+    src: config/packages/zeus-foreignpkglist.txt
+    dst: ~/.config/packages/zeus-foreignpkglist.txt
+  f_zeus-pkglist.txt:
+    src: config/packages/zeus-pkglist.txt
+    dst: ~/.config/packages/zeus-pkglist.txt
+  d_bookmarks:
+    src: config/qutebrowser/bookmarks
+    dst: ~/.config/qutebrowser/bookmarks
+  f_config.py:
+    src: config/qutebrowser/config.py
+    dst: ~/.config/qutebrowser/config.py
+  f_quickmarks:
+    src: config/qutebrowser/quickmarks
+    dst: ~/.config/qutebrowser/quickmarks
+  f_arc_dark_colors.rasi:
+    src: config/rofi/arc_dark_colors.rasi
+    dst: ~/.config/rofi/arc_dark_colors.rasi
+  f_arc_dark_transparent_colors.rasi:
+    src: config/rofi/arc_dark_transparent_colors.rasi
+    dst: ~/.config/rofi/arc_dark_transparent_colors.rasi
+  f_powermenu.rasi:
+    src: config/rofi/powermenu.rasi
+    dst: ~/.config/rofi/powermenu.rasi
+  f_power-profiles.rasi:
+    src: config/rofi/power-profiles.rasi
+    dst: ~/.config/rofi/power-profiles.rasi
+  f_rofidmenu.rasi:
+    src: config/rofi/rofidmenu.rasi
+    dst: ~/.config/rofi/rofidmenu.rasi
+  f_rofikeyhint.rasi:
+    src: config/rofi/rofikeyhint.rasi
+    dst: ~/.config/rofi/rofikeyhint.rasi
+  f_rsnapshot_readme.org:
+    src: config/rsnapshot/README.org
+    dst: ~/.config/rsnapshot/README.org
+  f_rsnapshot.conf:
+    src: config/rsnapshot/rsnapshot.conf
+    dst: ~/.config/rsnapshot/rsnapshot.conf
+  f_rsnapshot.conf.default:
+    src: config/rsnapshot/rsnapshot.conf.default
+    dst: ~/.config/rsnapshot/rsnapshot.conf.default
+  d_rsnapshotservice:
+    src: config/service/rsnapshotService
+    dst: ~/.config/service/rsnapshotService
+  f_sway_config:
+    src: config/sway/config
+    dst: ~/.config/sway/config
+  f_lockman.sh:
+    src: config/sway/lockman.sh
+    dst: ~/.config/sway/lockman.sh
+  f_way_lock.sh:
+    src: config/sway/way_lock.sh
+    dst: ~/.config/sway/way_lock.sh
+    chmod: '755'
+  f_wofi_config:
+    src: config/wofi/config
+    dst: ~/.config/wofi/config
+  f_config.power:
+    src: config/wofi/config.power
+    dst: ~/.config/wofi/config.power
+  f_config.screenshot:
+    src: config/wofi/config.screenshot
+    dst: ~/.config/wofi/config.screenshot
+  f_wofi_style.css:
+    src: config/wofi/style.css
+    dst: ~/.config/wofi/style.css
+  f_style.widgets.css:
+    src: config/wofi/style.widgets.css
+    dst: ~/.config/wofi/style.widgets.css
+  f_sway-select-window.sh:
+    src: config/wofi/sway-select-window.sh
+    dst: ~/.config/wofi/sway-select-window.sh
+    chmod: '755'
+  f_windows.py:
+    src: config/wofi/windows.py
+    dst: ~/.config/wofi/windows.py
+  f_zsh_readme.org:
+    src: config/zsh/README.org
+    dst: ~/.config/zsh/README.org
 profiles:
   Lok:
     dotfiles:
@@ -180,6 +438,89 @@ profiles:
     - f_laptopstarship.toml
     - f_starship_readme.org
     - f_starship_starship.toml
+    - f_alacritty.toml
+    - f_alacritty.yml
+    - f_alacritty.yml.1686430734744.bak
+    - f_dracula.yml
+    - f_alacritty_readme.org
+    - f_current-theme.conf
+    - f_dracula.conf
+    - f_kitty.conf
+    - f_kitty.conf.bak
+    - f_babblevoiceinstaller.bat
+    - f_cyber_coffee.sh
+    - f_emacsclient-on-startup.ps1
+    - f_installdracula.sh
+    - f_jsstudy.sh
+    - f_kalilaunch.sh
+    - f_loop.sh
+    - f_makepackagelist.sh
+    - f_mnt_scsi.service
+    - f_mnt_scsi.sh
+    - f_newpentest.sh
+    - f_oscp.sh
+    - f_remove-keygrips.sh
+    - f_start_work.ps1
+    - f_start_work.sh
+    - f_study.sh
+    - f_vmbackup.sh
+    - f_waybarrestart.sh
+    - f_wayland_screenshot.sh
+    - f_windowslaunch.sh
+    - f_zshplugins.sh
+    - f_colors.css
+    - f_config
+    - f_laptopconfig
+    - f_laptoptest
+    - f_mediaplayer.py
+    - f_waybar_readme.org
+    - d_waybar_scripts
+    - f_style.css
+    - d_themes
+    - f_hypr_laptophyprland.conf
+    - f_tmux_readme.org
+    - f_dunstrc
+    - f_hooks_readme.org
+    - f_i3_config
+    - f_i3blocks.conf
+    - f_keybindings
+    - d_i3_scripts
+    - f_init.lua
+    - f_lazy-lock.json
+    - f_lazyvim.json
+    - f_license
+    - d_lua
+    - f_norg.lua
+    - f_readme.md
+    - f_stylua.toml
+    - f_lok-foreignpkglist.txt
+    - f_lok-pkglist.txt
+    - f_zeus-foreignpkglist.txt
+    - f_zeus-pkglist.txt
+    - d_bookmarks
+    - f_config.py
+    - f_quickmarks
+    - f_arc_dark_colors.rasi
+    - f_arc_dark_transparent_colors.rasi
+    - f_powermenu.rasi
+    - f_power-profiles.rasi
+    - f_rofidmenu.rasi
+    - f_rofikeyhint.rasi
+    - f_rsnapshot_readme.org
+    - f_rsnapshot.conf
+    - f_rsnapshot.conf.default
+    - d_rsnapshotservice
+    - f_sway_config
+    - f_lockman.sh
+    - f_way_lock.sh
+    - f_wofi_config
+    - f_config.power
+    - f_config.screenshot
+    - f_wofi_style.css
+    - f_style.widgets.css
+    - f_sway-select-window.sh
+    - f_windows.py
+    - f_zsh_readme.org
   zeus:
     dotfiles:
     - d_alacritty
