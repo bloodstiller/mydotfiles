@@ -83,15 +83,9 @@ dotfiles:
   d_doom:
     src: config/doom
     dst: ~/.config/doom
-  f_starship.toml:
-    src: config/starship.toml
-    dst: ~/.config/starship.toml
   f_laptophyprland.conf:
     src: config/hypr/laptopHyprland.conf
     dst: ~/.config/hypr/hyprland.conf
-  f_laptopconfig:
-    src: config/waybar/laptopConfig
-    dst: ~/.config/waybar/config
   d_scripts:
     src: config/scripts
     dst: ~/.config/scripts
@@ -146,9 +140,6 @@ dotfiles:
   f_starship_starship.toml:
     src: config/starship/starship.toml
     dst: ~/.config/starship/starship.toml
-  f_test.toml:
-    src: config/starship/test.toml
-    dst: ~/.config/starship/test.toml
 profiles:
   Lok:
     dotfiles:
@@ -177,7 +168,6 @@ profiles:
     - f_pyprland.toml
     - f_variables.conf
     - d_doom
-    - f_starship.toml
     - d_scripts
     - f_clean_cache.hook
     - f_maintainpackages.hook
@@ -215,9 +205,7 @@ profiles:
     - f_pyprland.toml
     - f_variables.conf
     - d_doom
-    - f_starship.toml
     - f_laptophyprland.conf
-    - f_laptopconfig
     - d_scripts
     - f_waybar_laptopconfig
     - d_waybar_scripts
