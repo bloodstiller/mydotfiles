@@ -2,13 +2,15 @@
 
 # Vars
 chrome=/usr/bin/google-chrome-stable
-bvVersion="a/2.13.7"
+
+# Retrieve the version number using `curl`
+bvVersion=$(curl -s https://www.babblevoice.com/a/current)
 
 # Define URLs as an array
 declare -a urls=(
     "https://omniis.zendesk.com/agent/dashboard"
-    "https://www.babblevoice.com/${bvVersion}/#/"
-    "https://www.babblevoice.com/${bvVersion}/admin/#/"
+    "https://www.babblevoice.com/a/${bvVersion}/#/"
+    "https://www.babblevoice.com/a/${bvVersion}/admin/#/"
     "https://www.babblevoice.com/p4a/applications/babble/?newsession=1"
     "https://drive.google.com/drive/my-drive"
     "https://docs.google.com/spreadsheets/d/1I3E14TsD69NZmuKexGW1iN44xL-MYOt1ct3MLHKRCXk/edit#gid=0"
@@ -27,7 +29,7 @@ open_emails() {
 }
 
 open_desktop() {
-    /usr/bin/google-chrome-stable --new-window "https://www.babblevoice.com/$bvVersion/desktop/#" &
+    /usr/bin/google-chrome-stable --new-window "https://www.babblevoice.com/a/$bvVersion/desktop/#" &
 }
 
 #open_tasks() {
@@ -42,9 +44,6 @@ launch_todoist() {
     ~/Applications/Todoist-linux-8.12.2-x86_64_89afa4388cbce63f0a563938b4714e22.AppImage &
 }
 
-#launch_slack_web() {
-#    /usr/bin/google-chrome-stable --new-window "https://app.slack.com/client/T40M8SKPA/C41ALLC91" &
-#}
 # Launch Google Chrome with all required browser-based apps
 launch_chrome "${urls[@]}"
 
@@ -53,11 +52,6 @@ open_emails
 
 # Open desktop for calls
 open_desktop
-
-# Open Google Tasks
-#open_tasks
-
-#
 
 # Launch Slack
 launch_slack

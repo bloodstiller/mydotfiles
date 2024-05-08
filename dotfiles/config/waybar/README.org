@@ -11,7 +11,7 @@
 - [[#desktop-configuration][Desktop Configuration:]]
   - [[#opening-bracket][Opening Bracket:]]
   - [[#module-positions][Module Positions:]]
-  - [[#modules-configuration][Modules Configuration:]]
+  - [[#module-configurations][Module Configurations:]]
   - [[#closing-bracket][Closing Bracket:]]
 - [[#laptop-configuration][Laptop Configuration:]]
   - [[#laptop-battery-module-configuration][Laptop-Battery-Module-Configuration:]]
@@ -130,7 +130,7 @@
         //"custom/power",
     ],
 #+end_src
-** Modules Configuration:
+** Module Configurations:
 :PROPERTIES:
 :ID:       574b7fb9-247f-4fb4-837c-5a83f98ab8d7
 :END:

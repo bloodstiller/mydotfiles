@@ -273,4 +273,4 @@
             "format": "{free} free in ~{path}",
             "on-click": "gnome-disks",
             "interval": 30,
-   }
+}
