@@ -398,6 +398,30 @@ dotfiles:
   f_zsh_readme.org:
     src: config/zsh/README.org
     dst: ~/.config/zsh/README.org
+  f_bookmarks:
+    src: config/doom/bookmarks
+    dst: ~/.config/doom/bookmarks
+  f_config.el:
+    src: config/doom/config.el
+    dst: ~/.config/doom/config.el
+  f_custom.el:
+    src: config/doom/custom.el
+    dst: ~/.config/doom/custom.el
+  f_dir-locals.el:
+    src: config/doom/dir-locals.el
+    dst: ~/.config/doom/dir-locals.el
+  f_init.el:
+    src: config/doom/init.el
+    dst: ~/.config/doom/init.el
+  f_packages.el:
+    src: config/doom/packages.el
+    dst: ~/.config/doom/packages.el
+  f_doom_readme.org:
+    src: config/doom/README.org
+    dst: ~/.config/doom/README.org
+  d_snippets:
+    src: config/doom/snippets
+    dst: ~/.config/doom/snippets
 profiles:
   Lok:
     dotfiles:
@@ -521,6 +545,14 @@ profiles:
     - f_sway-select-window.sh
     - f_windows.py
     - f_zsh_readme.org
+    - f_bookmarks
+    - f_config.el
+    - f_custom.el
+    - f_dir-locals.el
+    - f_init.el
+    - f_packages.el
+    - f_doom_readme.org
+    - d_snippets
   zeus:
     dotfiles:
     - d_alacritty
