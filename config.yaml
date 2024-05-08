@@ -190,7 +190,6 @@ profiles:
     - f_laptopstarship.toml
     - f_starship_readme.org
     - f_starship_starship.toml
-    - f_test.toml
   zeus:
     dotfiles:
     - d_alacritty
@@ -234,3 +233,6 @@ profiles:
     - d_zsh
     - f_readme.org
     - f_mydotfiles_readme.org
+    - f_laptopstarship.toml
+    - d_config_tmux
+    - f_starship_readme.org
