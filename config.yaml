@@ -97,7 +97,7 @@ dotfiles:
     dst: ~/.config/scripts
   f_waybar_laptopconfig:
     src: config/waybar/laptopConfig
-    dst: ~/.config/waybar/laptopConfig
+    dst: ~/.config/waybar/config
   d_waybar_scripts:
     src: config/waybar/scripts
     dst: ~/.config/waybar/scripts
