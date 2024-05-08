@@ -336,6 +336,8 @@ discharging_symbol = '💀 '
 :ID:       5467004f-7609-4ab2-b87c-05048909312e
 :header-args: :tangle ~/.config/starship/starship.toml
 :END:
+
+- Generate starship.toml
 #+begin_src conf :noweb yes
 <<Set-Timeout>>
 <<Print-NewLine>>
@@ -362,6 +364,7 @@ discharging_symbol = '💀 '
 :ID:       255529a0-036a-4d06-b038-be346fdb45d7
 :header-args: :tangle ~/.config/starship/laptopStarship.toml
 :END:
+- Generate laptopStarship.toml
 #+begin_src conf :noweb yes
 <<Set-Timeout>>
 <<Print-NewLine>>

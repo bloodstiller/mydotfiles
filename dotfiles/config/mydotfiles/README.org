@@ -12,9 +12,12 @@
   - Contains my custom packman hooks literate config.
 - [[file:/dotfiles/config/hypr/README.org][Hyprland Config]]:
   - Contains my hyperland literate config.
+    - For both my desktop (running AMD GPU) & my laptop which has an Nvidia GPU.
 - [[file:/dotfiles/config/zsh/README.org][zsh Config]]:
   - Contains my zsh literate config.
 - [[file:/dotfiles/config/rsnapshot/README.org][Rsnapshot Conf & Service Files]]:
+  - Contains my rsnapshot conf and service files literate config.
+- [[file:/dotfiles/config/starship/README.org][Starship Laptop & Desktop Configs]]
   - Contains my rsnapshot conf and service files literate config.
 - [[file:/dotfiles/config/waybar/README.org][Way Bar Config]]
   - Contains my waybar literate config.
