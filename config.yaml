@@ -422,6 +422,54 @@ dotfiles:
   d_snippets:
     src: config/doom/snippets
     dst: ~/.config/doom/snippets
+  f_application.org:
+    src: config/orgTemplates/Application.org
+    dst: ~/.config/orgTemplates/Application.org
+  f_attacktemplate.org:
+    src: config/orgTemplates/AttackTemplate.org
+    dst: ~/.config/orgTemplates/AttackTemplate.org
+  f_boxtemplate.org:
+    src: config/orgTemplates/BoxTemplate.org
+    dst: ~/.config/orgTemplates/BoxTemplate.org
+  f_cptssection.org:
+    src: config/orgTemplates/CPTSSection.org
+    dst: ~/.config/orgTemplates/CPTSSection.org
+  f_dailyreview.org:
+    src: config/orgTemplates/DailyReview.org
+    dst: ~/.config/orgTemplates/DailyReview.org
+  f_engagementtemplate.org:
+    src: config/orgTemplates/EngagementTemplate.org
+    dst: ~/.config/orgTemplates/EngagementTemplate.org
+  f_methodtemplate.org:
+    src: config/orgTemplates/MethodTemplate.org
+    dst: ~/.config/orgTemplates/MethodTemplate.org
+  f_newpentest.org:
+    src: config/orgTemplates/NewPenTest.org
+    dst: ~/.config/orgTemplates/NewPenTest.org
+  f_oldbox.org:
+    src: config/orgTemplates/OLDBox.org
+    dst: ~/.config/orgTemplates/OLDBox.org
+  f_pentest.org:
+    src: config/orgTemplates/Pentest.org
+    dst: ~/.config/orgTemplates/Pentest.org
+  f_projectendtemplate.org:
+    src: config/orgTemplates/ProjectEndTemplate.org
+    dst: ~/.config/orgTemplates/ProjectEndTemplate.org
+  f_projectstarttemplate.org:
+    src: config/orgTemplates/ProjectStartTemplate.org
+    dst: ~/.config/orgTemplates/ProjectStartTemplate.org
+  f_servicetemplate.org:
+    src: config/orgTemplates/ServiceTemplate.org
+    dst: ~/.config/orgTemplates/ServiceTemplate.org
+  f_sqli-labs.org:
+    src: config/orgTemplates/SQLI Labs.org
+    dst: ~/.config/orgTemplates/SQLI Labs.org
+  f_test.org:
+    src: config/orgTemplates/Test.org
+    dst: ~/.config/orgTemplates/Test.org
+  f_tooltemplate.org:
+    src: config/orgTemplates/ToolTemplate.org
+    dst: ~/.config/orgTemplates/ToolTemplate.org
 profiles:
   Lok:
     dotfiles:
@@ -553,6 +601,22 @@ profiles:
     - f_packages.el
     - f_doom_readme.org
     - d_snippets
+    - f_application.org
+    - f_attacktemplate.org
+    - f_boxtemplate.org
+    - f_cptssection.org
+    - f_dailyreview.org
+    - f_engagementtemplate.org
+    - f_methodtemplate.org
+    - f_newpentest.org
+    - f_oldbox.org
+    - f_pentest.org
+    - f_projectendtemplate.org
+    - f_projectstarttemplate.org
+    - f_servicetemplate.org
+    - f_sqli-labs.org
+    - f_test.org
+    - f_tooltemplate.org
   zeus:
     dotfiles:
     - d_alacritty

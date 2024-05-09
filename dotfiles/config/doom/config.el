@@ -380,39 +380,43 @@
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
       :unnarrowed t)
   ("s" "Service" plain
-  (file "/home/martin/Dropbox/01-09_System/04-Templates/ServiceTemplate.org")
+  (file "~/.config/orgTemplates/ServiceTemplate.org")
+  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+  :unnarrowed t)
+  ("n" "New Pentest" plain
+  (file "~/.config/orgTemplates/Pentest.org")
   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t)
  ("t" "Tool" plain
-  (file "/home/martin/Dropbox/01-09_System/04-Templates/ToolTemplate.org")
+  (file "~/.config/orgTemplates/ToolTemplate.org")
   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t)
  ("m" "Method" plain
-  (file "/home/martin/Dropbox/01-09_System/04-Templates/MethodTemplate.org")
+  (file "~/.config/orgTemplates/MethodTemplate.org")
   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t)
  ("a" "Attack Type" plain
-  (file "/home/martin/Dropbox/01-09_System/04-Templates/AttackTemplate.org")
+  (file "~/.config/orgTemplates/AttackTemplate.org")
   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t)
  ("A" "Application" plain
-  (file "/home/martin/Dropbox/01-09_System/04-Templates/Application.org")
+  (file "~/.config/orgTemplates/Application.org")
   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t)
  ("c" "CPTS Module" plain
-  (file "/home/martin/Dropbox/01-09_System/04-Templates/CPTSSection.org")
+  (file "~/.config/orgTemplates/CPTSSection.org")
   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t)
  ("p" "Start Project" plain
-  (file "/home/martin/Dropbox/01-09_System/04-Templates/ProjectStartTemplate.org")
+  (file "~/.config/orgTemplates/ProjectStartTemplate.org")
   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t)
  ("P" "End Project" plain
-  (file "/home/martin/Dropbox/01-09_System/04-Templates/ProjectEndTemplate.org")
+  (file "~/.config/orgTemplates/ProjectEndTemplate.org")
   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t)
  ("b" "Box" plain
-  (file "/home/martin/Dropbox/01-09_System/04-Templates/BoxTemplate.org")
+  (file "~/.config/orgTemplates/BoxTemplate.org")
   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t)))
 
