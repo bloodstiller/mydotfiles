@@ -606,16 +606,10 @@ profiles:
     - f_boxtemplate.org
     - f_cptssection.org
     - f_dailyreview.org
-    - f_engagementtemplate.org
-    - f_methodtemplate.org
-    - f_newpentest.org
-    - f_oldbox.org
     - f_pentest.org
     - f_projectendtemplate.org
     - f_projectstarttemplate.org
     - f_servicetemplate.org
-    - f_sqli-labs.org
-    - f_test.org
     - f_tooltemplate.org
   zeus:
     dotfiles:
@@ -666,14 +660,8 @@ profiles:
     - f_boxtemplate.org
     - f_cptssection.org
     - f_dailyreview.org
-    - f_engagementtemplate.org
-    - f_methodtemplate.org
-    - f_newpentest.org
-    - f_oldbox.org
     - f_pentest.org
     - f_projectendtemplate.org
     - f_projectstarttemplate.org
     - f_servicetemplate.org
-    - f_sqli-labs.org
-    - f_test.org
     - f_tooltemplate.org

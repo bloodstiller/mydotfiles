@@ -1,5 +1,4 @@
 :PROPERTIES:
-:ID:       82a07882-2607-4b37-9f14-93fac880669d
 :END:
 #+title: Project Completion End Checklist
 #+filetags: template checklist

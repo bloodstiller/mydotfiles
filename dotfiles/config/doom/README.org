@@ -764,16 +764,16 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 :END:
 | **Path To Template**                              | **Description** | **Keybinding** |
 |-------------------------------------------------+---------------+--------------|
-| ~/.config/orgTemplates/ServiceTemplate.org      | Service       | s            |
-| ~/.config/orgTemplates/Pentest.org              | New Pentest   | n            |
-| ~/.config/orgTemplates/ToolTemplate.org         | Tool          | t            |
-| ~/.config/orgTemplates/MethodTemplate.org       | Method        | m            |
-| ~/.config/orgTemplates/AttackTemplate.org       | Attack Type   | a            |
 | ~/.config/orgTemplates/Application.org          | Application   | A            |
-| ~/.config/orgTemplates/CPTSSection.org          | CPTS Module   | c            |
-| ~/.config/orgTemplates/ProjectStartTemplate.org | Start Project | p            |
-| ~/.config/orgTemplates/ProjectEndTemplate.org   | End Project   | P            |
+| ~/.config/orgTemplates/AttackTemplate.org       | Attack Type   | a            |
 | ~/.config/orgTemplates/BoxTemplate.org          | Box           | b            |
+| ~/.config/orgTemplates/CPTSSection.org          | CPTS Module   | c            |
+| ~/.config/orgTemplates/DailyReview.org          | Daily Review  | d            |
+| ~/.config/orgTemplates/Pentest.org              | New Pentest   | p            |
+| ~/.config/orgTemplates/ProjectStartTemplate.org | Start Project | n            |
+| ~/.config/orgTemplates/ProjectEndTemplate.org   | End Project   | N            |
+| ~/.config/orgTemplates/ServiceTemplate.org      | Service       | s            |
+| ~/.config/orgTemplates/ToolTemplate.org         | Tool          | t            |
 |-------------------------------------------------+---------------+--------------|
 
 #+begin_src emacs-lisp
@@ -783,47 +783,59 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
       "%?"
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
       :unnarrowed t)
-  ("s" "Service" plain
-  (file "~/.config/orgTemplates/ServiceTemplate.org")
-  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
-  :unnarrowed t)
-  ("n" "New Pentest" plain
-  (file "~/.config/orgTemplates/Pentest.org")
-  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
-  :unnarrowed t)
- ("t" "Tool" plain
-  (file "~/.config/orgTemplates/ToolTemplate.org")
-  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
-  :unnarrowed t)
- ("m" "Method" plain
-  (file "~/.config/orgTemplates/MethodTemplate.org")
-  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
-  :unnarrowed t)
- ("a" "Attack Type" plain
-  (file "~/.config/orgTemplates/AttackTemplate.org")
-  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
-  :unnarrowed t)
+
  ("A" "Application" plain
   (file "~/.config/orgTemplates/Application.org")
   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t)
+
+ ("a" "Attack Type" plain
+  (file "~/.config/orgTemplates/AttackTemplate.org")
+  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+  :unnarrowed t)
+
+ ("b" "Box" plain
+  (file "~/.config/orgTemplates/BoxTemplate.org")
+  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+  :unnarrowed t)
+
  ("c" "CPTS Module" plain
   (file "~/.config/orgTemplates/CPTSSection.org")
   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t)
- ("p" "Start Project" plain
+
+ ("d" "Daily Review" plain
+  (file "~/.config/orgTemplates/DailyReview.org")
+  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+  :unnarrowed t)
+
+  ("p" "Pentest" plain
+  (file "~/.config/orgTemplates/Pentest.org")
+  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+  :unnarrowed t)
+
+
+ ("n" "Start Project" plain
   (file "~/.config/orgTemplates/ProjectStartTemplate.org")
   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t)
- ("P" "End Project" plain
+
+ ("N" "End Project" plain
   (file "~/.config/orgTemplates/ProjectEndTemplate.org")
   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t)
- ("b" "Box" plain
-  (file "~/.config/orgTemplates/BoxTemplate.org")
+
+  ("s" "Service" plain
+  (file "~/.config/orgTemplates/ServiceTemplate.org")
+  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+  :unnarrowed t)
+
+ ("t" "Tool" plain
+  (file "~/.config/orgTemplates/ToolTemplate.org")
   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t)))
 #+end_src
+
 **** Roam - Render Large Files Faster:
 :PROPERTIES:
 :ID:       7160b423-b9b2-4244-bc8f-2d392e3bb157

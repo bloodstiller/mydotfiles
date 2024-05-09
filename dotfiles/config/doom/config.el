@@ -379,44 +379,55 @@
       "%?"
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
       :unnarrowed t)
-  ("s" "Service" plain
-  (file "~/.config/orgTemplates/ServiceTemplate.org")
-  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
-  :unnarrowed t)
-  ("n" "New Pentest" plain
-  (file "~/.config/orgTemplates/Pentest.org")
-  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
-  :unnarrowed t)
- ("t" "Tool" plain
-  (file "~/.config/orgTemplates/ToolTemplate.org")
-  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
-  :unnarrowed t)
- ("m" "Method" plain
-  (file "~/.config/orgTemplates/MethodTemplate.org")
-  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
-  :unnarrowed t)
- ("a" "Attack Type" plain
-  (file "~/.config/orgTemplates/AttackTemplate.org")
-  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
-  :unnarrowed t)
+
  ("A" "Application" plain
   (file "~/.config/orgTemplates/Application.org")
   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t)
+
+ ("a" "Attack Type" plain
+  (file "~/.config/orgTemplates/AttackTemplate.org")
+  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+  :unnarrowed t)
+
+ ("b" "Box" plain
+  (file "~/.config/orgTemplates/BoxTemplate.org")
+  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+  :unnarrowed t)
+
  ("c" "CPTS Module" plain
   (file "~/.config/orgTemplates/CPTSSection.org")
   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t)
- ("p" "Start Project" plain
+
+ ("d" "Daily Review" plain
+  (file "~/.config/orgTemplates/DailyReview.org")
+  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+  :unnarrowed t)
+
+  ("p" "Pentest" plain
+  (file "~/.config/orgTemplates/Pentest.org")
+  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+  :unnarrowed t)
+
+
+ ("n" "Start Project" plain
   (file "~/.config/orgTemplates/ProjectStartTemplate.org")
   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t)
- ("P" "End Project" plain
+
+ ("N" "End Project" plain
   (file "~/.config/orgTemplates/ProjectEndTemplate.org")
   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t)
- ("b" "Box" plain
-  (file "~/.config/orgTemplates/BoxTemplate.org")
+
+  ("s" "Service" plain
+  (file "~/.config/orgTemplates/ServiceTemplate.org")
+  :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+  :unnarrowed t)
+
+ ("t" "Tool" plain
+  (file "~/.config/orgTemplates/ToolTemplate.org")
   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
   :unnarrowed t)))
 

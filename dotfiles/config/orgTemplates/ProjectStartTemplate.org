@@ -1,5 +1,4 @@
 :PROPERTIES:
-:ID:       5c0ce4b4-8301-4255-9e36-367de3506l82
 :END:
 #+title: Project Kickoff Start Checklist
 #+filetags: template checklist
