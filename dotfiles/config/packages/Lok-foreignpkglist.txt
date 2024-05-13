@@ -21,7 +21,6 @@ jamesdsp
 jwhois
 kazam
 musikcube
-neovim-nightly-bin
 phpactor
 pomatez
 potato

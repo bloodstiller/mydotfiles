@@ -1035,6 +1035,50 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 
 #+end_src
 
+*** INSERT DATE:
+:PROPERTIES:
+:ID:       a9b4be95-d099-400e-a095-c86c301a55fb
+:END:
+- Taken directly from: https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/doom/config.org?ref_type=heads
+  - I have added the insert time parts
+Some custom functions to insert the date.  The function 'insert-todays-date' can be used one of three different ways: (1) just the keybinding without the universal argument prefix, (2) with one universal argument prefix, or (3) with two universal argument prefixes.  The universal argument prefix is 'SPC-u' in Doom Emacs (C-u in standard GNU Emacs).  The function 'insert-any-date' only outputs to one format, which is the same format as 'insert-todays-date' without a prefix.
+
+| COMMAND               | EXAMPLE OUTPUT            | KEYBINDING            |
+|-----------------------+---------------------------+-----------------------|
+| dt/insert-todays-date | /Friday, November 19, 2021/ | SPC i d t             |
+| dt/insert-todays-date | /19-11-2021/                | SPC u SPC i d t       |
+| dt/insert-todays-date | /2021-11-19/                | SPC u SPC u SPC i d t |
+| dt/insert-any-date    | /Friday, November 19, 2021/ | SPC i d a             |
+
+#+begin_src emacs-lisp
+(defun dt/insert-todays-date (prefix)
+  "Insert today's date based on a prefix."
+  (interactive "P")
+  (let ((format (cond
+                 ((not prefix) "%A, %B %d, %Y")
+                 ((equal prefix '(4)) "%d-%m-%Y")
+                 ((equal prefix '(16)) "%Y-%m-%d"))))
+    (insert (format-time-string format))))
+
+(defun dt/insert-current-time ()
+  "Insert the current time in HH:MM:SS format."
+  (interactive)
+  (insert (format-time-string "%H:%M:%S")))
+
+(require 'calendar)
+(defun dt/insert-any-date (date)
+  "Insert DATE using the current locale."
+  (interactive (list (calendar-read-date)))
+  (insert (calendar-date-string date)))
+
+(map! :leader
+      (:prefix ("i d" . "Insert date/time")
+        :desc "Insert any date"    "a" #'dt/insert-any-date
+        :desc "Insert today's date" "t" #'dt/insert-todays-date
+        :desc "Insert current time" "c" #'dt/insert-current-time))
+#+end_src
+
+
 * packages.el:
 :PROPERTIES:
 :ID:       e8e9c48f-7898-45fd-b2eb-9a1d542991b6

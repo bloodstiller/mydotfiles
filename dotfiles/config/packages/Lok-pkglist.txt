@@ -98,6 +98,7 @@ man-pages
 mpv
 nano-syntax-highlighting
 nautilus
+neovim
 netctl
 network-manager-applet
 networkmanager-openconnect

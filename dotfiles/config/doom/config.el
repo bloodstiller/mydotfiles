@@ -536,3 +536,29 @@
 ;; Enables Emofis
 (use-package emojify
   :hook (after-init . global-emojify-mode))
+
+(defun dt/insert-todays-date (prefix)
+  "Insert today's date based on a prefix."
+  (interactive "P")
+  (let ((format (cond
+                 ((not prefix) "%A, %B %d, %Y")
+                 ((equal prefix '(4)) "%d-%m-%Y")
+                 ((equal prefix '(16)) "%Y-%m-%d"))))
+    (insert (format-time-string format))))
+
+(defun dt/insert-current-time ()
+  "Insert the current time in HH:MM:SS format."
+  (interactive)
+  (insert (format-time-string "%H:%M:%S")))
+
+(require 'calendar)
+(defun dt/insert-any-date (date)
+  "Insert DATE using the current locale."
+  (interactive (list (calendar-read-date)))
+  (insert (calendar-date-string date)))
+
+(map! :leader
+      (:prefix ("i d" . "Insert date/time")
+        :desc "Insert any date"    "a" #'dt/insert-any-date
+        :desc "Insert today's date" "t" #'dt/insert-todays-date
+        :desc "Insert current time" "c" #'dt/insert-current-time))
