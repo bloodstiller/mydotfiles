@@ -631,12 +631,12 @@ listener {
 }
 
 # Suspend
-listener {
-    # SUSPEND TIMEOUT
-    timeout = 1800
+#listener {
+#    # SUSPEND TIMEOUT
+#    timeout = 1800
     #SUSPEND ONTIMEOUT
-    on-timeout = systemctl suspend
-}
+#    on-timeout = systemctl suspend
+#}
 
 #+end_src
 * Hyprlock:
