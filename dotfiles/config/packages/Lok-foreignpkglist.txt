@@ -4,6 +4,7 @@ alacritty-themes
 anydesk-bin
 appimagelauncher
 brave-bin
+clipboard-sync
 cryptomator-bin
 debtap
 dotdrop
@@ -14,13 +15,12 @@ extension-manager
 filebrowser-bin
 filen-desktop-appimage
 flashfocus-git
-gnome-shell-extension-pop-shell-bin
 google-chrome
 i3-resurrect
 jamesdsp
 jwhois
 kazam
-musikcube
+mullvad-vpn-bin
 phpactor
 pomatez
 potato
@@ -35,7 +35,6 @@ seclists
 shellcheck-bin
 slack-desktop
 sngrep
-spotifatius
 spotify
 swappy-git
 sway-systemd
@@ -48,4 +47,3 @@ whatweb
 wireshark-git
 wlogout
 xdg-ninja
-youtube-dl

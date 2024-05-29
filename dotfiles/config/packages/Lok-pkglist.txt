@@ -48,7 +48,6 @@ eos-update-notifier
 ethtool
 eza
 fail2ban
-fd
 firefox
 flameshot
 flatpak
@@ -78,7 +77,6 @@ hugo
 hwdetect
 hwinfo
 hypridle
-hyprland
 hyprlock
 i3blocks
 inetutils
@@ -107,7 +105,6 @@ ntp
 nushell
 obs-studio
 obsidian
-okular
 pavucontrol
 polkit-gnome
 pv
@@ -185,8 +182,10 @@ xorg-xsetroot
 xorg-xvinfo
 xorg-xwd
 xorg-xwud
+yazi
 yubico-pam
 yubikey-full-disk-encryption
 yubikey-manager-qt
 yubikey-personalization-gui
 yubikey-touch-detector
+zellij

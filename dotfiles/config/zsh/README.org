@@ -190,7 +190,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 :ID:       8d22249c-b7a3-43af-bb16-ba73036b930a
 :END:
 #+begin_src bash
-HISTFILE=/home/martin/.zsh_history
+HISTFILE=/home/$USER/.zsh_history
 #+end_src
 
 ** Set History Size:

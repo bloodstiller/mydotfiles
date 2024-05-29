@@ -16,6 +16,8 @@
 (package! mw-thesaurus)
 (package! org-auto-tangle)
 (package! org-web-tools)
+(package! ox-hugo)
+;; So I can export org to md well
 ;;(package! ox-gemini)
 (package! peep-dired)
 ;;(package! password-store)
