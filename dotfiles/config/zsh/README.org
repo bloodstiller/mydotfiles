@@ -49,7 +49,7 @@
   - [[#script---make-new-directories-in-for-new-htb-box-in-the-current-directory][Script - Make new directories in for new HTB box in the current directory:]]
   - [[#script---create-hackingengagement-folder-structure][Script - Create hacking/engagement folder structure:]]
   - [[#script---restart-waybar][Script - Restart Waybar:]]
-- [[#pgp][PGP:]]
+- [[#gpg][GPG:]]
   - [[#pgp---key-alias][PGP - Key Alias:]]
   - [[#pgp---rotate-key-alias][PGP - Rotate Key Alias:]]
   - [[#pgp---function-to-encrypt-using-pgp][PGP - Function to encrypt using PGP:]]
@@ -437,6 +437,7 @@ alias dti='dotdrop install'
 :END:
 #+begin_src bash
 BROWSER=/usr/bin/brave
+kali='192.168.56.174'
 #+end_src
 
 * Navigation:
@@ -478,23 +479,58 @@ alias bx='~/Dropbox/40-49_Career/46-Boxes/46.02-HTB'
 :PROPERTIES:
 :ID:       5cdc7642-ad80-4361-8211-37ce5dac6ef2
 :END:
-*** Start KALI VM & RDP to it:
+- Format is
+  - kvm = kali vm
+  - r = rdp
+  - s = ssh
+  - c = connect
+  - kvmscc = Start Kali VM & Connect Via SSH.
+*** Start KALI VM:
 :PROPERTIES:
-:ID:       ebed5542-5196-43da-bcf2-15a4c02f1895
+:ID:       7ed9dae5-c4c0-45b2-a41e-1654507a505d
 :END:
-- Launch VM, wait 40 seconds for it to boot and rdp server to start then rdp in.
 #+begin_src bash
-alias kvms='virsh --connect qemu:///system start Kali && sleep 40 &&
-xfreerdp3 /v:192.168.122.66 /u:kali /size:100% /dynamic-resolution /gfx:progressive /d:'
-#+end_src
 
+# Kali VM Aliases
+alias kvms='virsh --connect qemu:///system start Kali'
+#+end_src
+*** SSH To Kali:
+:PROPERTIES:
+:ID:       24f1b725-cef1-4c02-96f4-95da56a285f1
+:END:
+#+begin_src bash
+alias kss='ssh kali@$kali'
+#+end_src
+*** Start KALI & SSH To it:
+:PROPERTIES:
+:ID:       7ed9dae5-c4c0-45b2-a41e-1654507a505d
+:END:
+#+begin_src bash
+alias kvmssc='kvms && sleep 30 && kss'
+#+end_src
+*** Start Dynamic SSH Session To Kali For Proxychains:
+:PROPERTIES:
+:ID:       3d3749d8-c4ae-4b15-b203-f25e67096e7a
+:END:
+- Useful for proxychains etc, when I want to view routed traffic on my host for ease.
+#+begin_src bash
+alias kvmssd='ssh -D 1080 kali@$kali'
+#+end_src
 *** RDP to Kali VM:
 :PROPERTIES:
 :ID:       42c07b02-c7be-44fd-8c17-81a4f42945be
 :END:
 - If I disconnect, re-connect.
 #+begin_src bash
-alias kvmc='xfreerdp3 /v:192.168.122.66 /u:kali /size:100% /dynamic-resolution /gfx:progressive /d:'
+alias kvmrc='xfreerdp3 /v:192.168.122.66 /u:kali /size:100% /dynamic-resolution /gfx:progressive /d:'
+#+end_src
+*** Start KALI VM & RDP to it:
+:PROPERTIES:
+:ID:       ebed5542-5196-43da-bcf2-15a4c02f1895
+:END:
+- Launch VM, wait 40 seconds for it to boot and rdp server to start then rdp in.
+#+begin_src bash
+alias kvmrsc='kvms && sleep 40 && kvmrc'
 #+end_src
 
 *** Start Windows 11 VM & RDP to it:
@@ -503,6 +539,8 @@ alias kvmc='xfreerdp3 /v:192.168.122.66 /u:kali /size:100% /dynamic-resolution /
 :END:
 - Launch VM, wait 40 seconds for it to boot and rdp server to start then rdp in.
 #+begin_src bash
+
+## Windows VM Aliases
 alias wvms='virsh --connect qemu:///system start Windows11 && sleep 40 &&
 xfreerdp3 /v:192.168.122.182 /u:martin /size:100% /dynamic-resolution /gfx:progressive /d:'
 #+end_src
@@ -571,6 +609,8 @@ alias wvmlc='xfreerdp3 /v:192.168.100.182 /u:martin /size:100% /dynamic-resoluti
 :END:
 - I have wake on lan configured so just send a packet
 #+begin_src bash
+
+# Windows Host Aliases
 alias wwu='wakeonlan -i 192.168.2.255 "2C:F0:5D:7A:71:0B"'
 #+end_src
 
@@ -614,6 +654,8 @@ alias sw='/home/martin/.config/scripts/start_work.sh 2>/dev/null'
 :ID:       ace2519e-1609-4734-b6a7-a32823ea3e34
 :END:
 #+begin_src bash
+
+# Pentesting Scripts
 alias npt="/home/martin/.config/scripts/newpentest.sh"
 #+end_src
 
@@ -626,7 +668,7 @@ alias npt="/home/martin/.config/scripts/newpentest.sh"
 alias wbr="/home/martin/.config/scripts/waybarRestart.sh"
 #+end_src
 
-* PGP:
+* GPG:
 :PROPERTIES:
 :ID:       beba6571-996f-4d60-911d-955b51a0e477
 :END:
@@ -638,6 +680,8 @@ alias wbr="/home/martin/.config/scripts/waybarRestart.sh"
 :ID:       00ffeb0f-ba44-4d60-9b97-2339e92e2b25
 :END:
 #+begin_src bash
+
+# GPG
 alias key='0x79ea004594bd7e09'
 #+end_src
 ** PGP - Rotate Key Alias:
@@ -653,6 +697,8 @@ alias rkey='gpg-connect-agent "scd serialno" "learn --force" /bye'
 :ID:       98d16135-eb37-4529-865a-bfdcc3345257
 :END:
 #+begin_src bash
+
+# Encrypt a file with GPG and save it with a timestamped name
 function secret () {
                 output=~/"${1}".$(date +%s).enc
                 gpg --encrypt --armor --output ${output} -r 0x79ea004594bd7e09 -r admin@mdbdev.io "${1}" && echo "${1} -> ${output}"
@@ -664,6 +710,8 @@ function secret () {
 :ID:       fa815663-b6b4-4d59-a5de-404a6adbceb6
 :END:
 #+begin_src bash
+
+# Decrypt a file and save it with its original name
 function reveal () {
                 output=$(echo "${1}" | rev | cut -c16- | rev)
                 gpg --decrypt --output ${output} "${1}" && echo "${1} -> ${output}"
@@ -679,6 +727,8 @@ function reveal () {
   - Have since retired this as it was messing with my ability to save track terminal output using tmux logging.
   - I now use https://github.com/tmux-plugins/tmux-resurrect to achieve the same purpose.
 #+begin_src bash
+
+# Tmux auto-start (currently commented out)
 #if [[ -z "$TMUX" && -z "$SSH_CONNECTION" && -n "$DISPLAY" ]]; then
 #  exec tmux new-session -A -s default \; source-file ~/.tmux.conf
 #fi
@@ -690,5 +740,7 @@ function reveal () {
 - I like things to look good.
   - *Note* This has to stay at the bottom of the config.
 #+begin_src bash
+
+# Initialize Starship prompt
 eval "$(starship init zsh)"
 #+end_src

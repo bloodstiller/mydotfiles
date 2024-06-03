@@ -107,6 +107,7 @@ obs-studio
 obsidian
 pavucontrol
 polkit-gnome
+proxychains-ng
 pv
 python-passlib
 python-pyperclip

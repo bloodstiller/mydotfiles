@@ -55,14 +55,17 @@ exec-once = emacs
 # Virt-Manager
 #exec-once = virt-manager
 
+# PIA
+exec-once = [workspace 6 silent] /opt/piavpn/bin/pia-client
+
 # Dropbox
 exec-once = dropbox
 
 # Spotify
-exec-once = spotify
+exec-once = [workspace 4 silent] spotify
 
 # Bitwarden
-exec-once = ~/Applications/Bitwarden.AppImage
+exec-once = ~/Applications/Bitwarden*.AppImage
 
 # pyprland
 exec-once = /usr/bin/pypr
@@ -80,10 +83,7 @@ exec-once = nm-applet
 exec-once = xfce4-clipman
 
 # JamesDSP Sound EQ
-exec-once = jamesdsp
-
-# Emacs for floating instance:
-#exec-once = [workspace special:emacs silent] emacsclient -nc
+exec-once= [workspace 6 silent] jamesdsp
 #+end_src
 * Desktop:
 :PROPERTIES:

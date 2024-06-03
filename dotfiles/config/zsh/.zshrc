@@ -178,6 +178,7 @@ alias dtu='dotdrop update'
 alias dti='dotdrop install'
 
 BROWSER=/usr/bin/brave
+kali='192.168.56.174'
 
 alias dt='/home/martin/.config/mydotfiles'
 
@@ -185,11 +186,20 @@ alias cpts='~/Dropbox/40-49_Career/41-Courses/41.22-CPTS'
 
 alias bx='~/Dropbox/40-49_Career/46-Boxes/46.02-HTB'
 
-alias kvms='virsh --connect qemu:///system start Kali && sleep 40 &&
-xfreerdp3 /v:192.168.122.66 /u:kali /size:100% /dynamic-resolution /gfx:progressive /d:'
+# Kali VM Aliases
+alias kvms='virsh --connect qemu:///system start Kali'
 
-alias kvmc='xfreerdp3 /v:192.168.122.66 /u:kali /size:100% /dynamic-resolution /gfx:progressive /d:'
+alias kss='ssh kali@$kali'
 
+alias kvmssc='kvms && sleep 30 && kss'
+
+alias kvmssd='ssh -D 1080 kali@$kali'
+
+alias kvmrc='xfreerdp3 /v:192.168.122.66 /u:kali /size:100% /dynamic-resolution /gfx:progressive /d:'
+
+alias kvmrsc='kvms && sleep 40 && kvmrc'
+
+## Windows VM Aliases
 alias wvms='virsh --connect qemu:///system start Windows11 && sleep 40 &&
 xfreerdp3 /v:192.168.122.182 /u:martin /size:100% /dynamic-resolution /gfx:progressive /d:'
 
@@ -205,6 +215,7 @@ xfreerdp3 /v:192.168.100.182 /u:martin /size:100% /dynamic-resolution /gfx:progr
 
 alias wvmlc='xfreerdp3 /v:192.168.100.182 /u:martin /size:100% /dynamic-resolution /gfx:progressive /d:'
 
+# Windows Host Aliases
 alias wwu='wakeonlan -i 192.168.2.255 "2C:F0:5D:7A:71:0B"'
 
 alias w11c='xfreerdp3 /v:192.168.2.115 /u:martin /size:100% /dynamic-resolution /gfx:progressive /d:'
@@ -217,26 +228,32 @@ alias sw='/home/martin/.config/scripts/start_work.sh 2>/dev/null'
     #mkdir -p creds/hashes creds/usernames creds/passwords
 #}
 
+# Pentesting Scripts
 alias npt="/home/martin/.config/scripts/newpentest.sh"
 
 alias wbr="/home/martin/.config/scripts/waybarRestart.sh"
 
+# GPG
 alias key='0x79ea004594bd7e09'
 
 alias rkey='gpg-connect-agent "scd serialno" "learn --force" /bye'
 
+# Encrypt a file with GPG and save it with a timestamped name
 function secret () {
                 output=~/"${1}".$(date +%s).enc
                 gpg --encrypt --armor --output ${output} -r 0x79ea004594bd7e09 -r admin@mdbdev.io "${1}" && echo "${1} -> ${output}"
 }
 
+# Decrypt a file and save it with its original name
 function reveal () {
                 output=$(echo "${1}" | rev | cut -c16- | rev)
                 gpg --decrypt --output ${output} "${1}" && echo "${1} -> ${output}"
 }
 
+# Tmux auto-start (currently commented out)
 #if [[ -z "$TMUX" && -z "$SSH_CONNECTION" && -n "$DISPLAY" ]]; then
 #  exec tmux new-session -A -s default \; source-file ~/.tmux.conf
 #fi
 
+# Initialize Starship prompt
 eval "$(starship init zsh)"
