@@ -470,6 +470,25 @@ dotfiles:
   f_tooltemplate.org:
     src: config/orgTemplates/ToolTemplate.org
     dst: ~/.config/orgTemplates/ToolTemplate.org
+  d_45.00-kaliconfigs_alacritty:
+    src: Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/Alacritty
+    dst: ~/Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/Alacritty
+    chmod: '751'
+  d_tmux:
+    src: Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/tmux
+    dst: ~/Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/tmux
+  f_45.00-kaliconfigs_zshplugins.sh:
+    src: Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/zshPlugins.sh
+    dst: ~/Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/zshPlugins.sh
+    chmod: '755'
+  f_tmux.conf:
+    src: Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/.tmux.conf
+    dst: ~/Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/.tmux.conf
+    chmod: '751'
+  f_zshrc:
+    src: Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/.zshrc
+    dst: ~/Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/.zshrc
+    chmod: '744'
 profiles:
   Lok:
     dotfiles:
@@ -611,6 +630,11 @@ profiles:
     - f_projectstarttemplate.org
     - f_servicetemplate.org
     - f_tooltemplate.org
+    - d_45.00-kaliconfigs_alacritty
+    - d_tmux
+    - f_45.00-kaliconfigs_zshplugins.sh
+    - f_tmux.conf
+    - f_zshrc
   zeus:
     dotfiles:
     - d_alacritty
