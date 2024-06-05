@@ -489,6 +489,12 @@ dotfiles:
     src: Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/.zshrc
     dst: ~/Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/.zshrc
     chmod: '744'
+  d_md:
+    src: config/orgTemplates/PentestTemplate/MD
+    dst: ~/.config/orgTemplates/PentestTemplate/MD
+  d_org:
+    src: config/orgTemplates/PentestTemplate/Org
+    dst: ~/.config/orgTemplates/PentestTemplate/Org
 profiles:
   Lok:
     dotfiles:
@@ -635,6 +641,8 @@ profiles:
     - f_45.00-kaliconfigs_zshplugins.sh
     - f_tmux.conf
     - f_zshrc
+    - d_md
+    - d_org
   zeus:
     dotfiles:
     - d_alacritty
