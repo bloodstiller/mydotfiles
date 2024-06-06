@@ -39,6 +39,7 @@ spotify
 swappy-git
 sway-systemd
 swaylock-effects
+teamviewer
 tmuxinator
 trezor-bridge-bin
 vmware-workstation

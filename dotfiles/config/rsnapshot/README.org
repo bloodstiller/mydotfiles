@@ -11,6 +11,7 @@
 - [[#literate-config][Literate Config:]]
 - [[#note][NOTE:]]
 - [[#rsnapshot-config][Rsnapshot Config:]]
+  - [[#set-version--needed-to-work][Set version:  (NEEDED TO WORK!!!)]]
   - [[#set-storage-location][Set Storage Location:]]
   - [[#external-program-dependencies][External Program Dependencies:]]
   - [[#set-backup-frequency][Set Backup Frequency:]]
@@ -44,6 +45,14 @@
 :ID:       c3ef2222-eb91-4dbb-b891-21f744981fdf
 :header-args: :tangle ~/.config/rsnapshot/rsnapshot.conf
 :END:
+** Set version:  (NEEDED TO WORK!!!)
+:PROPERTIES:
+:ID:       db7ddbfd-22f6-4a82-a421-0208e277e3c0
+:END:
+#+begin_src conf
+config_version	1.2
+
+#+end_src
 ** Set Storage Location:
 :PROPERTIES:
 :ID:       9de0e6a2-422a-469a-ae21-54bd5d4c2b39
@@ -118,10 +127,10 @@ cmd_rsnapshot_diff	/usr/bin/rsnapshot-diff
 - Must be unique and in ascending order
 - This will be enough backups for me.
 #+begin_src conf
-retain	hourly	1
-retain	daily	1
-retain	weekly	1
-retain	monthly	12
+retain	hourly	2
+retain	daily	2
+retain	weekly	2
+retain	monthly	2
 #+end_src
 
 ** Set Verbose level:

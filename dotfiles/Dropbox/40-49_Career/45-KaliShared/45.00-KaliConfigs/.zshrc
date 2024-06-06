@@ -175,12 +175,6 @@ alias urlencode='python3 -c "import sys, urllib.parse as ul; \
 
 alias tmux-save-pane='tmux capture-pane -pS -'
 
-alias dtu='dotdrop update'
-
-alias dti='dotdrop install'
-
-BROWSER=/usr/bin/brave
-
 alias cpts='~/Dropbox/40-49_Career/41-Courses/41.22-CPTS'
 
 alias bx='~/Dropbox/40-49_Career/46-Boxes/46.02-HTB'

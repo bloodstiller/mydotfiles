@@ -27,7 +27,7 @@
   - https://www.youtube.com/watch?v=eF4cJlBNtdQ&themeRefresh=1
 * Desktop Configuration:
 :PROPERTIES:
-:ID:       d8315dd8-8172-4abe-b25a-3cad88271893
+:ID:       0fc9e585-b145-4577-8d54-d126fb1d5278
 :END:
 :PROPERTIES:
 :ID:       e820e8f3-817f-4414-9b8a-e1b3c6275ec0
@@ -324,10 +324,7 @@
 * Laptop Configuration:
 :PROPERTIES:
 :ID:       f90eafbd-3099-4bbe-aeda-550f87c3bcf3
-:END:
-:PROPERTIES:
-:ID:       88d04e92-0d86-4c5e-8436-7fdb82156979
-#+PROPERTY: header-args :tangle /home/martin/.config/waybar/laptopConfig
+:header-args: :tangle /home/martin/.config/waybar/laptopConfig
 :END:
 
 - My laptop configuration is nearly identical to my desktop configuration bar a battery display.
