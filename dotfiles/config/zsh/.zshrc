@@ -189,18 +189,18 @@ alias bx='~/Dropbox/40-49_Career/46-Boxes/46.02-HTB'
 # Kali VM Aliases
 alias kvms='virsh --connect qemu:///system start Kali'
 
-alias kss='ssh kali@$kali'
+alias kssh='ssh kali@$kali'
 
-alias kvmssc='kvms && sleep 30 && kss'
+alias kvmsshc='kvms && sleep 30 && kss'
 
-alias kvmssd='ssh -D 1080 kali@$kali'
+alias kvmsshd='ssh -D 1080 kali@$kali'
 
 alias kvmrc='xfreerdp3 /v:192.168.122.66 /u:kali /size:100% /dynamic-resolution /gfx:progressive /d:'
 
-alias kvmrsc='kvms && sleep 40 && kvmrc'
+alias kvmsrc='kvms && sleep 40 && kvmrc'
 
 ## Windows VM Aliases
-alias wvms='virsh --connect qemu:///system start Windows11 && sleep 40 &&
+alias wvmsc='virsh --connect qemu:///system start Windows11 && sleep 40 &&
 xfreerdp3 /v:192.168.122.182 /u:martin /size:100% /dynamic-resolution /gfx:progressive /d:'
 
 alias wvmc='xfreerdp3 /v:192.168.122.182 /u:martin /size:100% /dynamic-resolution /gfx:progressive /d:'

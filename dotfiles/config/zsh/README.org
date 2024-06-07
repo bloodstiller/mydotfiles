@@ -481,10 +481,11 @@ alias bx='~/Dropbox/40-49_Career/46-Boxes/46.02-HTB'
 :END:
 - Format is
   - kvm = kali vm
+  - s = start
   - r = rdp
-  - s = ssh
+  - ssh = ssh
   - c = connect
-  - kvmscc = Start Kali VM & Connect Via SSH.
+  - kvmsshc = Start Kali VM & Connect Via SSH.
 *** Start KALI VM:
 :PROPERTIES:
 :ID:       7ed9dae5-c4c0-45b2-a41e-1654507a505d
@@ -499,14 +500,14 @@ alias kvms='virsh --connect qemu:///system start Kali'
 :ID:       24f1b725-cef1-4c02-96f4-95da56a285f1
 :END:
 #+begin_src bash
-alias kss='ssh kali@$kali'
+alias kssh='ssh kali@$kali'
 #+end_src
 *** Start KALI & SSH To it:
 :PROPERTIES:
 :ID:       7ed9dae5-c4c0-45b2-a41e-1654507a505d
 :END:
 #+begin_src bash
-alias kvmssc='kvms && sleep 30 && kss'
+alias kvmsshc='kvms && sleep 30 && kss'
 #+end_src
 *** Start Dynamic SSH Session To Kali For Proxychains:
 :PROPERTIES:
@@ -514,7 +515,7 @@ alias kvmssc='kvms && sleep 30 && kss'
 :END:
 - Useful for proxychains etc, when I want to view routed traffic on my host for ease.
 #+begin_src bash
-alias kvmssd='ssh -D 1080 kali@$kali'
+alias kvmsshd='ssh -D 1080 kali@$kali'
 #+end_src
 *** RDP to Kali VM:
 :PROPERTIES:
@@ -530,7 +531,7 @@ alias kvmrc='xfreerdp3 /v:192.168.122.66 /u:kali /size:100% /dynamic-resolution 
 :END:
 - Launch VM, wait 40 seconds for it to boot and rdp server to start then rdp in.
 #+begin_src bash
-alias kvmrsc='kvms && sleep 40 && kvmrc'
+alias kvmsrc='kvms && sleep 40 && kvmrc'
 #+end_src
 
 *** Start Windows 11 VM & RDP to it:
@@ -541,7 +542,7 @@ alias kvmrsc='kvms && sleep 40 && kvmrc'
 #+begin_src bash
 
 ## Windows VM Aliases
-alias wvms='virsh --connect qemu:///system start Windows11 && sleep 40 &&
+alias wvmsc='virsh --connect qemu:///system start Windows11 && sleep 40 &&
 xfreerdp3 /v:192.168.122.182 /u:martin /size:100% /dynamic-resolution /gfx:progressive /d:'
 #+end_src
 

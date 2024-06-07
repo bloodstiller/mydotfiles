@@ -185,6 +185,8 @@ alias lt='~/Desktop/LinuxTools'
 
 alias pws='python3 -m http.server 8000'
 
+alias lgu='sudo ip tuntap add user kali mode tun ligolo && sudo ip link set ligolo up'
+
 #nbx () {
     #mkdir loot scans exploit creds
     #mkdir -p scans/nmap scans/bh
