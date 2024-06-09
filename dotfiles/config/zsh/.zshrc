@@ -191,7 +191,7 @@ alias kvms='virsh --connect qemu:///system start Kali'
 
 alias kssh='ssh kali@$kali'
 
-alias kvmsshc='kvms && sleep 30 && kss'
+alias kvmsshc='kvms && sleep 30 && kssh'
 
 alias kvmsshd='ssh -D 1080 kali@$kali'
 

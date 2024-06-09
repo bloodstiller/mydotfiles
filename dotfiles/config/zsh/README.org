@@ -507,7 +507,7 @@ alias kssh='ssh kali@$kali'
 :ID:       7ed9dae5-c4c0-45b2-a41e-1654507a505d
 :END:
 #+begin_src bash
-alias kvmsshc='kvms && sleep 30 && kss'
+alias kvmsshc='kvms && sleep 30 && kssh'
 #+end_src
 *** Start Dynamic SSH Session To Kali For Proxychains:
 :PROPERTIES:

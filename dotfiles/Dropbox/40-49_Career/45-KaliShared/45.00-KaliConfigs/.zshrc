@@ -209,6 +209,32 @@ function reveal () {
                 gpg --decrypt --output ${output} "${1}" && echo "${1} -> ${output}"
 }
 
+##function start_logging_tmux_session() {
+    ##local logfile=~/tmux_logs/$(date +%Y-%m-%d).log
+    ##tmux list-windows -a -F '#{session_name}:#{window_index}' | while read window; do
+        ##tmux list-panes -t $window -F '#{session_name}:#{window_index}.#{pane_index}' | while read pane; do
+            ##tmux pipe-pane -o -t $pane "ansifilter >> ${logfile}_${pane//:/_}"
+        ##done
+    ##done
+##}
+##
+##
+##alias tml='start_logging_tmux_session'
+
+#!/usr/bin/env bash
+
+#!/usr/bin/env bash
+
+if [ -n "$TMUX_PANE" ] && [ "$TMUX_PANE_LOGGING" != "1" ]; then
+  export TMUX_PANE_LOGGING=1
+  LOGS=$HOME/tmux_logs/$(date +%Y-%m-%d)
+  mkdir --parents $LOGS
+  LOG_PATH="$LOGS/pane${TMUX_PANE//[^0-9]/}.log"
+  tmux pipe-pane -o -t "${TMUX_PANE}" "exec cat - | ansifilter >> $LOG_PATH"
+fi
+
+alias dbs='dropbox start'
+
 #if [[ -z "$TMUX" && -z "$SSH_CONNECTION" && -n "$DISPLAY" ]]; then
 #  exec tmux new-session -A -s default \; source-file ~/.tmux.conf
 #fi
