@@ -193,6 +193,8 @@ alias lgu='sudo ip tuntap add user kali mode tun ligolo && sudo ip link set ligo
     #mkdir -p creds/hashes creds/usernames creds/passwords
 #}
 
+alias dl="~/Dropbox/40-49_Career/46-Boxes/46.02-HTB/DanteLab/PentTest/Org"
+
 alias npt="~/.config/scripts/newpentest.sh"
 
 alias key='0x79ea004594bd7e09'
@@ -224,6 +226,7 @@ function reveal () {
 #!/usr/bin/env bash
 
 #!/usr/bin/env bash
+
 
 if [ -n "$TMUX_PANE" ] && [ "$TMUX_PANE_LOGGING" != "1" ]; then
   export TMUX_PANE_LOGGING=1
