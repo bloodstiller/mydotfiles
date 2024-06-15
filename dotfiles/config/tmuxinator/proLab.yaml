@@ -1,0 +1,40 @@
+name: proLab
+root: ~/
+startup_window: vpn
+
+windows:
+  - vpn:
+      root: ~/
+      layout: even-vertical
+      panes:
+        - sudo openvpn ~/Dropbox/40-49_Career/pro_labs_ScaredGrandpa.ovpn
+  - ligolo:
+      root: ~/
+      layout: tiled
+      panes:
+        - ligolo:
+          - lgu
+        - linux-python-server:
+            - cd ~/Desktop/LinuxTools
+            - ls
+            - python -m http.server 9000
+        - ifconfig:
+            - ifconfig
+  - btop:
+      root: ~/
+      layout: even-vertical
+      panes:
+        - btop
+  - lab_files:
+      root: ~/
+      layout: even-vertical
+      panes:
+        - files:
+          - cl
+  - emacs:
+      root: ~/
+      layout: even-vertical
+      panes:
+        - emacs:
+          - cl
+          - emacs

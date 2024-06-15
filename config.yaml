@@ -495,6 +495,9 @@ dotfiles:
   d_org:
     src: config/orgTemplates/PentestTemplate/Org
     dst: ~/.config/orgTemplates/PentestTemplate/Org
+  f_prolab.yaml:
+    src: config/tmuxinator/proLab.yaml
+    dst: ~/.config/tmuxinator/proLab.yaml
 profiles:
   Lok:
     dotfiles:
@@ -643,6 +646,7 @@ profiles:
     - f_zshrc
     - d_md
     - d_org
+    - f_prolab.yaml
   zeus:
     dotfiles:
     - d_alacritty
