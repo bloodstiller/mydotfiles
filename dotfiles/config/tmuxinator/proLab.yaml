@@ -36,5 +36,45 @@ windows:
       layout: even-vertical
       panes:
         - emacs:
+        - emacs:
           - cl
           - emacs
+  - ligolo:
+      root: ~/
+      layout: tiled
+      panes:
+        - ligolo:
+          - lgu
+        - linux-python-server:
+            - cd ~/Desktop/LinuxTools
+            - ls
+            - python -m http.server 9000
+        - ifconfig:
+            - ifconfig
+  - PH 1:
+      root: ~/
+      layout: even-vertical
+      panes:
+        - pivot host1:
+          - cl
+          - sleep 15
+          - cd Data/NIX01-172.16.1.100
+          - scp -i id_rsa /home/kali/Desktop/LinuxTools/agent root@10.10.110.100:/tmp/my_agent
+          - scp -i id_rsa /home/kali/Desktop/WindowsTools/agent.exe root@10.10.110.100:/tmp/my_agent.exe
+          - ssh -i id_rsa root@10.10.110.100
+        - pivot host1:
+          - cl
+          - sleep 15
+          - ssh -i id_rsa root@10.10.110.100
+          - cd /tmp
+          - python3 -m http.server 9000
+  - PH DC1/DC2:
+      root: ~/
+      layout: even-vertical
+      panes:
+        - DC1:
+          - cl
+          - cd Data/DC01-172.16.1.20
+        - DC2:
+          - cl
+          - cd Data/DC02-172.16.2.5

@@ -16,11 +16,13 @@ filebrowser-bin
 filen-desktop-appimage
 flashfocus-git
 google-chrome
+hyprland-git
 i3-resurrect
 jamesdsp
 jwhois
 kazam
 mullvad-vpn-bin
+nautilus-sendto
 phpactor
 pomatez
 potato

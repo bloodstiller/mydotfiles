@@ -152,6 +152,7 @@ setw -g mode-keys vi
 :END:
 Enable true color support in xterm-compatible terminals, enhancing their color display capabilities
 #+begin_src conf
+
 set-option -sa terminal-overrides ",xterm*:Tc"
 #+end_src
 
@@ -160,6 +161,7 @@ set-option -sa terminal-overrides ",xterm*:Tc"
 :ID:       72e3d8ce-efa6-44b7-a928-52c2ab04e4e4
 :END:
 - Mouse mode.
+
 #+begin_src conf
 setw -g mouse on
 #+end_src
@@ -168,7 +170,9 @@ setw -g mouse on
 :ID:       439c8794-683d-4489-bcf1-de94ab78fc9e
 :END:
 - I use doom emacs alot and that has modeline, I need a way for these two elements to be seperate. The easiest way is put it the top.
+
 #+begin_src conf
+
 set -g status-position top
 #+end_src
 
@@ -185,6 +189,7 @@ set -s escape-time 0
 :ID:       f7d291f1-f91a-45c9-b259-8e060f5dcebc
 :END:
 - I have a lot of output when I am running scans etc, this is useful.
+
 #+begin_src conf
 set -g history-limit 100000
 #+end_src
@@ -194,6 +199,7 @@ set -g history-limit 100000
 :ID:       1c82475d-147f-49b4-ba9d-821cf3d7f9c5
 :END:
 - Don't miss a message, what can I say I am slow.
+
 #+begin_src conf
 set -g display-time 4000
 #+end_src

@@ -500,14 +500,7 @@ alias kvms='virsh --connect qemu:///system start Kali'
 :ID:       24f1b725-cef1-4c02-96f4-95da56a285f1
 :END:
 #+begin_src bash
-alias kssh='ssh kali@$kali'
-#+end_src
-*** Start KALI & SSH To it:
-:PROPERTIES:
-:ID:       7ed9dae5-c4c0-45b2-a41e-1654507a505d
-:END:
-#+begin_src bash
-alias kvmsshc='kvms && sleep 30 && kssh'
+alias kvmssh='ssh kali@$kali'
 #+end_src
 *** Start Dynamic SSH Session To Kali For Proxychains:
 :PROPERTIES:
@@ -516,6 +509,13 @@ alias kvmsshc='kvms && sleep 30 && kssh'
 - Useful for proxychains etc, when I want to view routed traffic on my host for ease.
 #+begin_src bash
 alias kvmsshd='ssh -D 1080 kali@$kali'
+#+end_src
+*** Start KALI & SSH To it with dynamic port forwarding:
+:PROPERTIES:
+:ID:       7ed9dae5-c4c0-45b2-a41e-1654507a505d
+:END:
+#+begin_src bash
+alias kvmsshc='kvms && sleep 30 && kvmsshd'
 #+end_src
 *** RDP to Kali VM:
 :PROPERTIES:
