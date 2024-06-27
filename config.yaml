@@ -498,6 +498,29 @@ dotfiles:
   f_prolab.yaml:
     src: config/tmuxinator/proLab.yaml
     dst: ~/.config/tmuxinator/proLab.yaml
+  f_danteph1.yaml.yml:
+    src: 
+      Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/tmuxinator/dantePH1.yaml.yml
+    dst: 
+      ~/Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/tmuxinator/dantePH1.yaml.yml
+  f_danteph2.yaml.yml:
+    src: 
+      Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/tmuxinator/dantePH2.yaml.yml
+    dst: 
+      ~/Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/tmuxinator/dantePH2.yaml.yml
+  f_danteph3.yaml.yml:
+    src: 
+      Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/tmuxinator/dantePH3.yaml.yml
+    dst: 
+      ~/Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/tmuxinator/dantePH3.yaml.yml
+  f_prolab.yaml.yml:
+    src: Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/tmuxinator/proLab.yaml.yml
+    dst: 
+      ~/Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/tmuxinator/proLab.yaml.yml
+  f_provpn.yaml.yml:
+    src: Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/tmuxinator/proVPN.yaml.yml
+    dst: 
+      ~/Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/tmuxinator/proVPN.yaml.yml
 profiles:
   Lok:
     dotfiles:
@@ -647,6 +670,11 @@ profiles:
     - d_md
     - d_org
     - f_prolab.yaml
+    - f_danteph1.yaml.yml
+    - f_danteph2.yaml.yml
+    - f_danteph3.yaml.yml
+    - f_prolab.yaml.yml
+    - f_provpn.yaml.yml
   zeus:
     dotfiles:
     - d_alacritty
