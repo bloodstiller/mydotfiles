@@ -16,9 +16,9 @@ filebrowser-bin
 filen-desktop-appimage
 flashfocus-git
 google-chrome
-hyprland-git
 i3-resurrect
 jamesdsp
+jdk
 jwhois
 kazam
 mullvad-vpn-bin
@@ -27,6 +27,7 @@ phpactor
 pomatez
 potato
 protonmail-desktop
+pyinstaller
 pyprland
 python-grip-git
 python2

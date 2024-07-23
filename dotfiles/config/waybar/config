@@ -12,8 +12,12 @@
     // Modules-Left:
     "modules-left": [
         "custom/launcher",
-        "hyprland/workspaces",
-        "hyprland/submap",
+        // hyperland Variables When Using That
+         "hyprland/workspaces",
+         "hyprland/submap",
+        // sway Variables When Using That
+        // "sway/workspaces",
+        // "sway/submap",
         "idle_inhibitor"
     ],
 
@@ -41,7 +45,10 @@
     ],
 
      // Configure-Workspaces:
+     // hyperland (when using it uncomment)
      "hyprland/workspaces": {
+     // sway (when using it uncomment)
+     // "sway/workspaces": {
      "disable-scroll": false,
      "active-only": false,
      "disable-markup" : false,
@@ -59,8 +66,10 @@
          }
      },
 
-     // Hyperland Module Configuration:
-     "hyprland/mode": {
+     // hyprland Module Configuration (uncomment the one I am using)
+      "hyprland/mode": {
+     // Sway Module Configuration (uncomment the one I am using)
+     // "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
      },
 

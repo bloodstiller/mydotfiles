@@ -29,6 +29,7 @@ discord
 docker
 docker-compose
 downgrade
+dpkg
 duf
 dunst
 easyeffects

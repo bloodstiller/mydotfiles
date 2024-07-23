@@ -49,8 +49,8 @@ titlebar_border_thickness 0
 
 
 # Set inner/outer gaps
-gaps inner 2
-gaps outer 1
+gaps inner 5
+gaps outer 2
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -113,7 +113,7 @@ mode "resize" {
 ######################################
 
 # start a terminal
-bindsym $mod+t exec alacritty
+bindsym $mod+t exec kitty
 
 # kill focused window
 bindsym $mod+q kill
@@ -211,13 +211,13 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+p exec /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-bindsym $mod+w exec /usr/bin/firefox
-bindsym $mod+Ctrl+f exec /usr/bin/thunar
+bindsym $mod+w exec brave
+bindsym $mod+Ctrl+f exec thunar ~/Downloads
 bindsym $mod+e exec /usr/bin/emacsclient -c
 bindsym $mod+Ctrl+e exec /usr/bin/emacsclient --eval "(emacs-everywhere)"
 ##bindsym $mod+c exec /usr/bin/emacsclient -e "(org-gtd-capture)"
-bindsym $mod+Ctrl+Space exec /usr/bin/alacritty
-bindsym Print exec /home/martin/Dropbox/90-99_Repos/92-PersonalRepos/92.06-Scripts/wayland_screenshot.sh
+bindsym $mod+Ctrl+Space exec kitty
+bindsym Print+Ctrl exec /home/martin/Dropbox/90-99_Repos/92-PersonalRepos/92.06-Scripts/wayland_screenshot.sh
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
@@ -280,7 +280,7 @@ exec --no-startup-id xset s 480 dpms 600 600 600
 # start a script to setup displays
 output DP-2 mode 2560x1440@144Hz position 0,810 transform 90
 output DP-1 mode 2560x1440@144Hz position 1440,1500
-output HDMI-A-1 mode 2560x1440@119.998Hz position 4000,810 transform 270
+output HDMI-A-1 mode 2560x1440@119.998Hz position 4000,810 transform 90
 
 
 # Authentication Agent Required to you....do stuff.

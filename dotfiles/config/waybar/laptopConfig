@@ -25,8 +25,12 @@
     // Modules-Left:
     "modules-left": [
         "custom/launcher",
-        "hyprland/workspaces",
-        "hyprland/submap",
+        // hyperland Variables When Using That
+         "hyprland/workspaces",
+         "hyprland/submap",
+        // sway Variables When Using That
+        // "sway/workspaces",
+        // "sway/submap",
         "idle_inhibitor"
     ],
     // Modules-Center:
@@ -52,7 +56,10 @@
     ],
 
      // Configure-Workspaces:
+     // hyperland (when using it uncomment)
      "hyprland/workspaces": {
+     // sway (when using it uncomment)
+     // "sway/workspaces": {
      "disable-scroll": false,
      "active-only": false,
      "disable-markup" : false,
