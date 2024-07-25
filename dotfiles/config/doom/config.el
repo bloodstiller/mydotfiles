@@ -1,8 +1,5 @@
 (setq user-full-name "MDBDEVIO")
 
-;;Select my preffered theme:
-;;(setq doom-theme 'doom-dracula)
-(setq doom-theme 'doom-one)
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
@@ -12,16 +9,63 @@
 (when (version< "29.0.50" emacs-version)
   (pixel-scroll-precision-mode))
 
+;;Select my preffered theme:
+;;(setq doom-theme 'doom-dracula)
+;;(setq doom-theme 'modus-vivendi)
+(load-theme 'tron-legacy t)
+;;(setq doom-theme 'doom-nord)
+
+(custom-theme-set-faces! 'tron-legacy
+  `(tree-sitter-hl-face:constructor :foreground ,(doom-color 'blue))
+  `(tree-sitter-hl-face:number :foreground ,(doom-color 'orange))
+  `(tree-sitter-hl-face:attribute :foreground ,(doom-color 'magenta) :weight bold)
+  `(tree-sitter-hl-face:variable :foreground ,(doom-color 'base7) :weight bold)
+  `(tree-sitter-hl-face:variable.builtin :foreground ,(doom-color 'red))
+  `(tree-sitter-hl-face:constant.builtin :foreground ,(doom-color 'magenta) :weight bold)
+  `(tree-sitter-hl-face:constant :foreground ,(doom-color 'blue) :weight bold)
+  `(tree-sitter-hl-face:function.macro :foreground ,(doom-color 'teal))
+  `(tree-sitter-hl-face:label :foreground ,(doom-color 'magenta))
+  `(tree-sitter-hl-face:operator :foreground ,(doom-color 'blue))
+  `(tree-sitter-hl-face:variable.parameter :foreground ,(doom-color 'cyan))
+  `(tree-sitter-hl-face:punctuation.delimiter :foreground ,(doom-color 'cyan))
+  `(tree-sitter-hl-face:punctuation.bracket :foreground ,(doom-color 'cyan))
+  `(tree-sitter-hl-face:punctuation.special :foreground ,(doom-color 'cyan))
+  `(tree-sitter-hl-face:type :foreground ,(doom-color 'yellow))
+  `(tree-sitter-hl-face:type.builtin :foreground ,(doom-color 'blue))
+  `(tree-sitter-hl-face:tag :foreground ,(doom-color 'base7))
+  `(tree-sitter-hl-face:string :foreground ,(doom-color 'green))
+  `(tree-sitter-hl-face:comment :foreground ,(doom-color 'base6))
+  `(tree-sitter-hl-face:function :foreground ,(doom-color 'cyan))
+  `(tree-sitter-hl-face:method :foreground ,(doom-color 'blue))
+  `(tree-sitter-hl-face:function.builtin :foreground ,(doom-color 'cyan))
+  `(tree-sitter-hl-face:property :foreground ,(doom-color 'blue))
+  `(tree-sitter-hl-face:keyword :foreground ,(doom-color 'magenta))
+  `(corfu-default :font "Iosevka Nerd Font Mono" :background ,(doom-color 'bg-alt) :foreground ,(doom-color 'fg))
+  `(adoc-title-0-face :foreground ,(doom-color 'blue) :height 1.2)
+  `(adoc-title-1-face :foreground ,(doom-color 'magenta) :height 1.1)
+  `(adoc-title-2-face :foreground ,(doom-color 'violet) :height 1.05)
+  `(adoc-title-3-face :foreground ,(doom-lighten (doom-color 'blue) 0.25) :height 1.0)
+  `(adoc-title-4-face :foreground ,(doom-lighten (doom-color 'magenta) 0.25) :height 1.1)
+  `(adoc-verbatim-face :background nil)
+  `(adoc-list-face :background nil)
+  `(adoc-internal-reference-face :foreground ,(face-attribute 'font-lock-comment-face :foreground)))
+
+;;(setq  doom-font (font-spec :family "Iosevka Nerd Font" :size 16)
+(setq  doom-font (font-spec :family "JetBrains Mono" :size 18)
+       doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font")
+       doom-unicode-font (font-spec :family "Symbols Nerd Font Mono" :size 16))
+;;(add-hook 'org-mode-hook 'variable-pitch-mode)
+
 ; Set preffered fonts:
-(setq doom-font (font-spec :family "JetBrains Mono" :size 20)
-      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 15)
-      doom-big-font (font-spec :family "JetBrains Mono" :size 24))
-(after! doom-themes
-  (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t))
-(custom-set-faces!
-  '(font-lock-comment-face :slant italic)
-  '(font-lock-keyword-face :slant italic))
+;;(setq doom-font (font-spec :family "JetBrains Mono" :size 20)
+      ;;doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 15)
+      ;;doom-big-font (font-spec :family "JetBrains Mono" :size 24))
+;;(after! doom-themes
+  ;;(setq doom-themes-enable-bold t
+        ;;doom-themes-enable-italic t))
+;;(custom-set-faces!
+  ;;'(font-lock-comment-face :slant italic)
+  ;;'(font-lock-keyword-face :slant italic))
 
 ;;Setup Bookmarks
 (setq bookmark-default-file "~/.config/doom/bookmarks/")
@@ -329,18 +373,22 @@
 
 (after! org
 (setq org-emphasis-alist
-    ;; Purple Bold & Underline Brighter purple
-  '(("*" (underline :weight black :foreground "#A061F9" ))
+    ;; Purple Bold & Underline Brighter purple Dracula purple "#A061F9"
+  '(("*" (underline :weight black :foreground "#EB00E4" ))
     ;; Red text highligted in yellow (important)
-    ("/" (:weight black :background "#FF5555" :foreground "#F1FA8C" ))
+    ;; Dracula setup ("/" (:weight black :background "#FF5555" :foreground "#F1FA8C" ))
+    ("/" (:weight black :background "#745B00" :foreground "#FF3D2B" ))
     ;; Blue
     ("_" (:weight black :foreground "#79c6ff" ))
-    ;;Higlighter  brighter yellow
-    ("=" (underline :weight black :foreground "#F1FA8C" ))
+    ;;Higlighter  brighter yellow "#F1FA8C"
+    ("=" (underline :weight black :foreground "#b18c00" ))
     ;; Code block
-    ("~" (:background "#6BB86B" :foreground "#575a71" ))
+    ("~" (:foreground "#6BB86B" ))
+    ;; Green Background Option Dracula:
+    ;;("~" (:background "#6BB86B" :foreground "#575a71" ))
     ;; Red = Important red
-    ("+" (underline bold :weight italic :foreground "#FF5555" )))))
+    ;; Red for dracula theme "#FF5555"
+    ("+" (underline bold :weight italic :foreground "#FF3D2B" )))))
     ;;("+" (bold :strike-through nil :foreground "#ffb86c" #cd5c5c )))))
 
 (setq org-superstar-headline-bullets-list '("› "))
@@ -514,7 +562,7 @@
 ; Search easily
 (map! :after evil :gnvi "C-f" #'consult-line)
 
-(setq display-line-numbers-type nil)
+;;(setq display-line-numbers-type nil)
 
 ;Use VIM Keybindings to move between windows:
 (define-key evil-motion-state-map (kbd "C-h") #'evil-window-left)

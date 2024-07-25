@@ -152,7 +152,7 @@ disabled = false
 disabled = false
 threshold = -1
 symbol = " "
-style = "bold #50FA7B"
+#style = "bold #50FA7B"
 format = "$symbol[${ram}( | ${swap})]($style) "
 
 #+end_src
@@ -165,7 +165,7 @@ format = "$symbol[${ram}( | ${swap})]($style) "
 [time]
 time_format = "%T"
 format = "🕙 $time($style) "
-style = "#F8F8F2"
+#style = "#F8F8F2"
 disabled = false
 
 #+end_src
@@ -176,7 +176,7 @@ disabled = false
 #+NAME:User-Module
 #+begin_src toml
 [username]
-style_user = "#BD93F9"
+#style_user = "#BD93F9"
 show_always = true
 
 #+end_src
@@ -204,7 +204,7 @@ disabled = true
 [directory]
 truncation_length = 5
 format = "[$path]($style)[$lock_symbol]($lock_style) "
-style = "bold underline #8BE9FD"
+#style = "bold underline #8BE9FD"
 
 #+end_src
 

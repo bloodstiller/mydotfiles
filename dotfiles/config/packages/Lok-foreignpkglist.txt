@@ -21,6 +21,7 @@ jamesdsp
 jdk
 jwhois
 kazam
+montserrat-ttf
 mullvad-vpn-bin
 nautilus-sendto
 phpactor

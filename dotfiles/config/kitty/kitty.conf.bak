@@ -8,7 +8,7 @@ window_padding_width 7
 
 
 # BEGIN_KITTY_THEME
-# Doom One Light
+# Adwaita darker
 include current-theme.conf
 # END_KITTY_THEME
 
