@@ -250,10 +250,25 @@ function reveal () {
                 gpg --decrypt --output ${output} "${1}" && echo "${1} -> ${output}"
 }
 
+# Scoop
+alias scoopreg='ssh -i ~/.ssh/bvawslondon -L8000:127.0.0.1:8000 ec2-user@13.42.100.70'
+alias scoop='ssh -i ~/.ssh/bvawslondon ec2-user@13.42.100.70'
+alias scooprtp='ssh -i ~/.ssh/bvawslondon ec2-user@13.42.100.71'
+
+# Gobo
+alias goboreg='ssh -i ~/.ssh/bvawslondon -L8000:127.0.0.1:8000 ec2-user@13.42.100.68'
+alias gobo='ssh -i ~/.ssh/bvawslondon ec2-user@13.42.100.68'
+alias gobortp='ssh -i ~/.ssh/bvawslondon ec2-user@13.42.100.69'
+
+# Realms check:
+# Check all domains on a server
+alias realms='curl 127.0.0.1:8000/reg/realms? | jq'
+alias realmsr='~/.config/scripts/realms.sh'
+
 # Tmux auto-start (currently commented out)
 #if [[ -z "$TMUX" && -z "$SSH_CONNECTION" && -n "$DISPLAY" ]]; then
 #  exec tmux new-session -A -s default \; source-file ~/.tmux.conf
 #fi
 
 # Initialize Starship prompt
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"

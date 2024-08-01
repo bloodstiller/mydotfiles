@@ -371,25 +371,26 @@
 ;;Customize ORG higlighting
 ;; this controls the color of bold, italic, underline, verbatim, strikethrough
 
-(after! org
-(setq org-emphasis-alist
     ;; Purple Bold & Underline Brighter purple Dracula purple "#A061F9"
-  '(("*" (underline :weight black :foreground "#EB00E4" ))
     ;; Red text highligted in yellow (important)
     ;; Dracula setup ("/" (:weight black :background "#FF5555" :foreground "#F1FA8C" ))
-    ("/" (:weight black :background "#745B00" :foreground "#FF3D2B" ))
     ;; Blue
-    ("_" (:weight black :foreground "#79c6ff" ))
     ;;Higlighter  brighter yellow "#F1FA8C"
-    ("=" (underline :weight black :foreground "#b18c00" ))
     ;; Code block
-    ("~" (:foreground "#6BB86B" ))
     ;; Green Background Option Dracula:
     ;;("~" (:background "#6BB86B" :foreground "#575a71" ))
     ;; Red = Important red
     ;; Red for dracula theme "#FF5555"
-    ("+" (underline bold :weight italic :foreground "#FF3D2B" )))))
     ;;("+" (bold :strike-through nil :foreground "#ffb86c" #cd5c5c )))))
+
+(after! org
+(setq org-emphasis-alist
+  '(("*" (underline :weight black :foreground "#EB00E4" ))
+   ;; ("/" (:weight black :background "#745B00" :foreground "#FF3D2B" ))
+    ("_" (:weight black :foreground "#79c6ff" ))
+    ("=" (underline :weight black :foreground "#b18c00" ))
+    ("~" (:foreground "#6BB86B" ))
+    ("+" (underline bold :weight italic :foreground "#FF3D2B" )))))
 
 (setq org-superstar-headline-bullets-list '("› "))
 

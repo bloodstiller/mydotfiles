@@ -54,6 +54,7 @@
   - [[#pgp---rotate-key-alias][PGP - Rotate Key Alias:]]
   - [[#pgp---function-to-encrypt-using-pgp][PGP - Function to encrypt using PGP:]]
   - [[#pgp---function-to-decrypt-using-pgp][PGP - Function to decrypt using PGP:]]
+- [[#bv][BV:]]
 - [[#autostart-tmux-if-not-already-in-a-tmux-session-and-not-in-ssh-also-sources-to-ensure-compatiblity][Autostart tmux if not already in a tmux session and not in SSH also sources to ensure compatiblity:]]
 - [[#starship-prompt][Starship Prompt:]]
 
@@ -284,6 +285,7 @@ precmd() {
 :PROPERTIES:
 :ID:       7645f594-1bb7-4f7b-8d73-9f7c2a2dc363
 :END:
+
 #+begin_src bash
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -664,7 +666,7 @@ alias npt="/home/martin/.config/scripts/newpentest.sh"
 :PROPERTIES:
 :ID:       fea96ba7-150b-4a62-96af-a9b389a8b4ea
 :END:
-- Sometimes when I am making changes I want an easy way to restarte waybar.
+- Sometimes when I am making changes I want an easy way to restart waybar.
 #+begin_src bash
 alias wbr="/home/martin/.config/scripts/waybarRestart.sh"
 #+end_src
@@ -719,6 +721,31 @@ function reveal () {
 }
 
 #+end_src
+* BV:
+:PROPERTIES:
+:ID:       c9e9ed22-6a30-49ba-b8c2-c3b7de4d8222
+:END:
+
+#+begin_src bash
+
+# Scoop
+alias scoopreg='ssh -i ~/.ssh/bvawslondon -L8000:127.0.0.1:8000 ec2-user@13.42.100.70'
+alias scoop='ssh -i ~/.ssh/bvawslondon ec2-user@13.42.100.70'
+alias scooprtp='ssh -i ~/.ssh/bvawslondon ec2-user@13.42.100.71'
+
+# Gobo
+alias goboreg='ssh -i ~/.ssh/bvawslondon -L8000:127.0.0.1:8000 ec2-user@13.42.100.68'
+alias gobo='ssh -i ~/.ssh/bvawslondon ec2-user@13.42.100.68'
+alias gobortp='ssh -i ~/.ssh/bvawslondon ec2-user@13.42.100.69'
+
+# Realms check:
+# Check all domains on a server
+alias realms='curl 127.0.0.1:8000/reg/realms? | jq'
+alias realmsr='~/.config/scripts/realms.sh'
+
+#+end_src
+
+#+RESULTS:
 
 * Autostart tmux if not already in a tmux session and not in SSH also sources to ensure compatiblity:
 :PROPERTIES:
@@ -743,5 +770,5 @@ function reveal () {
 #+begin_src bash
 
 # Initialize Starship prompt
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
 #+end_src
