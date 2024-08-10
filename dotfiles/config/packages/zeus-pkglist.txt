@@ -1,3 +1,4 @@
+akm
 alsa-firmware
 alsa-plugins
 alsa-utils
@@ -15,7 +16,6 @@ cups-pdf
 discord
 downgrade
 duf
-dunst
 efitools
 emacs-nativecomp
 endeavouros-keyring
@@ -29,12 +29,12 @@ eos-rankmirrors
 eos-settings-gnome
 ethtool
 eza
-fd
 ffmpegthumbnailer
 firefox
 font-manager
 foomatic-db-engine
 foomatic-db-nonfree
+freerdp
 fsarchiver
 gdm
 glances
@@ -56,7 +56,6 @@ hdparm
 hwdetect
 hwinfo
 hypridle
-hyprland
 hyprlock
 inetutils
 intel-ucode
@@ -83,8 +82,8 @@ pavucontrol
 pkgfile
 powerline-fonts
 pv
+python-pyqt5
 rebuild-detector
-ripgrep
 rofi
 scrot
 sg3_utils

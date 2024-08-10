@@ -1,8 +1,11 @@
+blueman-git
 brave-bin
 dotdrop
 dropbox
 gbm
+google-chrome
 jamesdsp
+nautilus-sendto
 pyprland
 spotify
 ttf-all-the-icons
