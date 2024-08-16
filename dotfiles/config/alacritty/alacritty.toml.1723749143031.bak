@@ -1,5 +1,5 @@
 import = [
-  "/usr/lib/node_modules/alacritty-themes/themes/Cobalt-2.toml"
+  "/usr/lib/node_modules/alacritty-themes/themes/Chalk.dark.toml"
 ]
 
 [scrolling]
@@ -19,10 +19,10 @@ title = "Alacritty"
   y = 10
 
 [font]
-size = 13.5
+size = 14
 
   [font.bold]
-  family = "JetBrains Mono"
+  family = "JetBrains  Mono"
   style = "Bold"
 
   [font.bold_italic]
@@ -42,6 +42,4 @@ size = 13.5
 
 [env]
 TERM = "xterm-256color"
-
-[colors]
-draw_bold_text_with_bright_colors = true
+import = "Cobalt2.toml"
