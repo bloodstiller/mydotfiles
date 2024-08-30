@@ -231,6 +231,9 @@ alias sw='/home/martin/.config/scripts/start_work.sh 2>/dev/null'
 # Pentesting Scripts
 alias npt="/home/martin/.config/scripts/newpentest.sh"
 
+# Box Scrtips for THM
+alias nbx="/home/martin/.config/scripts/newbox.sh"
+
 alias wbr="/home/martin/.config/scripts/waybarRestart.sh"
 
 # GPG
@@ -260,10 +263,25 @@ alias goboreg='ssh -i ~/.ssh/bvawslondon -L8000:127.0.0.1:8000 ec2-user@13.42.10
 alias gobo='ssh -i ~/.ssh/bvawslondon ec2-user@13.42.100.68'
 alias gobortp='ssh -i ~/.ssh/bvawslondon ec2-user@13.42.100.69'
 
+# Gobo
+alias wingreg='ssh -i ~/.ssh/bvawslondon -L8000:127.0.0.1:8000 ec2-user@wingnut.babblevoice.com'
+alias wing='ssh -i ~/.ssh/bvawslondon ec2-user@wingnut.babblevoice.com'
+alias wingrtp='ssh -i ~/.ssh/bvawslondon ec2-user@13.42.100.71'
+
 # Realms check:
 # Check all domains on a server
 alias realms='curl 127.0.0.1:8000/reg/realms? | jq'
 alias realmsr='~/.config/scripts/realms.sh'
+alias realmsu='curl "127.0.0.1:8000/reg/realms?u=9023" | jq'
+
+#Git Alias:
+alias bvgit='ssh -i ~/.ssh/bv_ed25519 -o IdentitiesOnly=yes'
+
+# Start warm captures:
+alias warm='~/.config/work/HelpDesk/captureScripts/captureWarmTimer.sh'
+
+# Start hot captures:
+alias hot='~/.config/work/HelpDesk/captureScripts/captureHotTimer.sh'
 
 # Tmux auto-start (currently commented out)
 #if [[ -z "$TMUX" && -z "$SSH_CONNECTION" && -n "$DISPLAY" ]]; then

@@ -921,14 +921,15 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 :END:
 #+begin_src emacs-lisp
 ;; Markdown & line settings
-(setq display-line-numbers-type t)
-(map! :leader
-      :desc "Comment or uncomment lines" "TAB TAB" #'comment-line
-      (:prefix ("t" . "toggle")
-       :desc "Toggle line numbers" "l" #'doom/toggle-line-numbers
-       :desc "Toggle line highlight in frame" "h" #'hl-line-mode
-       :desc "Toggle line highlight globally" "H" #'global-hl-line-mode
-       :desc "Toggle truncate lines" "t" #'toggle-truncate-lines))
+
+;;(setq display-line-numbers-type t)
+;;(map! :leader
+      ;;:desc "Comment or uncomment lines" "TAB TAB" #'comment-line
+      ;;(:prefix ("t" . "toggle")
+       ;;:desc "Toggle line numbers" "l" #'doom/toggle-line-numbers
+       ;;:desc "Toggle line highlight in frame" "h" #'hl-line-mode
+       ;;:desc "Toggle line highlight globally" "H" #'global-hl-line-mode
+       ;;:desc "Toggle truncate lines" "t" #'toggle-truncate-lines))
 #+end_src
 *** Markdown: Set Custom Headers:
 :PROPERTIES:
@@ -936,23 +937,26 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 :END:
 
 #+begin_src emacs-lisp
+
 ;Markdown: Set Custom Headers:
-(custom-set-faces!
+;;(custom-set-faces!
  ;; Headers
-'(markdown-header-delimiter-face :foreground "#616161" :height 0.9)
-'(markdown-header-face-1 :height 1.8 :foreground "#FF79C6" :weight extra-bold :inherit markdown-header-face)
-'(markdown-header-face-2 :height 1.4 :foreground "#BD93F9" :weight extra-bold :inherit markdown-header-face)
-'(markdown-header-face-3 :height 1.2 :foreground "#D4B8FB" :weight extra-bold :inherit markdown-header-face)
-'(markdown-header-face-4 :height 1.15 :foreground "#FFA7D9" :weight bold :inherit markdown-header-face)
-'(markdown-header-face-5 :height 1.1 :foreground "#E4D3FC" :weight bold :inherit markdown-header-face)
-'(markdown-header-face-6 :height 1.05 :foreground "#5e81ac" :weight semi-bold :inherit markdown-header-face)
+
+;;'(markdown-header-delimiter-face :foreground "#616161" :height 0.9)
+;;'(markdown-header-face-1 :height 1.8 :foreground "#FF79C6" :weight extra-bold :inherit markdown-header-face)
+;;'(markdown-header-face-2 :height 1.4 :foreground "#BD93F9" :weight extra-bold :inherit markdown-header-face)
+;;'(markdown-header-face-3 :height 1.2 :foreground "#D4B8FB" :weight extra-bold :inherit markdown-header-face)
+;;'(markdown-header-face-4 :height 1.15 :foreground "#FFA7D9" :weight bold :inherit markdown-header-face)
+;;'(markdown-header-face-5 :height 1.1 :foreground "#E4D3FC" :weight bold :inherit markdown-header-face)
+;;'(markdown-header-face-6 :height 1.05 :foreground "#5e81ac" :weight semi-bold :inherit markdown-header-face)
 
 ;;; Custom bold etc
-'(markdown-code-face :background "#6BB86B" :foreground "#575a71")
-'(markdown-line-break-face :weight extra-black :foreground "#79c6ff")
-'(markdown-italic-face :weight black :foreground "#79c6ff")
-'(markdown-list-face :weight black :foreground "#BD93F9")
-'(markdown-bold-face :weight black :foreground "#A061F9"))
+
+;;'(markdown-code-face :background "#6BB86B" :foreground "#575a71")
+;;'(markdown-line-break-face :weight extra-black :foreground "#79c6ff")
+;;'(markdown-italic-face :weight black :foreground "#79c6ff")
+;;'(markdown-list-face :weight black :foreground "#BD93F9")
+;;'(markdown-bold-face :weight black :foreground "#A061F9"))
 #+end_src
 
 *** Markdown: Functions To Allow Markdown preview whilst typing:
@@ -960,45 +964,50 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 :ID:       4e16c322-0c20-4d06-b4ca-6cadd0622c6a
 :END:
 #+begin_src emacs-lisp
+
 ;; Enables markdown preview whilst creating doc.
- (defvar nb/current-line '(0 . 0)
-   "(start . end) of current line in current buffer")
- (make-variable-buffer-local 'nb/current-line)
 
- (defun nb/unhide-current-line (limit)
-   "Font-lock function"
-   (let ((start (max (point) (car nb/current-line)))
-         (end (min limit (cdr nb/current-line))))
-     (when (< start end)
-       (remove-text-properties start end
-                       '(invisible t display "" composition ""))
-       (goto-char limit)
-       t)))
-
- (defun nb/refontify-on-linemove ()
-   "Post-command-hook"
-   (let* ((start (line-beginning-position))
-          (end (line-beginning-position 2))
-          (needs-update (not (equal start (car nb/current-line)))))
-     (setq nb/current-line (cons start end))
-     (when needs-update
-       (font-lock-fontify-block 3))))
-
- (defun nb/markdown-unhighlight ()
-   "Enable markdown concealling"
-   (interactive)
-   (markdown-toggle-markup-hiding 'toggle)
-   (font-lock-add-keywords nil '((nb/unhide-current-line)) t)
-   (add-hook 'post-command-hook #'nb/refontify-on-linemove nil t))
+;; (defvar nb/current-line '(0 . 0)
+;;   "(start . end) of current line in current buffer")
+;; (make-variable-buffer-local 'nb/current-line)
+;;
+;; (defun nb/unhide-current-line (limit)
+;;   "Font-lock function"
+;;   (let ((start (max (point) (car nb/current-line)))
+;;         (end (min limit (cdr nb/current-line))))
+;;     (when (< start end)
+;;       (remove-text-properties start end
+;;                       '(invisible t display "" composition ""))
+;;       (goto-char limit)
+;;       t)))
+;;
+;; (defun nb/refontify-on-linemove ()
+;;   "Post-command-hook"
+;;   (let* ((start (line-beginning-position))
+;;          (end (line-beginning-position 2))
+;;          (needs-update (not (equal start (car nb/current-line)))))
+;;     (setq nb/current-line (cons start end))
+;;     (when needs-update
+;;       (font-lock-fontify-block 3))))
+;;
+;; (defun nb/markdown-unhighlight ()
+;;   "Enable markdown concealling"
+;;   (interactive)
+;;   (markdown-toggle-markup-hiding 'toggle)
+;;   (font-lock-add-keywords nil '((nb/unhide-current-line)) t)
+;;   (add-hook 'post-command-hook #'nb/refontify-on-linemove nil t))
 
 ;; Toggles on for all MD docs. Remove to turn off.
- (add-hook 'markdown-mode-hook #'nb/markdown-unhighlight)
+
+;; (add-hook 'markdown-mode-hook #'nb/markdown-unhighlight)
 
 ;; Enable code block syntax highlight
- (setq markdown-enable-highlighting-syntax t)
+
+;; (setq markdown-enable-highlighting-syntax t)
 
 ;; Enable wiki links in all md files by default:
- (setq markdown-enable-wiki-links t)
+
+;; (setq markdown-enable-wiki-links t)
 
 #+end_src
 *** Markdown: Keymaps:
@@ -1007,7 +1016,7 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 :END:
 #+begin_src emacs-lisp
 ; Make emacs auto indent when we create a new list item.
-(setq markdown-indent-on-enter 'indent-and-new-item)
+;;(setq markdown-indent-on-enter 'indent-and-new-item)
 #+end_src
 
 ** Quality Of Life:
@@ -1276,7 +1285,7 @@ Some custom functions to insert the date.  The function 'insert-todays-date' can
        ;;ansible
        ;;debugger          ; FIXME stepping through code, to help you add bugs
        ;;direnv
-       docker
+       ;;docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)     ; run code, run (also, repls)

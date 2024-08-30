@@ -26,8 +26,6 @@ code
 deja-dup
 dex
 discord
-docker
-docker-compose
 downgrade
 dpkg
 duf
@@ -58,6 +56,7 @@ fsarchiver
 galculator
 gdm
 git-delta
+github-cli
 glances
 gnome-calculator
 gnome-console
@@ -81,6 +80,7 @@ hypridle
 hyprlock
 i3blocks
 inetutils
+jami-qt
 jshon
 kernel-install-for-dracut
 kitty
@@ -94,10 +94,8 @@ logrotate
 lua51
 lxappearance-gtk3
 man-pages
-mpv
 nano-syntax-highlighting
 nautilus
-neovim
 netctl
 network-manager-applet
 networkmanager-openconnect

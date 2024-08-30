@@ -1,6 +1,7 @@
 1password
 ags
 alacritty-themes
+anki
 anydesk-bin
 appimagelauncher
 brave-bin
@@ -30,6 +31,7 @@ protonmail-desktop
 pyinstaller
 pyprland
 python-grip-git
+python-pyshark
 python2
 python37
 raindrop

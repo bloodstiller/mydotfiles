@@ -48,6 +48,7 @@
   - [[#script---start-work][Script - Start Work:]]
   - [[#script---make-new-directories-in-for-new-htb-box-in-the-current-directory][Script - Make new directories in for new HTB box in the current directory:]]
   - [[#script---create-hackingengagement-folder-structure][Script - Create hacking/engagement folder structure:]]
+  - [[#script---create-htbthm-box-folder--file][Script - Create HTB/THM Box Folder + File:]]
   - [[#script---restart-waybar][Script - Restart Waybar:]]
 - [[#gpg][GPG:]]
   - [[#pgp---key-alias][PGP - Key Alias:]]
@@ -662,6 +663,15 @@ alias sw='/home/martin/.config/scripts/start_work.sh 2>/dev/null'
 alias npt="/home/martin/.config/scripts/newpentest.sh"
 #+end_src
 
+** Script - Create HTB/THM Box Folder + File:
+:PROPERTIES:
+:ID:       43b6e611-f2a7-4a04-9cb6-3c471a7225f7
+:END:
+#+begin_src bash
+# Box Scrtips for THM
+alias nbx="/home/martin/.config/scripts/newbox.sh"
+#+end_src
+
 ** Script - Restart Waybar:
 :PROPERTIES:
 :ID:       fea96ba7-150b-4a62-96af-a9b389a8b4ea
@@ -738,10 +748,26 @@ alias goboreg='ssh -i ~/.ssh/bvawslondon -L8000:127.0.0.1:8000 ec2-user@13.42.10
 alias gobo='ssh -i ~/.ssh/bvawslondon ec2-user@13.42.100.68'
 alias gobortp='ssh -i ~/.ssh/bvawslondon ec2-user@13.42.100.69'
 
+# Gobo
+alias wingreg='ssh -i ~/.ssh/bvawslondon -L8000:127.0.0.1:8000 ec2-user@wingnut.babblevoice.com'
+alias wing='ssh -i ~/.ssh/bvawslondon ec2-user@wingnut.babblevoice.com'
+alias wingrtp='ssh -i ~/.ssh/bvawslondon ec2-user@13.42.100.71'
+
 # Realms check:
 # Check all domains on a server
 alias realms='curl 127.0.0.1:8000/reg/realms? | jq'
 alias realmsr='~/.config/scripts/realms.sh'
+alias realmsu='curl "127.0.0.1:8000/reg/realms?u=9023" | jq'
+
+#Git Alias:
+alias bvgit='ssh -i ~/.ssh/bv_ed25519 -o IdentitiesOnly=yes'
+
+# Start warm captures:
+alias warm='~/.config/work/HelpDesk/captureScripts/captureWarmTimer.sh'
+
+# Start hot captures:
+alias hot='~/.config/work/HelpDesk/captureScripts/captureHotTimer.sh'
+
 
 #+end_src
 
