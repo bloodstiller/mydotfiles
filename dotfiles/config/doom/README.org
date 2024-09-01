@@ -1,6 +1,6 @@
-#+TITLE: MDB Dev Doom Config
-#+AUTHOR: MDB Dev
-#+DESCRIPTION: MDB's Personal Doom Emacs Config.
+#+TITLE: Bloodstiller Dev Doom Config
+#+AUTHOR: blooodstiller
+#+DESCRIPTION: Bloodstiller Personal Doom Emacs Config.
 #+PROPERTY: header-args :tangle /home/martin/.config/doom/config.el
 #+auto_tangle: t
 #+STARTUP: showeverything
@@ -46,7 +46,7 @@
 :END:
 
 #+begin_src emacs-lisp
-(setq user-full-name "MDBDEVIO")
+;(setq user-full-name "bloodstiller")
 #+end_src
 
 *** Set line Numbers:
@@ -908,6 +908,20 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
   (let ((org-startup-indented nil))
     (apply orig-fun args)))
 (advice-add 'org-roam-buffer-render-contents :around #'vr/org-roam-buffer-render-contents-advice)
+#+end_src
+*** ORG - Hugo Auto Export:
+:PROPERTIES:
+:ID:       7636b429-40ef-4ccf-8252-8c9480f39afb
+:END:
+#+begin_src emacs-lisp
+(defun my/org-hugo-auto-export-mode ()
+  "Enable `org-hugo-auto-export-mode` for files in `content-org/`."
+  (when (and buffer-file-name
+             (string-prefix-p (expand-file-name "~/.config/hugo/bloodstiller/content-org")
+                              (file-name-directory buffer-file-name)))
+    (org-hugo-auto-export-mode 1)))
+
+(add-hook 'after-save-hook #'my/org-hugo-auto-export-mode)
 #+end_src
 
 ** Markdown:

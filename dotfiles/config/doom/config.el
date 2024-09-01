@@ -1,4 +1,4 @@
-(setq user-full-name "MDBDEVIO")
+;(setq user-full-name "bloodstiller")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -485,6 +485,15 @@
   (let ((org-startup-indented nil))
     (apply orig-fun args)))
 (advice-add 'org-roam-buffer-render-contents :around #'vr/org-roam-buffer-render-contents-advice)
+
+(defun my/org-hugo-auto-export-mode ()
+  "Enable `org-hugo-auto-export-mode` for files in `content-org/`."
+  (when (and buffer-file-name
+             (string-prefix-p (expand-file-name "~/.config/hugo/bloodstiller/content-org")
+                              (file-name-directory buffer-file-name)))
+    (org-hugo-auto-export-mode 1)))
+
+(add-hook 'after-save-hook #'my/org-hugo-auto-export-mode)
 
 ;; Markdown & line settings
 
