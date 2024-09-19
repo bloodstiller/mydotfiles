@@ -39,6 +39,7 @@
 - [[#navigation][Navigation:]]
   - [[#navigate---to-dotrdrop-folder-to-manage-dotfiles-easier][Navigate - to dotrdrop folder to manage dotfiles easier:]]
   - [[#navigate---to-my-course-notes][Navigate - to my course notes:]]
+  - [[#navigate---to-blog-folder][Navigate - to blog folder:]]
   - [[#navigate---to-htb-folder][Navigate - to HTB folder:]]
 - [[#launch-vms-and-rdp-sessions][Launch VM's and RDP Sessions:]]
   - [[#desktop-vms][Desktop VM's:]]
@@ -463,6 +464,15 @@ alias dt='/home/martin/.config/mydotfiles'
 - I am studying the CPTs at the moment and this helps navigate to my course notes easier.
 #+begin_src bash
 alias cpts='~/Dropbox/40-49_Career/41-Courses/41.22-CPTS'
+#+end_src
+
+** Navigate - to blog folder:
+:PROPERTIES:
+:ID:       5b2970c0-0f4e-4c72-b3a9-a0b961dab825
+:END:
+- I am studying the CPTs at the moment and this helps navigate to my course notes easier.
+#+begin_src bash
+alias blog='~/.config/hugo/bloodstiller'
 #+end_src
 
 ** Navigate - to HTB folder:

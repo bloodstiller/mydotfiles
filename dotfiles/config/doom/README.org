@@ -46,7 +46,7 @@
 :END:
 
 #+begin_src emacs-lisp
-;(setq user-full-name "bloodstiller")
+(setq user-full-name "bloodstiller")
 #+end_src
 
 *** Set line Numbers:
@@ -371,7 +371,7 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 
 (map! :leader
       (:prefix ("= b" . "Open Blog Files")
-       :desc "Open Blog Root Folder"   "r" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/40-49_Career/44-Blog"))
+       :desc "Open Blog Root Folder"   "r" #'(lambda () (interactive) (find-file "~/.config/hugo/bloodstiller"))
        :desc "Edit Index.org file"   "i" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/40-49_Career/44-Blog/index.org"))
        :desc "Edit Blog.org file"   "b" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/40-49_Career/44-Blog/Articles/Blog.org"))
        :desc "Edit Emacs.org file"   "e" #'(lambda () (interactive) (find-file "/home/martin/Dropbox/40-49_Career/44-Blog/Emacs.org"))
@@ -1292,7 +1292,7 @@ Some custom functions to insert the date.  The function 'insert-todays-date' can
 
        :checkers
        syntax              ; tasing you for every semicolon you forget
-       ;;(spell +flyspell) ; tasing you for misspelling mispelling
+       (spell +flyspell) ; tasing you for misspelling mispelling
        grammar           ; tasing grammar mistake every you make
 
        :tools

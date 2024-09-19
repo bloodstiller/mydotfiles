@@ -1,5 +1,4 @@
 acpi
-acpid
 adobe-source-han-sans-cn-fonts
 adobe-source-han-sans-jp-fonts
 adobe-source-han-sans-kr-fonts
@@ -14,8 +13,8 @@ awesome-terminal-fonts
 b43-fwcutter
 baobab
 base
-base-devel
 bat
+binsider
 bluez-utils
 btop
 calibre
@@ -23,6 +22,7 @@ chezmoi
 clamtk
 cmus
 code
+cosmic-session
 deja-dup
 dex
 discord
@@ -49,7 +49,6 @@ eza
 fail2ban
 firefox
 flameshot
-flatpak
 font-manager
 fping
 fsarchiver
@@ -116,6 +115,7 @@ python-qtconsole
 qbittorrent
 qutebrowser
 rebuild-detector
+reiserfsprogs
 rsnapshot
 sbcl
 scrot

@@ -184,6 +184,8 @@ alias dt='/home/martin/.config/mydotfiles'
 
 alias cpts='~/Dropbox/40-49_Career/41-Courses/41.22-CPTS'
 
+alias blog='~/.config/hugo/bloodstiller'
+
 alias bx='~/Dropbox/40-49_Career/46-Boxes/46.02-HTB'
 
 # Kali VM Aliases

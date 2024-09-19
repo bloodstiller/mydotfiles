@@ -85,7 +85,7 @@
      // Clock Module Configuration:
      "clock": {
          "format": "{:%Y-%m-%d %H:%M} ",
-         "on-click": "firefox https://calendar.proton.me/u/2/month",
+         "on-click": "brave https://calendar.proton.me/u/2/month",
          "Format-alt": "{:%Y-%m-%d} "
      },
      // CPU Module-Configuration:
