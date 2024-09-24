@@ -14,15 +14,12 @@ duplicati-canary-bin
 endeavouros-skel-i3wm
 extension-manager
 filebrowser-bin
-filen-desktop-appimage
 flashfocus-git
 google-chrome
-i3-resurrect
 jamesdsp
 jdk
 jwhois
 kazam
-mullvad-vpn-bin
 nautilus-sendto
 phpactor
 pomatez

@@ -47,8 +47,6 @@ eos-update-notifier
 ethtool
 eza
 fail2ban
-firefox
-flameshot
 font-manager
 fping
 fsarchiver
@@ -62,9 +60,11 @@ gnome-console
 gnome-nettool
 gnome-power-manager
 gnome-screenshot
+gnome-shell-extension-appindicator
 gnome-text-editor
 gnome-tweaks
 gnome-usage
+grim
 gthumb
 hashcat
 haskell-language-server
@@ -77,7 +77,6 @@ hwdetect
 hwinfo
 hypridle
 hyprlock
-i3blocks
 inetutils
 jami-qt
 jshon
@@ -95,6 +94,7 @@ lxappearance-gtk3
 man-pages
 nano-syntax-highlighting
 nautilus
+neovim
 netctl
 network-manager-applet
 networkmanager-openconnect
@@ -116,6 +116,7 @@ qbittorrent
 qutebrowser
 rebuild-detector
 reiserfsprogs
+rofi
 rsnapshot
 sbcl
 scrot
@@ -125,7 +126,6 @@ snapper
 sof-firmware
 stalonetray
 starship
-steam
 sushi
 sysstat
 texlive-basic
@@ -143,6 +143,7 @@ vi
 virt-manager
 virt-viewer
 virtualbox
+vlc
 wakeonlan
 welcome
 whowatch

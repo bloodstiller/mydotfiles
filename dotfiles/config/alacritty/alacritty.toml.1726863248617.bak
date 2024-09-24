@@ -1,6 +1,4 @@
-import = [
-  "~/.config/alacritty/themes/themes/doom_one.toml"
-]
+import = [ "/usr/lib/node_modules/alacritty-themes/themes/Nord.toml" ]
 
 [scrolling]
 history = 100_000

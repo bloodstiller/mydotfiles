@@ -758,10 +758,16 @@ alias goboreg='ssh -i ~/.ssh/bvawslondon -L8000:127.0.0.1:8000 ec2-user@13.42.10
 alias gobo='ssh -i ~/.ssh/bvawslondon ec2-user@13.42.100.68'
 alias gobortp='ssh -i ~/.ssh/bvawslondon ec2-user@13.42.100.69'
 
-# Gobo
+# Wing
 alias wingreg='ssh -i ~/.ssh/bvawslondon -L8000:127.0.0.1:8000 ec2-user@wingnut.babblevoice.com'
 alias wing='ssh -i ~/.ssh/bvawslondon ec2-user@wingnut.babblevoice.com'
 alias wingrtp='ssh -i ~/.ssh/bvawslondon ec2-user@13.42.100.71'
+
+# Mirk
+
+alias mirkreg='ssh -i ~/.ssh/bvawslondon -L8000:127.0.0.1:8000 ec2-user@mirkmonster.babblevoice.com'
+alias mirk='ssh -i ~/.ssh/bvawslondon ec2-user@mirkmonster.babblevoice.com'
+
 
 # Realms check:
 # Check all domains on a server
