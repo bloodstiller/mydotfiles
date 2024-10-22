@@ -472,7 +472,7 @@ alias cpts='~/Dropbox/40-49_Career/41-Courses/41.22-CPTS'
 :END:
 - I am studying the CPTs at the moment and this helps navigate to my course notes easier.
 #+begin_src bash
-alias blog='~/.config/hugo/bloodstiller'
+alias blog='~/Dropbox/40-49_Career/44-Blog/bloodstiller'
 #+end_src
 
 ** Navigate - to HTB folder:
@@ -536,7 +536,7 @@ alias kvmsshc='kvms && sleep 30 && kvmsshd'
 :END:
 - If I disconnect, re-connect.
 #+begin_src bash
-alias kvmrc='xfreerdp3 /v:192.168.122.66 /u:kali /size:100% /dynamic-resolution /gfx:progressive /d:'
+alias kvmrc='xfreerdp3 /v:192.168.122.66 /u:kali /size:100% /dynamic-resolution /gfx:progressive /d: /network:lan -z'
 #+end_src
 *** Start KALI VM & RDP to it:
 :PROPERTIES:

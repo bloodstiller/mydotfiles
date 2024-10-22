@@ -724,14 +724,6 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
 
 #+end_src
 
-#+RESULTS:
-| * | (underline :weight black :foreground #EB00E4)           |
-| / | (:weight black :background #745B00 :foreground #FF3D2B) |
-| _ | (:weight black :foreground #79c6ff)                     |
-| = | (underline :weight black :foreground #b18c00)           |
-| ~ | (:foreground #6BB86B)                                   |
-| + | (underline bold :weight italic :foreground #FF3D2B)     |
-
 **** Cosmetics - Headline Bullets and Folds:
 :PROPERTIES:
 :ID:       801b5f53-05e7-4ca6-a193-c3525b8d7f33
@@ -911,21 +903,95 @@ _NOTE_: Doom Emacs already has a function 'doom/open-private-config' set to the 
     (apply orig-fun args)))
 (advice-add 'org-roam-buffer-render-contents :around #'vr/org-roam-buffer-render-contents-advice)
 #+end_src
+
 *** ORG - Hugo Auto Export:
 :PROPERTIES:
 :ID:       7636b429-40ef-4ccf-8252-8c9480f39afb
 :END:
 #+begin_src emacs-lisp
-(defun my/org-hugo-auto-export-mode ()
-  "Enable `org-hugo-auto-export-mode` for files in `content-org/`."
-  (when (and buffer-file-name
-             (string-prefix-p (expand-file-name "~/.config/hugo/bloodstiller/content-org")
-                              (file-name-directory buffer-file-name)))
-    (org-hugo-auto-export-mode 1)))
+(use-package ox-hugo
+  :after org
+  :config
+  (setq org-hugo-base-dir "/home/martin/.config/hugo/bloodstiller")
 
-(add-hook 'after-save-hook #'my/org-hugo-auto-export-mode)
+  (defun my/ensure-hugo-title (file)
+    "Ensure the file has a #+title: keyword, adding one based on the filename if missing."
+    (with-current-buffer (find-file-noselect file)
+      (goto-char (point-min))
+      (unless (re-search-forward "^#\\+title:" nil t)
+        (goto-char (point-min))
+        (insert (format "#+title: %s\n\n"
+                        (file-name-base (file-name-nondirectory file))))
+        (save-buffer))
+      (current-buffer)))
+
+  (defun my/get-hugo-section (file)
+    "Get the Hugo section for the file based on its front matter."
+    (with-current-buffer (find-file-noselect file)
+      (goto-char (point-min))
+      (if (re-search-forward "^#\\+hugo_section:\\s-*\\(.*\\)$" nil t)
+          (match-string-no-properties 1)
+        "posts")))  ; default to "posts" if no specific section is found
+
+  (defun my/org-roam-link-to-hugo-link (link desc)
+    "Convert an Org-roam link to a Hugo internal link or plain text if file is missing."
+    (let* ((id (org-element-property :path link))
+           (node (org-roam-node-from-id id))
+           (file (when node (org-roam-node-file node)))
+           (title (or desc (when node (org-roam-node-title node)) "Unknown")))
+      (if (and file (file-exists-p file))
+          (format "{{< ref \"%s\" >}}" (file-name-sans-extension (file-name-nondirectory file)))
+        (format "*%s*" title))))  ; Use italic text for missing links
+
+  (defun my/export-org-to-hugo (file)
+    "Export a single org file to Hugo markdown."
+    (with-current-buffer (my/ensure-hugo-title file)
+      (message "Exporting %s" file)
+      (condition-case err
+          (let* ((org-export-with-broken-links t)
+                 (section (my/get-hugo-section file))
+                 (org-hugo-section section)
+                 (org-export-before-parsing-hook '(org-roam-bibtex-replace-links
+                                                   org-roam-replace-roam-links))
+                 (org-hugo-link-org-files-as-md t)
+                 (org-link-parameters '(("id" :export my/org-roam-link-to-hugo-link))))
+            (org-hugo-export-wim-to-md)
+            (message "Exported %s to section: %s" file section))
+        (error
+         (message "Error exporting %s: %s" file (error-message-string err))))
+      (kill-buffer)))
+
+  (defun my/export-all-org-files ()
+    "Export all org files in content-org/ to Hugo markdown."
+    (interactive)
+    (let ((org-files (directory-files-recursively
+                      (expand-file-name "content-org" org-hugo-base-dir)
+                      "\\.org$")))
+      (dolist (file org-files)
+        (my/export-org-to-hugo file))))
+
+  (defun my/maybe-export-all-on-save ()
+    (when (and (buffer-file-name)
+               (string-prefix-p
+                (expand-file-name "content-org" org-hugo-base-dir)
+                (buffer-file-name)))
+      (message "File in content-org saved, exporting all files...")
+      (my/export-all-org-files)
+      (message "All files exported")))
+
+  (add-hook 'after-save-hook #'my/maybe-export-all-on-save))
+
+;; Directory local variables for content-org/
+(dir-locals-set-class-variables
+ 'hugo-content-org
+ '((org-mode . ((eval . (org-hugo-auto-export-mode))))))
+
+(dir-locals-set-directory-class
+ (expand-file-name "content-org" org-hugo-base-dir)
+ 'hugo-content-org)
+
+(message "ox-hugo configuration loaded")
 #+end_src
-
 ** Markdown:
 :PROPERTIES:
 :ID:       fb90e51d-e4eb-43cc-8bcf-3970bf57e8a2
@@ -1162,7 +1228,6 @@ Some custom functions to insert the date.  The function 'insert-todays-date' can
         :desc "Insert today's date" "t" #'dt/insert-todays-date
         :desc "Insert current time" "c" #'dt/insert-current-time))
 #+end_src
-
 * packages.el:
 :PROPERTIES:
 :ID:       e8e9c48f-7898-45fd-b2eb-9a1d542991b6

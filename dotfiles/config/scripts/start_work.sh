@@ -17,6 +17,7 @@ declare -a urls=(
     "https://docs.google.com/spreadsheets/d/1I3E14TsD69NZmuKexGW1iN44xL-MYOt1ct3MLHKRCXk/edit#gid=0"
     "https://calendar.google.com/calendar/u/0/r?tab=rc"
     "https://docs.google.com/spreadsheets/d/1ZQJw6ZH7aTLUpazo7gj7aWyOjzp36an05SVPD0QRz1M/edit#gid=282679378"
+    "http://13.42.100.67:3000/d/adyr4bamhlt6oa/rtp-stats?orgId=1&from=now-12h&to=now"
 )
 
 # Define functions

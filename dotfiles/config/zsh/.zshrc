@@ -184,7 +184,7 @@ alias dt='/home/martin/.config/mydotfiles'
 
 alias cpts='~/Dropbox/40-49_Career/41-Courses/41.22-CPTS'
 
-alias blog='~/.config/hugo/bloodstiller'
+alias blog='~/Dropbox/40-49_Career/44-Blog/bloodstiller'
 
 alias bx='~/Dropbox/40-49_Career/46-Boxes/46.02-HTB'
 
@@ -197,7 +197,7 @@ alias kvmsshd='ssh -D 1080 kali@$kali'
 
 alias kvmsshc='kvms && sleep 30 && kvmsshd'
 
-alias kvmrc='xfreerdp3 /v:192.168.122.66 /u:kali /size:100% /dynamic-resolution /gfx:progressive /d:'
+alias kvmrc='xfreerdp3 /v:192.168.122.66 /u:kali /size:100% /dynamic-resolution /gfx:progressive /d: /network:lan -z'
 
 alias kvmsrc='kvms && sleep 40 && kvmrc'
 

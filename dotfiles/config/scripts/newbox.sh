@@ -11,14 +11,13 @@ mkdir -p "$base_dir"
 if [ ! -d "$base_dir/Org" ]; then
 
     cp -r ~/.config/orgTemplates/Box/BoxTemplate.org "$base_dir/$base_dir-box.org"
-    cp -r ~/.config/orgTemplates/Box/Notes.org "$base_dir/$base_dir-box-Notes.org"
     cp ~/.config/orgTemplates/Box/Hashes.txt "$base_dir"
     cp ~/.config/orgTemplates/Box/Passwords.txt "$base_dir"
     cp ~/.config/orgTemplates/Box/Users.txt "$base_dir"
 
     cd $base_dir
     ln -s ~/Dropbox/screenshots .
-    mkdir -p loot scans/nmap scans/bloodhound payloads
+    mkdir -p loot scans/nmap scans/bloodhound scans/ldap payloads
 
 else
     echo "Org files already exists, not copying over."
