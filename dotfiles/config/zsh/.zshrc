@@ -297,4 +297,4 @@ alias hot='~/.config/work/HelpDesk/captureScripts/captureHotTimer.sh'
 #fi
 
 # Initialize Starship prompt
-#eval "$(starship init zsh)"
+eval "$(starship init zsh)"

@@ -17,7 +17,7 @@ if [ ! -d "$base_dir/Org" ]; then
 
     cd $base_dir
     ln -s ~/Dropbox/screenshots .
-    mkdir -p loot scans/nmap scans/bloodhound scans/ldap payloads
+    mkdir -p loot/ticket scans/nmap scans/bloodhound scans/ldap payloads
 
 else
     echo "Org files already exists, not copying over."

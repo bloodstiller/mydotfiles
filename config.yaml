@@ -473,7 +473,7 @@ dotfiles:
   d_45.00-kaliconfigs_alacritty:
     src: Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/Alacritty
     dst: ~/Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/Alacritty
-    chmod: '751'
+    chmod: '755'
   d_tmux:
     src: Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/tmux
     dst: ~/Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/tmux
@@ -521,6 +521,24 @@ dotfiles:
     src: Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/tmuxinator/proVPN.yaml.yml
     dst: 
       ~/Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/tmuxinator/proVPN.yaml.yml
+  f_box_boxtemplate.org:
+    src: config/orgTemplates/Box/BoxTemplate.org
+    dst: ~/.config/orgTemplates/Box/BoxTemplate.org
+  f_emails.txt:
+    src: config/orgTemplates/Box/Emails.txt
+    dst: ~/.config/orgTemplates/Box/Emails.txt
+  f_hashes.txt:
+    src: config/orgTemplates/Box/Hashes.txt
+    dst: ~/.config/orgTemplates/Box/Hashes.txt
+  f_notes.org:
+    src: config/orgTemplates/Box/Notes.org
+    dst: ~/.config/orgTemplates/Box/Notes.org
+  f_passwords.txt:
+    src: config/orgTemplates/Box/Passwords.txt
+    dst: ~/.config/orgTemplates/Box/Passwords.txt
+  f_users.txt:
+    src: config/orgTemplates/Box/Users.txt
+    dst: ~/.config/orgTemplates/Box/Users.txt
 profiles:
   Lok:
     dotfiles:
@@ -675,6 +693,12 @@ profiles:
     - f_danteph3.yaml.yml
     - f_prolab.yaml.yml
     - f_provpn.yaml.yml
+    - f_box_boxtemplate.org
+    - f_emails.txt
+    - f_hashes.txt
+    - f_notes.org
+    - f_passwords.txt
+    - f_users.txt
   zeus:
     dotfiles:
     - d_alacritty

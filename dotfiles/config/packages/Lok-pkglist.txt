@@ -6,6 +6,7 @@ age-plugin-yubikey
 akm
 alsa-firmware
 amd-ucode
+ansible
 arandr
 archlinux-xdg-menu
 aria2
@@ -26,6 +27,7 @@ cosmic-session
 deja-dup
 dex
 discord
+dmenu
 downgrade
 dpkg
 duf
@@ -93,7 +95,6 @@ lua51
 lxappearance-gtk3
 man-pages
 nano-syntax-highlighting
-nautilus
 neovim
 netctl
 network-manager-applet
@@ -107,11 +108,11 @@ pavucontrol
 polkit-gnome
 proxychains-ng
 pv
-python-passlib
 python-pyperclip
 python-pyquery
 python-qrcode
 python-qtconsole
+python-scapy
 qbittorrent
 qutebrowser
 rebuild-detector
