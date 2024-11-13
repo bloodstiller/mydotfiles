@@ -474,9 +474,6 @@ dotfiles:
     src: Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/Alacritty
     dst: ~/Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/Alacritty
     chmod: '755'
-  d_tmux:
-    src: Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/tmux
-    dst: ~/Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/tmux
   f_45.00-kaliconfigs_zshplugins.sh:
     src: Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/zshPlugins.sh
     dst: ~/Dropbox/40-49_Career/45-KaliShared/45.00-KaliConfigs/zshPlugins.sh
@@ -681,7 +678,6 @@ profiles:
     - f_servicetemplate.org
     - f_tooltemplate.org
     - d_45.00-kaliconfigs_alacritty
-    - d_tmux
     - f_45.00-kaliconfigs_zshplugins.sh
     - f_tmux.conf
     - f_zshrc

