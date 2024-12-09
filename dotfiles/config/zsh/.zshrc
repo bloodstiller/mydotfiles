@@ -165,11 +165,21 @@ alias autorecon='sudo env "PATH=$PATH" autorecon'
 
 alias virtnet='sudo virsh net-start default &'
 
-alias urldecode='python3 -c "import sys, urllib.parse as ul; \
-    print(ul.unquote_plus(sys.argv[1]))"'
+alias urldecode='python3 -c "
+import sys, urllib.parse as ul
+if len(sys.argv) > 1 and sys.argv[1] != \"-\":  # Single string input
+    print(ul.unquote_plus(sys.argv[1]))
+else:  # Read from stdin (e.g., piped input or a file)
+    print(ul.unquote_plus(sys.stdin.read().strip()))
+"'
 
-alias urlencode='python3 -c "import sys, urllib.parse as ul; \
-    print (ul.quote_plus(sys.argv[1]))"'
+alias urlencode='python3 -c "
+import sys, urllib.parse as ul
+if len(sys.argv) > 1 and sys.argv[1] != \"-\":  # Single string input
+    print(ul.quote_plus(sys.argv[1]))
+else:  # Read from stdin (e.g., piped input or a file)
+    print(ul.quote_plus(sys.stdin.read().strip()))
+"'
 
 alias tmux-save-pane='tmux capture-pane -pS -'
 

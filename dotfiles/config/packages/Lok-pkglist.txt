@@ -16,6 +16,7 @@ baobab
 base
 bat
 binsider
+blueman
 bluez-utils
 btop
 calibre
@@ -29,7 +30,6 @@ dex
 discord
 dmenu
 downgrade
-dpkg
 duf
 dunst
 easyeffects
@@ -106,6 +106,7 @@ obs-studio
 obsidian
 pavucontrol
 polkit-gnome
+prometheus
 proxychains-ng
 pv
 python-pyperclip
@@ -173,6 +174,7 @@ xorg-xcursorgen
 xorg-xev
 xorg-xgamma
 xorg-xinit
+xorg-xinput
 xorg-xkbevd
 xorg-xkbutils
 xorg-xkill

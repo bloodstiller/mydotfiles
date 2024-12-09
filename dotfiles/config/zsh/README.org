@@ -395,16 +395,26 @@ alias virtnet='sudo virsh net-start default &'
 :ID:       7de8ecf6-8074-4390-83a8-cb3d19040079
 :END:
 #+begin_src bash
-alias urldecode='python3 -c "import sys, urllib.parse as ul; \
-    print(ul.unquote_plus(sys.argv[1]))"'
+alias urldecode='python3 -c "
+import sys, urllib.parse as ul
+if len(sys.argv) > 1 and sys.argv[1] != \"-\":  # Single string input
+    print(ul.unquote_plus(sys.argv[1]))
+else:  # Read from stdin (e.g., piped input or a file)
+    print(ul.unquote_plus(sys.stdin.read().strip()))
+"'
 #+end_src
 *** Alias - URL Encode:
 :PROPERTIES:
 :ID:       e47ece04-c461-4483-b6ca-2ef6abd64490
 :END:
 #+begin_src bash
-alias urlencode='python3 -c "import sys, urllib.parse as ul; \
-    print (ul.quote_plus(sys.argv[1]))"'
+alias urlencode='python3 -c "
+import sys, urllib.parse as ul
+if len(sys.argv) > 1 and sys.argv[1] != \"-\":  # Single string input
+    print(ul.quote_plus(sys.argv[1]))
+else:  # Read from stdin (e.g., piped input or a file)
+    print(ul.quote_plus(sys.stdin.read().strip()))
+"'
 #+end_src
 
 ** Alias - Capture entire tmux pane from start of session:
