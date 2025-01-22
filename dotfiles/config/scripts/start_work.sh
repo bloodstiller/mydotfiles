@@ -9,6 +9,7 @@ bvVersion=$(curl -s https://www.babblevoice.com/a/current)
 # Define URLs as an array
 declare -a urls=(
     "https://omniis.zendesk.com/agent/dashboard"
+    "https://notion.so"
     "https://app.todoist.com/app/inbox"
     "https://www.babblevoice.com/a/${bvVersion}/#/"
     "https://www.babblevoice.com/a/${bvVersion}/admin/#/"

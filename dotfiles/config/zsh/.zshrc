@@ -281,12 +281,16 @@ alias wing='ssh -i ~/.ssh/bvawslondon ec2-user@wingnut.babblevoice.com'
 alias wingrtp='ssh -i ~/.ssh/bvawslondon ec2-user@13.42.100.71'
 
 # Mirk
-
 alias mirkreg='ssh -i ~/.ssh/bvawslondon -L8000:127.0.0.1:8000 ec2-user@mirkmonster.babblevoice.com'
 alias mirk='ssh -i ~/.ssh/bvawslondon ec2-user@mirkmonster.babblevoice.com'
 
+# Sand
 alias sandreg='ssh -i ~/.ssh/bvawslondon -L8000:127.0.0.1:8000 ec2-user@sandman.babblevoice.com'
 alias sand='ssh -i ~/.ssh/bvawslondon ec2-user@sandman.babblevoice.com'
+
+# boope
+alias boopreg='ssh -i ~/.ssh/bvawslondon -L8000:127.0.0.1:8000 ec2-user@booper.babblevoice.com'
+alias boop='ssh -i ~/.ssh/bvawslondon ec2-user@booper.babblevoice.com'
 
 # Realms check:
 # Check all domains on a server

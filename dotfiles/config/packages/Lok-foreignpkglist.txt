@@ -20,6 +20,7 @@ jamesdsp
 jdk
 jwhois
 kazam
+logseq-desktop-bin
 nautilus-sendto
 phpactor
 pomatez
@@ -28,7 +29,6 @@ protonmail-desktop
 pyinstaller
 pyprland
 python-grip-git
-python-pyshark
 python2
 python37
 raindrop
@@ -44,9 +44,9 @@ swaylock-effects
 teamviewer
 tmuxinator
 trezor-bridge-bin
+trufflehog
 vmware-workstation
 wdisplays
 whatweb
-wireshark-git
 wlogout
 xdg-ninja

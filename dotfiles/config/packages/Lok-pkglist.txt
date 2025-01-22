@@ -29,6 +29,8 @@ deja-dup
 dex
 discord
 dmenu
+docker
+docker-compose
 downgrade
 duf
 dunst
@@ -106,6 +108,7 @@ obs-studio
 obsidian
 pavucontrol
 polkit-gnome
+pre-commit
 prometheus
 proxychains-ng
 pv
@@ -140,6 +143,7 @@ ttf-montserrat
 ttf-opensans
 typescript
 ufw
+vagrant
 veracrypt
 vi
 virt-manager
@@ -149,6 +153,7 @@ vlc
 wakeonlan
 welcome
 whowatch
+wireshark-qt
 xbindkeys
 xca
 xed
