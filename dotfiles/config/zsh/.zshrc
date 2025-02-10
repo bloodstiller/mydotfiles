@@ -248,6 +248,44 @@ alias nbx="/home/martin/.config/scripts/newbox.sh"
 
 alias wbr="/home/martin/.config/scripts/waybarRestart.sh"
 
+# Function to run Vagrant with QEMU/libvirt in Docker
+#vagrant-kvm() {
+  ## Check if .env file exists
+  #if [ ! -f .env ]; then
+    #echo "Error: .env file not found"
+    #return 1
+  #fi
+#
+  ## Load and export environment variables
+  #set -a
+  #source .env
+  #set +a
+#
+  ## Get the box directory path
+  #BOX_DIR=$(dirname "${HOST_KALI_VM_DIR}")
+#
+  #docker run -it --rm \
+    #-e LIBVIRT_DEFAULT_URI="qemu:///system" \
+    #-e HOST_KALI_VM_DIR \
+    #-e HOST_TMUX_CONFIG \
+    #-e HOST_TOOLS_DIR \
+    #-v /var/run/libvirt/:/var/run/libvirt/ \
+    #-v ~/.vagrant.d:/.vagrant.d \
+    #-v "${BOX_DIR}:${BOX_DIR}" \
+    #-v $(realpath "${PWD}"):${PWD} \
+    #-v "${HOST_TMUX_CONFIG}":"${HOST_TMUX_CONFIG}" \
+    #-v "${HOST_TOOLS_DIR}":"${HOST_TOOLS_DIR}" \
+    #-w "${PWD}" \
+    #--network host \
+    #vagrantlibvirt/vagrant-libvirt:latest \
+    #vagrant $@
+#}
+# Usage examples:
+# vagrant-kvm up        # Start the VM
+# vagrant-kvm halt     # Stop the VM
+# vagrant-kvm destroy  # Remove the VM
+# vagrant-kvm ssh      # Connect to the VM
+
 # GPG
 alias key='0x79ea004594bd7e09'
 

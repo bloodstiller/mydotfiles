@@ -32,6 +32,7 @@ python-grip-git
 python2
 python37
 raindrop
+reiserfsprogs
 remmina-plugin-ultravnc
 seclists
 shellcheck-bin

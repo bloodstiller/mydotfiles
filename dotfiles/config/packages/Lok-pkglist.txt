@@ -120,7 +120,6 @@ python-scapy
 qbittorrent
 qutebrowser
 rebuild-detector
-reiserfsprogs
 rofi
 rsnapshot
 sbcl
