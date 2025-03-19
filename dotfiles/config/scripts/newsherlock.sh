@@ -1,6 +1,6 @@
-#!/bin/bash
-
-read -p "Enter boxname value: " base_dir
+#!/usr/bin/env sh
+#
+read -p "Enter sherlock value: " base_dir
 # Define the base directory, default if not provided
 #
 
@@ -10,14 +10,11 @@ mkdir -p "$base_dir"
 # Check if the folder structure already exists before copying
 if [ ! -d "$base_dir/Org" ]; then
 
-    cp -r ~/.config/orgTemplates/BoxTemplate/BoxTemplate.org "$base_dir/$base_dir-box.org"
-    cp ~/.config/orgTemplates/BoxTemplate/Hashes.txt "$base_dir"
-    cp ~/.config/orgTemplates/BoxTemplate/Passwords.txt "$base_dir"
-    cp ~/.config/orgTemplates/BoxTemplate/Users.txt "$base_dir"
+    cp -r ~/.config/orgTemplates/SherlockTemplate/SherlockTemplate.org "$base_dir/$base_dir-sherlock.org"
 
     cd $base_dir
     ln -s ~/Dropbox/screenshots .
-    mkdir -p loot/ticket scans/nmap scans/bloodhound scans/ldap payloads
+    mkdir -p files
 
 else
     echo "Org files already exists, not copying over."

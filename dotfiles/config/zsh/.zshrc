@@ -243,8 +243,10 @@ alias sw='/home/martin/.config/scripts/start_work.sh 2>/dev/null'
 # Pentesting Scripts
 alias npt="/home/martin/.config/scripts/newpentest.sh"
 
-# Box Scrtips for THM
+# Box Scripts for HTB
 alias nbx="/home/martin/.config/scripts/newbox.sh"
+
+alias nsh="/home/martin/.config/scripts/newsherlock.sh"
 
 alias wbr="/home/martin/.config/scripts/waybarRestart.sh"
 

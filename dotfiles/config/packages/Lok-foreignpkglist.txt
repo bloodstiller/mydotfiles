@@ -40,8 +40,8 @@ slack-desktop
 sngrep
 spotify
 swappy-git
-sway-systemd
 swaylock-effects
+teams
 teamviewer
 tmuxinator
 trezor-bridge-bin

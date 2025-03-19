@@ -689,8 +689,11 @@ alias npt="/home/martin/.config/scripts/newpentest.sh"
 :ID:       43b6e611-f2a7-4a04-9cb6-3c471a7225f7
 :END:
 #+begin_src bash
-# Box Scrtips for THM
+# Box Scripts for HTB
 alias nbx="/home/martin/.config/scripts/newbox.sh"
+
+alias nsh="/home/martin/.config/scripts/newsherlock.sh"
+
 #+end_src
 
 ** Script - Restart Waybar:

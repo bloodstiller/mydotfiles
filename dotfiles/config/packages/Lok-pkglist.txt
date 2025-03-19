@@ -6,7 +6,7 @@ age-plugin-yubikey
 akm
 alsa-firmware
 amd-ucode
-ansible
+ansible-lint
 arandr
 archlinux-xdg-menu
 aria2
@@ -25,8 +25,10 @@ clamtk
 cmus
 code
 cosmic-session
+dbeaver
 deja-dup
 dex
+direnv
 discord
 dmenu
 docker
@@ -56,6 +58,7 @@ fping
 fsarchiver
 galculator
 gdm
+git-crypt
 git-delta
 github-cli
 glances
@@ -81,7 +84,6 @@ hwdetect
 hwinfo
 hypridle
 hyprlock
-inetutils
 jami-qt
 jshon
 kernel-install-for-dracut
@@ -96,6 +98,8 @@ logrotate
 lua51
 lxappearance-gtk3
 man-pages
+molecule-plugins
+moreutils
 nano-syntax-highlighting
 neovim
 netctl
@@ -106,6 +110,7 @@ ntp
 nushell
 obs-studio
 obsidian
+ollama-rocm
 pavucontrol
 polkit-gnome
 pre-commit
@@ -120,6 +125,8 @@ python-scapy
 qbittorrent
 qutebrowser
 rebuild-detector
+rocm-ml-sdk
+rocm-opencl-sdk
 rofi
 rsnapshot
 sbcl
@@ -128,10 +135,13 @@ sg3_utils
 shfmt
 snapper
 sof-firmware
+sops
 stalonetray
 starship
 sushi
+sway
 sysstat
+tailscale
 texlive-basic
 thunderbird
 tldr
@@ -139,7 +149,6 @@ tor
 totem
 traceroute
 ttf-montserrat
-ttf-opensans
 typescript
 ufw
 vagrant
