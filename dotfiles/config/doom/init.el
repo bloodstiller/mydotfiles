@@ -144,6 +144,8 @@
             +hugo
             +pandoc
             +present
+            +dragndrop
+            +pomodoro
             +habit               ; organize your plain life in plain text
             +roam2)
        php               ; perl's insecure younger brother

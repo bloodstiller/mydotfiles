@@ -18,9 +18,20 @@
 
 
 ;;(setq  doom-font (font-spec :family "Iosevka Nerd Font" :size 16)
-(setq  doom-font (font-spec :family "JetBrains Mono" :size 18)
-       doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font")
-       doom-unicode-font (font-spec :family "Symbols Nerd Font Mono" :size 16))
+;;(setq  doom-font (font-spec :family "JetBrains Mono" :size 18)
+       ;;doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 20)
+       ;;doom-unicode-font (font-spec :family "Symbols Nerd Font Mono" :size 17))
+
+; Set preffered fonts:
+(setq doom-font (font-spec :family "JetBrains Mono" :size 20)
+      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 15)
+      doom-big-font (font-spec :family "JetBrains Mono" :size 24))
+(after! doom-themes
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t))
+(custom-set-faces!
+  '(font-lock-comment-face :slant italic)
+  '(font-lock-keyword-face :slant italic))
 
 ;;(custom-theme-set-faces! 'tron-legacy
   ;;`(tree-sitter-hl-face:constructor :foreground ,(doom-color 'blue))
@@ -56,18 +67,6 @@
   ;;`(adoc-verbatim-face :background nil)
   ;;`(adoc-list-face :background nil)
   ;;`(adoc-internal-reference-face :foreground ,(face-attribute 'font-lock-comment-face :foreground)))
-
-
-; Set preffered fonts:
-;;(setq doom-font (font-spec :family "JetBrains Mono" :size 20)
-      ;;doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 15)
-      ;;doom-big-font (font-spec :family "JetBrains Mono" :size 24))
-;;(after! doom-themes
-  ;;(setq doom-themes-enable-bold t
-        ;;doom-themes-enable-italic t))
-;;(custom-set-faces!
-  ;;'(font-lock-comment-face :slant italic)
-  ;;'(font-lock-keyword-face :slant italic))
 
 ;;Setup Bookmarks
 (setq bookmark-default-file "~/.config/doom/bookmarks/")
@@ -387,12 +386,14 @@
 
 (after! org
 (setq org-emphasis-alist
-  '(("*" (underline :weight black :foreground "#EB00E4" ))
+  ;'(("*" (underline :weight black :foreground "#ee9955"))
+  '(("*" (:foreground "#2c3740" :weight bold :background "#5699AF" :box (:line-width 1 :color "#7ab9cf" :style rounded)))
    ;; ("/" (:weight black :background "#745B00" :foreground "#FF3D2B" ))
     ("_" (:weight black :foreground "#79c6ff" ))
     ("=" (underline :weight black :foreground "#b18c00" ))
-    ("~" (:foreground "#6BB86B" ))
-    ("+" (underline bold :weight italic :foreground "#FF3D2B" )))))
+    ;;("~" (:foreground "#6BB86B" ))
+    ("~" (:foreground "#c678dd" :background "#2d333b"))
+    ("+" (underline bold :weight italic :foreground "#FF6c6b" )))))
 
 (setq org-superstar-headline-bullets-list '("› "))
 

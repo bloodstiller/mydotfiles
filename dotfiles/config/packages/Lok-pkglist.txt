@@ -53,6 +53,7 @@ eos-update-notifier
 ethtool
 eza
 fail2ban
+firefox
 font-manager
 fping
 fsarchiver
@@ -98,7 +99,6 @@ logrotate
 lua51
 lxappearance-gtk3
 man-pages
-molecule-plugins
 moreutils
 nano-syntax-highlighting
 neovim

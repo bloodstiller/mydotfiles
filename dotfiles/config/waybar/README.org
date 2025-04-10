@@ -9,10 +9,6 @@
 :END:
 - [[#literate-config][Literate Config:]]
 - [[#desktop-configuration][Desktop Configuration:]]
-  - [[#opening-bracket][Opening Bracket:]]
-  - [[#module-positions][Module Positions:]]
-  - [[#module-configurations][Module Configurations:]]
-  - [[#closing-bracket][Closing Bracket:]]
 - [[#laptop-configuration][Laptop Configuration:]]
   - [[#laptop-battery-module-configuration][Laptop-Battery-Module-Configuration:]]
 
@@ -33,302 +29,204 @@
 :ID:       e820e8f3-817f-4414-9b8a-e1b3c6275ec0
 #+PROPERTY: header-args :tangle /home/martin/.config/waybar/config
 :END:
-** Opening Bracket:
-:PROPERTIES:
-:ID:       7dcc60df-f55e-4b39-945d-8df9ee5ad27f
-:END:
-#+NAME: Opening-Bracket:
-- Seems strange I know. But I find it easier to edit this format if I completely remove the openieng and closing brackets. This way I can move blocks within easier.
 #+begin_src conf
 {
-#+end_src
+  "layer": "top", "position": "top",
+  "modules-left": ["custom/logo", "clock",  "custom/weather", "disk", "memory", "cpu", "temperature", "custom/powerDraw", "hyprland/window" ],
+  "modules-center": [  "hyprland/workspaces" , "idle_inhibitor" ],
+  "modules-right": ["tray",  "custom/clipboard", "backlight", "bluetooth", "wireplumber", "network",  "battery" ],
+  "reload_style_on_change":true,
 
-*** Basic Configuration:
-:PROPERTIES:
-:ID:       090a80c2-5850-424b-848e-9a13a29c4845
-:END:
-**** Set Waybar Layer:
-:PROPERTIES:
-:ID:       472876e6-9bb7-4ba3-b1d8-7819a3764e7a
-:END:
-#+NAME: Waybar-Layer
-#+begin_src conf
-    // Waybar at top layer:
-    "layer": "top",
-#+end_src
-**** Set Waybar Position:
-:PROPERTIES:
-:ID:       bef07a38-94b7-4142-aca2-70474ad74d1a
-:END:
-#+NAME: Waybar-Position
-#+begin_src conf
-    // Waybar position (top|bottom|left|right):
-    "position": "top",
-#+end_src
-**** Set Waybar height:
-:PROPERTIES:
-:ID:       51a6bc66-fb3a-465a-b83c-2a327a1a7760
-:END:
-#+NAME: Waybar-Height
-#+begin_src conf
-    // Waybar height:
-    "height": 32, // Waybar height
-#+end_src
+  "custom/logo": {
+    "format": "󱄅",
+    "tooltip": false
+  },
 
-** Module Positions:
-:PROPERTIES:
-:ID:       56522153-02ce-48a4-8300-acb6146ca9ed
-:END:
-*** Modules - Left:
-:PROPERTIES:
-:ID:       9fa00ad9-7839-408a-a6d4-2cb97798a21c
-:END:
-#+NAME: Modules-Left
-#+begin_src conf
-    // Modules-Left:
-    "modules-left": [
-        "custom/launcher",
-        // hyperland Variables When Using That
-         "hyprland/workspaces",
-         "hyprland/submap",
-        // sway Variables When Using That
-        // "sway/workspaces",
-        // "sway/submap",
-        "idle_inhibitor"
-    ],
-#+end_src
+  "hyprland/workspaces": {
+	"format": "{icon}",
+	"format-icons": {
+		"1": "",
+		"2": "",
+		"3": "",
+		"4": "",
+		"5": "",
+		"6": "",
+		"active": "",
+		"default": ""
+	},
+       "persistent-workspaces": {
+         "*": [ 2, 3, 4, 5, 6 ]
+       }
+},
 
-*** Modules - Center:
-:PROPERTIES:
-:ID:       4b3e634d-73e1-4485-b753-ef4c51107745
-:END:
-:PROPERTIES:
-:ID:       2b7cb82a-4aa6-49c9-93ba-39588e08626b
-#+NAME: Modules-Center
-#+begin_src conf
-    // Modules-Center:
-    "modules-center": [
-    "disk",
-    ],
-#+end_src
-*** Modules - Right:
-:PROPERTIES:
-:ID:       08edae0c-5deb-49fa-987a-ead12b660932
-:END:
-#+NAME: Modules-Right
-#+begin_src conf
-    // Modules-Right:
-    "modules-right": [
-        "network",
-        "memory",
-        "temperature",
-        "cpu",
-        "pulseaudio",
-        "battery",
-        "clock",
-        "tray"
-        //"custom/PBPbattery",
-        //"backlight#icon",
-        //"backlight#value",
-        //"custom/keyboard-layout",
-        //"custom/weather",
-        //"custom/power",
-    ],
+"idle_inhibitor":{
+  "format": "<span font='16'>{icon} </span>",
+  "format-icons": {
+    "activated":"󰈈",
+    "deactivated":"󰈉"
+  }
+},
 
-#+end_src
-** Module Configurations:
-:PROPERTIES:
-:ID:       574b7fb9-247f-4fb4-837c-5a83f98ab8d7
-:END:
-*** Workspace Configuration:
-:PROPERTIES:
-:ID:       c3291d70-6cf4-4d2b-8517-30ef7d83370a
-:END:
-#+NAME: Workspace-Configuration
-#+begin_src conf
-     // Configure-Workspaces:
-     // hyperland (when using it uncomment)
-     "hyprland/workspaces": {
-     // sway (when using it uncomment)
-     // "sway/workspaces": {
-     "disable-scroll": false,
-     "active-only": false,
-     "disable-markup" : false,
-     "all-outputs": true,
-     "format": "  {icon}  ",
-     "format-icons": {
-          "1": "",
-          "2": "",
-          "3": "",
-          "10": "",
-          "4": "",
-          "5": "",
-          "focused": "",
-          "default": ""
-         }
-     },
-#+end_src
-*** Hyperland/Sway Module Configuration:
-:PROPERTIES:
-:ID:       e8f456ad-a4e9-400e-bcd6-f90695a5b234
-:END:
-#+NAME: Hyperland-Configuration
-#+begin_src conf
-     // hyprland Module Configuration (uncomment the one I am using)
-      "hyprland/mode": {
-     // Sway Module Configuration (uncomment the one I am using)
-     // "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-     },
-#+end_src
-*** Idle Inhibitor Module Configuration:
-:PROPERTIES:
-:ID:       932a4986-25bf-4fbb-9689-6d24fa1adf5c
-:END:
-#+NAME: Idle-Inhibitor-Module-Configuration
-#+begin_src conf
-     // Idle Inhibitor Module Configuration:
-     "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "  No Sleep",
-            "deactivated": "  "
-        }
-     },
+"custom/weather": {
+  "format": "{}",
+  "return-type": "json",
+  "exec": "~/.config/waybar/scripts/weather.sh",
+  "interval": 10,
+  "on-click": "brave https://wttr.in"
+},
 
-#+end_src
-*** Tray Module Configuration:
-:PROPERTIES:
-:ID:       147582c4-2d2a-4f07-90ad-1ae292a47034
-:END:
-#+NAME: Tray-Module-Configuration
-#+begin_src conf
-     // Tray Module Configuration:
-     "tray": {
-         "icon-size": 15,
-         "spacing": 15
-     },
-#+end_src
-*** Clock Module Configuration:
-:PROPERTIES:
-:ID:       5d95dc74-b1af-4a32-90cf-a6001f1c9d75
-:END:
-#+NAME: Clock-Module-Configuration
-#+begin_src conf
-     // Clock Module Configuration:
-     "clock": {
-         "format": "{:%Y-%m-%d %H:%M} ",
-         "on-click": "brave https://calendar.proton.me/u/2/month",
-         "Format-alt": "{:%Y-%m-%d} "
-     },
-#+end_src
-*** CPU Module Configuration:
-:PROPERTIES:
-:ID:       dfac6301-b06b-4cc1-80c4-9acfd1aa0981
-:END:
-#+NAME: CPU-Module-Configuration
-#+begin_src conf
-     // CPU Module-Configuration:
-     "cpu": {
-         "interval": 5,
-         "format": " {usage}% used @ {avg_frequency}GHz", // Icon: microchip
-         "on-click": "alacritty -e 'btop'",
-         "states": {
-             "warning": 70,
-             "critical": 90,
-         },
-     },
-#+end_src
-*** CPU Temprature Module Configuration:
-:PROPERTIES:
-:ID:       ba07b333-f130-4371-a732-9d6dc499e7d9
-:END:
-#+NAME: CPU-Temprature-Module-Configuration
-#+begin_src conf
-     // CPU Temprature Module Configuration:
-     "temperature": {
-          "thermal-zone": 2,
-         "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-         "critical-threshold": 80,
-         // "format-critical": "{temperatureC}°C ",
-         "format": "{temperatureC}°C  "
-     },
-#+end_src
-*** RAM Module Configuration:
-:PROPERTIES:
-:ID:       1d04b29b-e2eb-4f27-be6b-23f0fc95a126
-:END:
-#+NAME: RAM-Module-Configuration
-#+begin_src conf
-     // RAM Module Configuration:
-     "memory": {
-         "interval": 5,
-         "format": "Using {used}Gb of {total}Gb",
-         "on-click": "alacritty -e 'btop'",
-         "states": {
-             "warning": 80,
-             "critical": 95
-         }
-     },
-#+end_src
-*** Network Module Configuration:
-:PROPERTIES:
-:ID:       3c0bb56f-caa5-471c-8c32-dd974cac0720
-:END:
-#+NAME: Network-Module-Configuration
-#+begin_src conf
-    // Network Module Configuration:
-    "network": {
-        // "interface": "wlp2s0", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-disconnected": "Disconnected ⚠ ",
-        "on-click": "gnome-nettool",
-        "interval" : 7
+
+"clock": {
+      "format": "{:%I:%M:%S %p}",
+      "interval":1,
+      "tooltip-format": "\n<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "calendar-weeks-pos": "right",
+      "today-format": "<span color='#7645AD'><b><u>{}</u></b></span>",
+      "format-calendar": "<span color='#aeaeae'><b>{}</b></span>",
+      "format-calendar-weeks": "<span color='#aeaeae'><b>W{:%V}</b></span>",
+      "format-calendar-weekdays": "<span color='#aeaeae'><b>{}</b></span>"
+      },
+
+  "bluetooth": {
+  "format-on": "",
+  "format-off": "",
+  "format-disabled": "󰂲",
+  "format-connected": "󰂴",
+  "format-connected-battery": "{device_battery_percentage}% 󰂴",
+  "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+  "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+  "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+  "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+  "on-click": "blueman-manager"
+ },
+
+"network": {
+      "format-wifi": " ",
+      "format-ethernet":" ",
+      "format-disconnected": "",
+      "tooltip-format": "{ipaddr}",
+      "tooltip-format-wifi": "{essid} ({signalStrength}%)  | {ipaddr}",
+      "tooltip-format-ethernet": "{ifname} 🖧 | {ipaddr}",
+      "on-click": "nm-connection-editor"
     },
-#+end_src
 
-*** Audio Module Configuration:
-:PROPERTIES:
-:ID:       fbc04ee2-4160-41d9-a9da-53799602e1de
-:END:
-#+NAME: Audio-Module-Configuration
-#+begin_src conf
-    // Audio Module Configuration:
-    "pulseaudio": {
-        //"scroll-step": 1,
-        "format": "{volume}% {icon} ",
-        "format-bluetooth": "{volume}% {icon} ",
-        "format-muted": " ",
-        "on-click": "jamesdsp",
-        "format-icons": {
-            "headphones": "",
-            "handsfree": "",
-            "headset": "",
-            "default": ["", ""]
-            }
-     },
-#+end_src
-*** Disk Settings Module Configuration:
-:PROPERTIES:
-:ID:       3ccbf699-ab0c-416b-83ec-c831b4f1b1a3
-:END:
-#+NAME: Disk-Settings-Module-Configuration
-#+begin_src conf
-    // Disk Settings Module Configuration:
-        "disk": {
-            "path": "/",
-            "format": "{free} free in ~{path}",
-            "on-click": "gnome-disks",
-            "interval": 30,
+"battery": {
+    "interval":1,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{capacity}%  {icon} ",
+        "format-charging": "{capacity}% 󰂄 ",
+        "format-plugged": "{capacity}% 󰂄 ",
+        "format-alt": "{time} {icon}",
+            "format-icons": [
+          "󰁻",
+          "󰁼",
+          "󰁾",
+          "󰂀",
+          "󰂂",
+          "󰁹"
+        ]
+    },
+"backlight": {
+  "device": "intel_backlight",
+  "format": "<span font='12'>{icon}</span>",
+  "format-icons": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
+  "on-scroll-down": "brightnessctl set +5%",
+  "on-scroll-up": "brightnessctl set 5%-",
+  "smooth-scrolling-threshold": 1
+},
+
+ "disk": {
+    "interval": 30,
+    "format": "  {percentage_used}%",
+    "path": "/"
+  },
+
+
+  "cpu": {
+      "interval": 1,
+      "format": " {usage}%",
+      "min-length": 6,
+      "max-length": 6,
+      "on-click": "alacritty -e 'btop'",
+      "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+ },
+
+"memory": {
+  "format": " {percentage}%",
+  "on-click": "alacritty -e 'btop'"
+},
+
+ "hyprland/window": {
+    "format": "( {class} )",
+    "rewrite": {
+         "(.*) - Mozilla Firefox": "🌎 $1",
+         "(.*) - zsh": "> [$1]"
     }
-#+end_src
-** Closing Bracket:
-:PROPERTIES:
-:ID:       92ba0aeb-c65d-4164-99b3-af85e43b09ec
-:END:
-#+NAME: Closing-Bracket:
-#+begin_src conf
+},
+
+"temperature": {
+  "format": " {temperatureC}°C",
+  "format-critical": " {temperatureC}°C",
+  "interval": 1,
+  "critical-threshold": 80,
+  "on-click": "btop"
+ },
+
+"wireplumber": {
+  "format": "{volume}% {icon}",
+  "format-bluetooth": "󰂰",
+  "format-muted": "<span font='12'></span>",
+  "format-icons": {
+    "headphones": "",
+    "bluetooth": "󰥰",
+    "handsfree": "",
+    "headset": "󱡬",
+    "phone": "",
+    "portable": "",
+    "car": "",
+    "default": ["󰕿", "󰖀", "󰕾"]
+  },
+  "scroll-step": 5,
+  "on-click": "jamesdsp",
+  "on-click-right": "pavucontrol",
+  "tooltip-format": "{icon} {volume}%"
+},
+
+
+"tray": {
+    "icon-size": 14,
+    "spacing": 10
+},
+
+"upower": {
+    "show-icon": false,
+    "hide-if-empty": true,
+    "tooltip": true,
+    "tooltip-spacing": 20
+},
+
+  "custom/powerDraw": {
+    "format": "{}",
+    "interval": 1,
+    "exec": "~/.config/waybar/scripts/powerdraw.sh",
+    "return-type": "json"
+  }
+
 }
 #+end_src
 * Laptop Configuration:

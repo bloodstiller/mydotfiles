@@ -84,7 +84,7 @@ title = "Alacritty"
 #+begin_src toml
 [window.padding]
 x = 10
-y = 10
+y = 5
 #+end_src
 * Fonts:
 :PROPERTIES:
@@ -92,26 +92,27 @@ y = 10
 :END:
 #+begin_src toml
 [font]
-size = 12.0
+size = 15.0
 
 [font.bold]
-family = "Ubuntu Mono"
+family = "JetBrains Mono"
 style = "Mono Bold"
 
 [font.bold_italic]
-family = "Ubuntu Mono"
+family = "JetBrains Mono"
 style = "Mono Bold"
 
 [font.italic]
-family = "Ubuntu Mono"
+family = "JetBrains Mono"
 style = "Mono Bold"
 
 [font.normal]
 family = "JetBrains Mono"
+style = "Mono Bold"
 
 [font.offset]
-x = 0
-y = 1
+x = 1
+y = 2
 #+end_src
 * Env:
 :PROPERTIES:
@@ -127,69 +128,74 @@ TERM = "xterm-256color"
 :ID:       d2e24eea-06a9-4419-8f8c-90a77fefeb46
 :END:
 #+begin_src toml
-[colors]
-draw_bold_text_with_bright_colors = true
+[general]
+import = [
+    "~/.config/alacritty/doom_one.toml"
+]
 
-[colors.bright]
-black = "#6272a4"
-blue = "#d6acff"
-cyan = "#a4ffff"
-green = "#69ff94"
-magenta = "#ff92df"
-red = "#ff6e6e"
-white = "#ffffff"
-yellow = "#ffffa5"
-
-[colors.cursor]
-cursor = "CellForeground"
-text = "CellBackground"
-
-[colors.hints.end]
-background = "#282a36"
-foreground = "#f1fa8c"
-
-[colors.hints.start]
-background = "#f1fa8c"
-foreground = "#282a36"
-
-[colors.line_indicator]
-background = "None"
-foreground = "None"
-
-[colors.normal]
-black = "#21222c"
-blue = "#bd93f9"
-cyan = "#8be9fd"
-green = "#50fa7b"
-magenta = "#ff79c6"
-red = "#ff5555"
-white = "#f8f8f2"
-yellow = "#f1fa8c"
-
-[colors.primary]
-background = "#282a36"
-bright_foreground = "#ffffff"
-foreground = "#f8f8f2"
-
-[colors.search.focused_match]
-background = "#ffb86c"
-foreground = "#44475a"
-
-#[colors.search.footer_bar]
+#[colors]
+#draw_bold_text_with_bright_colors = true
+#
+#[colors.bright]
+#black = "#6272a4"
+#blue = "#d6acff"
+#cyan = "#a4ffff"
+#green = "#69ff94"
+#magenta = "#ff92df"
+#red = "#ff6e6e"
+#white = "#ffffff"
+#yellow = "#ffffa5"
+#
+#[colors.cursor]
+#cursor = "CellForeground"
+#text = "CellBackground"
+#
+#[colors.hints.end]
 #background = "#282a36"
+#foreground = "#f1fa8c"
+#
+#[colors.hints.start]
+#background = "#f1fa8c"
+#foreground = "#282a36"
+#
+#[colors.line_indicator]
+#background = "None"
+#foreground = "None"
+#
+#[colors.normal]
+#black = "#21222c"
+#blue = "#bd93f9"
+#cyan = "#8be9fd"
+#green = "#50fa7b"
+#magenta = "#ff79c6"
+#red = "#ff5555"
+#white = "#f8f8f2"
+#yellow = "#f1fa8c"
+#
+#[colors.primary]
+#background = "#282a36"
+#bright_foreground = "#ffffff"
 #foreground = "#f8f8f2"
-
-[colors.search.matches]
-background = "#50fa7b"
-foreground = "#44475a"
-
-[colors.selection]
-background = "#44475a"
-text = "CellForeground"
-
-[colors.vi_mode_cursor]
-cursor = "CellForeground"
-text = "CellBackground"
+#
+#[colors.search.focused_match]
+#background = "#ffb86c"
+#foreground = "#44475a"
+#
+##[colors.search.footer_bar]
+##background = "#282a36"
+##foreground = "#f8f8f2"
+#
+#[colors.search.matches]
+#background = "#50fa7b"
+#foreground = "#44475a"
+#
+#[colors.selection]
+#background = "#44475a"
+#text = "CellForeground"
+#
+#[colors.vi_mode_cursor]
+#cursor = "CellForeground"
+#text = "CellBackground"
 #+end_src
 * Keyboard Bindings:
 :PROPERTIES:

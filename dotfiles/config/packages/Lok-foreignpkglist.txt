@@ -15,12 +15,14 @@ endeavouros-skel-i3wm
 extension-manager
 filebrowser-bin
 flashfocus-git
+gnome-shell-extension-pop-shell-git
 google-chrome
 jamesdsp
 jdk
 jwhois
 kazam
 logseq-desktop-bin
+molecule-plugins
 nautilus-sendto
 phpactor
 pomatez

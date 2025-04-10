@@ -1,6 +1,6 @@
 /* =============================================================================
  *
- * Waybar configuration
+ * Waybar configuration - Doom One Theme
  *
  * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
  *
@@ -9,52 +9,47 @@
 /* -----------------------------------------------------------------------------
  * Keyframes
  * -------------------------------------------------------------------------- */
-
 @keyframes blink-warning {
     70% {
-        color: white;
+        color: #dfdfdf;
     }
-
     to {
-        color: white;
-        background-color: orange;
+        color: #dfdfdf;
+        background-color: #da8548;
     }
 }
 
 @keyframes blink-critical {
     70% {
-      color: white;
+      color: #dfdfdf;
     }
-
     to {
-        color: white;
-        background-color: red;
+        color: #dfdfdf;
+        background-color: #ff6c6b;
     }
 }
-
 
 /* -----------------------------------------------------------------------------
  * Base styles
  * -------------------------------------------------------------------------- */
-
 /* Reset all styles */
 * {
     border: none;
     border-radius: 0;
     min-height: 0;
-    font-size: 11pt;
     margin: 0;
     padding: 0;
+    font-size: 14pt;
 }
 
 /* The whole bar */
 #waybar {
-    font-family: JetBrains Mono;
-    font-size: 17px;
-    opacity: 0.9;
-    background: rgba(30, 31, 41, 230);
-    color: #f8f8f2;
-    border-bottom: 2px solid #282a36;
+    font-family: "JetBrains Mono";
+    font-size: 20px;
+    opacity: 0.95;
+    background: #282c34;
+    color: #bbc2cf;
+    border-bottom: 2px solid #1c1f24;
 }
 
 /* Each module */
@@ -67,29 +62,29 @@
 #network,
 #pulseaudio,
 #temperature,
+#disk,
 #tray {
-    padding-left: 10px;
-    padding-right: 10px;
-    margin: 0.25em;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin: 0.3em;
 }
-
 
 /* -----------------------------------------------------------------------------
  * Module styles
  * -------------------------------------------------------------------------- */
-
 #battery {
+    color: #98be65;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 
 #battery.warning {
-    color: orange;
+    color: #da8548;
 }
 
 #battery.critical {
-    color: red;
+    color: #ff6c6b;
 }
 
 #battery.warning.discharging {
@@ -100,110 +95,145 @@
 #battery.critical.discharging {
     animation-name: blink-critical;
     animation-duration: 2s;
-    margin: 0.25em;
 }
 
 #clock {
-    padding: 0 4px;
-    margin: 0.25em;
+    color: #bbc2cf;
+    font-weight: bold;
+    padding: 0 6px;
 }
 
 #cpu {
-    color: #8be9fd;
+    color: #51afef;
 }
 
 #cpu.warning {
-    color: orange;
+    color: #da8548;
 }
 
 #cpu.critical {
-    color: red;
+    color: #ff6c6b;
 }
 
 #memory {
-    color: #bd93f9;
+    color: #c678dd;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 
 #memory.warning {
-    color: orange;
+    color: #da8548;
 }
 
 #memory.critical {
-    color: red;
+    color: #ff6c6b;
     animation-name: blink-critical;
     animation-duration: 2s;
 }
 
 #mode {
-    background: #64727D;
-    border-top: 2px solid white;
-    /* To compensate for the top border and still have vertical centering */
+    background: #46d9ff;
+    color: #282c34;
+    border-top: 2px solid #bbc2cf;
     padding-bottom: 2px;
+    font-weight: bold;
 }
 
 #network {
- color: #50fa7b;
+    color: #98be65;
 }
 
 #network.disconnected {
-    color: orange;
+    color: #da8548;
 }
 
 #pulseaudio {
-    /* No styles */
-}
-
-#disk {
-    color: #f1fa8c;
-}
-
-#disk.critical {
-    color: red;
+    color: #46d9ff;
 }
 
 #pulseaudio.muted {
-    /* No styles */
+    color: #5B6268;
+}
+
+#disk {
+    color: #ecbe7b;
+}
+
+#disk.critical {
+    color: #ff6c6b;
 }
 
 #custom-spotify {
-    color: rgb(102, 220, 105);
+    color: #98be65;
 }
 
 #temperature {
-    color: #ffb86c;
+    color: #ecbe7b;
 }
 
 #temperature.critical {
-    color: red;
+    color: #ff6c6b;
 }
 
+
 #tray {
+    background: #282c34;
+    padding: 0 14px;
+}
+
+/* Make tray icons larger */
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+#tray > * {
+    padding: 0 6px;
+    margin: 0 2px;
+}
+
+#tray menu {
+    background-color: #282c34;
+    color: #bbc2cf;
+    border: 1px solid #1c1f24;
+}
+
+/* Set the tray icon size */
+#tray icon {
+    min-height: 22px;
+    min-width: 22px;
+    padding: 2px;
 }
 
 #window {
     font-weight: bold;
+    color: #bbc2cf;
 }
 
 #workspaces button {
-    padding: 0 10px;
-    background: #282a36;
-    color: #50fa7b;
-    /*color: #f8f8f2;*/
-    margin: 0.25em;
+    padding: 0 12px;
+    background: #282c34;
+    color: #bbc2cf;
+    margin: 0.3em;
+    font-size: 15pt;
 }
 
-/*#workspaces button.active {
-    color: #50fa7b;
-}*/
+#workspaces button.active {
+    background: #282c34;
+    color: #51afef;
+    border-bottom: 2px solid #51afef;
+}
 
-#workspaces button.visible{
-    color: #8be9fd;
+#workspaces button.visible {
+    color: #98be65;
 }
 
 #workspaces button.urgent {
-    border-color: #c9545d;
-    color: #c9545d;
+    background: #1c1f24;
+    color: #ff6c6b;
+    border-bottom: 2px solid #ff6c6b;
 }
