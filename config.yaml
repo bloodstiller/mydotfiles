@@ -536,6 +536,9 @@ dotfiles:
   f_users.txt:
     src: config/orgTemplates/Box/Users.txt
     dst: ~/.config/orgTemplates/Box/Users.txt
+  d_templates:
+    src: Dropbox/40-49_Career/44-Blog/bloodstiller/content-org/Templates
+    dst: ~/Dropbox/40-49_Career/44-Blog/bloodstiller/content-org/Templates
 profiles:
   Lok:
     dotfiles:
@@ -695,6 +698,7 @@ profiles:
     - f_notes.org
     - f_passwords.txt
     - f_users.txt
+    - d_templates
   zeus:
     dotfiles:
     - d_alacritty

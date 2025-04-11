@@ -1,0 +1,230 @@
+#+HUGO_BASE_DIR: ~/Dropbox/40-49_Career/44-Blog/bloodstiller
+#+HUGO_SECTION:
+#+filetags: :wtmp:linux:utmp:sherlock:
+#+hugo_custom_front_matter: :title "<sherlock> HTB Sherlock Challenge"
+#+hugo_custom_front_matter: :title "Sherlock <name>"
+#+hugo_custom_front_matter: :description "A practical reference guide for using NetworkManager's command-line interface (nmcli). Essential commands and usage examples for managing network connections in Linux systems."
+#+hugo_custom_front_matter: :keywords "HTB, CTF, Linux, Linux administration"
+#+hugo_custom_front_matter: :draft false
+#+hugo_custom_front_matter: :author bloodstiller
+#+hugo_custom_front_matter: :date 2025-03-11
+#+hugo_custom_front_matter: :toc true
+#+hugo_custom_front_matter: :bold true
+#+hugo_custom_front_matter: :next true
+:HIDDEN:
+#+STARTUP: overview
+#+STARTUP: hidestars
+#+STARTUP: indent
+#+STARTUP: entitiespretty
+#+STARTUP: inlineimages
+#+OPTIONS: H:4 toc:nil num:nil \n:nil ':nil *:t -:t ::t <:t ^:{} _:{} |:t f:t d:nil
+#+OPTIONS: tex:mathjax tags:not-in-toc tasks:t title:nil
+#+COLUMNS: %80ITEM %TAGS %TODO %SCHEDULED
+#+TODO: TODO(t) IN-PROGRESS(i) NOTES(m) RABBITHOLE!(R) | DONE(d!) HOLD(h) WONT-DO(n)
+:END:
+
+* <sherlock> Hack The Box Sherlock Challenge Writeup:
+:PROPERTIES:
+:ID:       e3f25c99-179f-461d-9310-dd1f026d4ec1
+:END:
+- https://app.hackthebox.com/challenges/<sherlock>
+
+* Challenge Information:
+:PROPERTIES:
+:ID:       37b3f4cd-f636-4daa-a92c-6ee506aa85c6
+:END:
+- *Difficulty*: 
+- *Category*: 
+- *Points*: 
+- *Description*: 
+
+* 1. Initial Analysis:
+:PROPERTIES:
+:ID:       81eb7851-f68d-47ae-a00d-3b9771d9e5a0
+:END:
+** Challenge Files:
+:PROPERTIES:
+:ID:       8fdc027e-d7a4-4f54-9c83-4b9d26aa1453
+:END:
+- *Files Provided*:
+  - 
+- *File Analysis*:
+  - 
+
+** Initial Reconnaissance:
+:PROPERTIES:
+:ID:       152cba8a-2d19-4689-8c06-060ecf5dfa9c
+:END:
+*** File Type Analysis:
+:PROPERTIES:
+:ID:       838184b4-de61-42eb-b98d-92df652478bd
+:END:
+#+begin_src shell
+#Command
+file <file>
+
+#Results
+#+end_src
+
+*** Strings Analysis:
+:PROPERTIES:
+:ID:       801a10fb-bb93-4052-9ab1-1dc8a3e7ce3f
+:END:
+#+begin_src shell
+#Command
+strings <file>
+
+#Results
+#+end_src
+
+*** Binary Analysis:
+:PROPERTIES:
+:ID:       9e67ec4e-0768-43d9-84ec-4ef863b58885
+:END:
+#+begin_src shell
+#Command
+checksec <file>
+
+#Results
+#+end_src
+
+* 2. Static Analysis:
+:PROPERTIES:
+:ID:       7e2e9aab-f975-4dab-8cd0-8ef05fc7d068
+:END:
+** Decompilation:
+:PROPERTIES:
+:ID:       0403e1ea-38d0-4edb-a1b7-87d89b857def
+:END:
+- *Using Ghidra*:
+  - 
+- *Using IDA Pro*:
+  - 
+
+** Source Code Review:
+:PROPERTIES:
+:ID:       5caf6fab-7689-426f-8e0f-c85772992cbf
+:END:
+- *Key Functions*:
+  - 
+- *Vulnerable Areas*:
+  - 
+
+* 3. Dynamic Analysis:
+:PROPERTIES:
+:ID:       58df008b-4e19-42d2-8446-a58cb6d6fa8d
+:END:
+** Runtime Behavior:
+:PROPERTIES:
+:ID:       5207757c-7607-4fe6-a1e5-6e64667652dd
+:END:
+#+begin_src shell
+#Command
+ltrace ./<file>
+
+#Results
+#+end_src
+
+** Memory Analysis:
+:PROPERTIES:
+:ID:       852e1d87-cd49-4c62-af2c-acdc4ab4d102
+:END:
+#+begin_src shell
+#Command
+gdb ./<file>
+
+#Results
+#+end_src
+
+* 4. Exploitation:
+:PROPERTIES:
+:ID:       3ed1f34f-98da-4009-8aad-4ab3c5064883
+:END:
+** Exploit Development:
+:PROPERTIES:
+:ID:       90d0b0b3-dbfc-4c7f-8ff0-179b23c4c89c
+:END:
+#+begin_src python
+#!/usr/bin/env python3
+
+# Exploit code here
+#+end_src
+
+** Exploit Testing:
+:PROPERTIES:
+:ID:       a34f211e-0c36-4f5c-bf6f-f5e34c46c825
+:END:
+#+begin_src shell
+#Command
+python3 exploit.py
+
+#Results
+#+end_src
+
+* 5. Flag Capture:
+:PROPERTIES:
+:ID:       b2133164-98ff-4fc5-8a0a-dd32a3eb6a6c
+:END:
+#+begin_src shell
+#Command
+cat flag.txt
+
+#Results
+#+end_src
+
+* Lessons Learned:
+:PROPERTIES:
+:ID:       f9f2f6d9-e9fa-4137-b2d7-fb5648ae79c4
+:END:
+** What did I learn?
+:PROPERTIES:
+:ID:       65015e9d-15f2-47f4-a590-7def048be323
+:END:
+  1.
+  2.
+  3.
+
+** What mistakes did I make?
+:PROPERTIES:
+:ID:       f5527136-7c10-4860-a65b-21c637ba9399
+:END:
+  1.
+  2.
+
+* Sign off:
+:PROPERTIES:
+:ID:       abee2c34-8d67-454b-b419-226a37f74d42
+:END:
+
+Remember, folks as always: with great power comes great responsibility. Use this knowledge wisely, and always stay on the right side of the law!
+
+Until next time, hack the planet!
+
+-- Bloodstiller
+
+-- Get in touch bloodstiller at bloodstiller dot com
+
+* +CREDS+:
+:PROPERTIES:
+:ID:       650f717c-c543-43d2-83df-5a10970afad9
+:END:
+** Challenge Files:
+:PROPERTIES:
+:ID:       eb410ce8-7202-4c14-81ff-eedef785d43d
+:END:
+#+begin_src text
+#+end_src
+
+** Exploit Code:
+:PROPERTIES:
+:ID:       8e8ea9bf-5537-4f92-869d-c6d6382e1d89
+:END:
+#+begin_src text
+#+end_src
+
+** Flag:
+:PROPERTIES:
+:ID:       384770eb-354d-404c-b8b1-24ba959dda4d
+:END:
+#+begin_src text
+#+end_src

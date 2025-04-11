@@ -208,9 +208,10 @@ general {
     col.inactive_border = rgba(595959aa)
 
     layout = dwindle
-
-    # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
-    allow_tearing = false
+    # Resize using mouse
+    resize_on_border = true
+    # Enables resizing floating windows
+    resize_corner = 3
 }
 
 #+end_src
@@ -628,7 +629,7 @@ listener {
 
 # dpms
 listener {
-    # DPMS TIMEOUT
+    # DPMS TIMEOUT;
     timeout = 660
     # DPMS ONTIMEOUT
     on-timeout = hyprctl dispatch dpms off

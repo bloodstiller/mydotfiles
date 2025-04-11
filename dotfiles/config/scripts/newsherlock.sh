@@ -1,24 +1,20 @@
 #!/usr/bin/env sh
-#
-read -p "Enter sherlock value: " base_dir
+read -p "Enter sherlock name: " sherlock_name
 # Define the base directory, default if not provided
 #
 
+src="$HOME/Dropbox/40-49_Career/44-Blog/bloodstiller/content-org/Templates/SherlockTemplate/"
+dest="$HOME/Dropbox/40-49_Career/44-Blog/bloodstiller/content-org/Walkthroughs/HTB/Sherlocks/"
+base_dir=$sherlock_name
+
 # Create directories using a nested structure
-mkdir -p "$base_dir"
+mkdir -p "$dest/$base_dir"
 
 # Check if the folder structure already exists before copying
-if [ ! -d "$base_dir/Org" ]; then
+cp $HOME/Dropbox/40-49_Career/44-Blog/bloodstiller/content-org/Templates/SherlockTemplate/SherlockTemplate.org "$dest/$base_dir/$sherlock_name-sherlock.org"
 
-    cp -r ~/.config/orgTemplates/SherlockTemplate/SherlockTemplate.org "$base_dir/$base_dir-sherlock.org"
-
-    cd $base_dir
-    ln -s ~/Dropbox/screenshots .
-    mkdir -p files
-
-else
-    echo "Org files already exists, not copying over."
-fi
+cd $dest/$base_dir/
+ln -s ~/Dropbox/screenshots .
 
 # Confirmation message
-echo "Folder structure, files, created in $base_dir."
+echo "Sherlock $sherlock_name created in $dest/$base_dir"

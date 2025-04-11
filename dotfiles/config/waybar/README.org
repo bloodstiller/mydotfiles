@@ -23,17 +23,14 @@
   - https://www.youtube.com/watch?v=eF4cJlBNtdQ&themeRefresh=1
 * Desktop Configuration:
 :PROPERTIES:
-:ID:       0fc9e585-b145-4577-8d54-d126fb1d5278
+:ID:       86d8bcfe-baa4-4ee0-96d4-60d23301e7d0
 :END:
-:PROPERTIES:
-:ID:       e820e8f3-817f-4414-9b8a-e1b3c6275ec0
 #+PROPERTY: header-args :tangle /home/martin/.config/waybar/config
-:END:
 #+begin_src conf
 {
   "layer": "top", "position": "top",
   "modules-left": ["custom/logo", "clock",  "custom/weather", "disk", "memory", "cpu", "temperature", "custom/powerDraw", "hyprland/window" ],
-  "modules-center": [  "hyprland/workspaces" , "idle_inhibitor" ],
+  "modules-center": [  "hyprland/workspaces" , "idle_inhibitor"  ],
   "modules-right": ["tray",  "custom/clipboard", "backlight", "bluetooth", "wireplumber", "network",  "battery" ],
   "reload_style_on_change":true,
 
@@ -207,6 +204,22 @@
   "tooltip-format": "{icon} {volume}%"
 },
 
+"wlr/taskbar": {
+        	"format": "{icon}",
+        	"tooltip": true,
+              "icon-size": 18,
+        	"tooltip-format": "{title}",
+        	"on-click": "activate",
+        	"on-click-middle": "close",
+        	"active-first": true,
+              "ignore-list": [
+         "Alacritty",
+         "kitty",
+         "jamesdsp",
+         "pia",
+         "spotify"
+      ]
+   	 },
 
 "tray": {
     "icon-size": 14,

@@ -1,0 +1,42 @@
+#+HUGO_BASE_DIR: ~/Dropbox/40-49_Career/44-Blog/bloodstiller
+#+HUGO_SECTION:
+#+filetags: :personal:micro:
+#+date: [2025-04-11 Thu]
+#+hugo_custom_front_matter: :title "Microblog Post"
+#+hugo_custom_front_matter: :description "A brief microblog post"
+#+hugo_custom_front_matter: :keywords "personal, microblog"
+#+hugo_custom_front_matter: :draft false
+#+hugo_custom_front_matter: :author bloodstiller
+#+hugo_custom_front_matter: :date %<%Y-%m-%d>
+#+hugo_custom_front_matter: :toc true
+#+hugo_custom_front_matter: :bold true
+#+hugo_custom_front_matter: :next true
+:HIDDEN:
+#+STARTUP: overview
+#+STARTUP: hidestars
+#+STARTUP: indent
+#+STARTUP: entitiespretty
+#+STARTUP: inlineimages
+#+OPTIONS: H:4 toc:nil num:nil \n:nil ':nil *:t -:t ::t <:t ^:{} _:{} |:t f:t d:nil
+#+OPTIONS: tex:mathjax tags:not-in-toc tasks:t title:nil
+:END:
+
+* Microblog Post
+:PROPERTIES:
+:ID:       e3f25c99-179f-461d-9310-dd1f026d4ec1
+:END:
+
+Your microblog content here.
+
+* Sign off:
+:PROPERTIES:
+:ID:       abee2c34-8d67-454b-b419-226a37f74d42
+:END:
+
+Remember, folks as always: with great power comes great responsibility. Use this knowledge wisely, and always stay on the right side of the law!
+
+Until next time, hack the planet!
+
+-- Bloodstiller
+
+-- Get in touch bloodstiller at bloodstiller dot com

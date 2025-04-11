@@ -1,4 +1,4 @@
-hide_scroll=true
+hide_scroll=false
 show=drun
 width=25%
 lines=10
@@ -12,6 +12,6 @@ layer=overlay
 allow_images=true
 insensitive=true
 prompt=
-image_size=15
+image_size=50
 display_generic=true
 location=center
