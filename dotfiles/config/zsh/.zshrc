@@ -248,6 +248,8 @@ alias nbx="/home/martin/.config/scripts/newbox.sh"
 
 alias nsh="/home/martin/.config/scripts/newsherlock.sh"
 
+alias nmb="/home/martin/.config/scripts/newminiblog.sh"
+
 alias wbr="/home/martin/.config/scripts/waybarRestart.sh"
 
 # Function to run Vagrant with QEMU/libvirt in Docker

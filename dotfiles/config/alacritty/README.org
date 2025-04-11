@@ -96,19 +96,18 @@ size = 15.0
 
 [font.bold]
 family = "JetBrains Mono"
-style = "Mono Bold"
+style = "bold"
 
 [font.bold_italic]
 family = "JetBrains Mono"
-style = "Mono Bold"
+style = "Bold Italic"
 
 [font.italic]
 family = "JetBrains Mono"
-style = "Mono Bold"
+style = "italic"
 
 [font.normal]
 family = "JetBrains Mono"
-style = "Mono Bold"
 
 [font.offset]
 x = 1

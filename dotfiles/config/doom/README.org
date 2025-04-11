@@ -1258,20 +1258,13 @@ Some custom functions to insert the date.  The function 'insert-todays-date' can
 (package! org-auto-tangle)
 (package! org-web-tools)
 (package! ox-hugo)
-;; So I can export org to md well
-;;(package! ox-gemini)
 (package! peep-dired)
-;;(package! password-store)
 (package! rainbow-mode)
 (package! resize-window)
-;;(package! tldr)
 (package! wc-mode)
 (package! beacon)
-;;(package! clippy)
-;;(package! minimap)
 (package! olivetti)
 (package! powershell)
-;;(package! multi-vterm)
 (package! org-download)
 (package! org-ros)
 (package! mini-frame)
@@ -1282,7 +1275,7 @@ Some custom functions to insert the date.  The function 'insert-todays-date' can
 ;; For emacs-everywhere browser integration
 (package! atomic-chrome)
 (package! git-commit
-  :recipe (:host github :repo "magit/magit" :files ("lisp/git-commit.el")))
+  :recipe (:host github :repo "magit/magit" :files ("lisp/git-commit.el") :local-repo "magit2"))
 
 
 #+end_src

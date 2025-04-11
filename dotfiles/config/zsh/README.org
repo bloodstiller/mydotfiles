@@ -694,6 +694,7 @@ alias nbx="/home/martin/.config/scripts/newbox.sh"
 
 alias nsh="/home/martin/.config/scripts/newsherlock.sh"
 
+alias nmb="/home/martin/.config/scripts/newminiblog.sh"
 #+end_src
 
 ** Script - Restart Waybar:

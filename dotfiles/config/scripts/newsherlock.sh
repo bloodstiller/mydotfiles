@@ -17,4 +17,4 @@ cd $dest/$base_dir/
 ln -s ~/Dropbox/screenshots .
 
 # Confirmation message
-echo "Sherlock $sherlock_name created in $dest/$base_dir"
+echo "Sherlock $sherlock_name created in $dest$base_dir"
