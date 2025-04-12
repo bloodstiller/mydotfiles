@@ -1237,11 +1237,11 @@ Some custom functions to insert the date.  The function 'insert-todays-date' can
 :ID:       e8e9c48f-7898-45fd-b2eb-9a1d542991b6
 :header-args: :tangle ~/.config/doom/packages.el
 :END:
-- Dooms package manager. Specify here waht packages to install.
+- Dooms package manager. Specify here what packages to install.
 #+begin_src emacs-lisp
 (package! emojify)
 (package! org-super-agenda)
-(package! magithub)
+;;(package! magithub)
 (package! flycheck-aspell)
 (package! calfw)
 (package! calfw-org)
@@ -1274,8 +1274,8 @@ Some custom functions to insert the date.  The function 'insert-todays-date' can
   :pin "9b7bc521e54af2c7a5c882e4758b66ee4af1a152")
 ;; For emacs-everywhere browser integration
 (package! atomic-chrome)
-(package! git-commit
-  :recipe (:host github :repo "magit/magit" :files ("lisp/git-commit.el") :local-repo "magit2"))
+;;(package! git-commit
+ ;; :recipe (:host github :repo "magit/magit" :files ("lisp/git-commit.el") :local-repo "magit2"))
 
 
 #+end_src

@@ -1,6 +1,6 @@
 (package! emojify)
 (package! org-super-agenda)
-(package! magithub)
+;;(package! magithub)
 (package! flycheck-aspell)
 (package! calfw)
 (package! calfw-org)
@@ -33,5 +33,5 @@
   :pin "9b7bc521e54af2c7a5c882e4758b66ee4af1a152")
 ;; For emacs-everywhere browser integration
 (package! atomic-chrome)
-(package! git-commit
-  :recipe (:host github :repo "magit/magit" :files ("lisp/git-commit.el") :local-repo "magit2"))
+;;(package! git-commit
+ ;; :recipe (:host github :repo "magit/magit" :files ("lisp/git-commit.el") :local-repo "magit2"))
