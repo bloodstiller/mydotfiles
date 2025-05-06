@@ -62,9 +62,6 @@ exec-once = [workspace 7 silent] /opt/piavpn/bin/pia-client
 # Dropbox
 exec-once = dropbox
 
-# Spotify
-exec-once = [workspace 6 silent] spotify
-
 # Bitwarden
 #exec-once = ~/Applications/Bitwarden*.AppImage
 
@@ -340,6 +337,7 @@ bind = $mainMod SHIFT, E, exec, /home/martin/.config/waybar/scripts/power-menu.s
 bind = $mainMod, Y, exec, /home/martin/.config/scripts/kaliLaunch.sh
 bind = $mainMod SHIFT, W, exec, /home/martin/.config/scripts/windowsLaunch.sh
 bind = CTRL, PRINT, exec, /home/martin/.config/scripts/wayland_screenshot.sh
+bind = SUPER, I, exec, ~/.config/scripts/emacscapture.sh
 bind = $mainMod, G, togglegroup,
 ## Restart Waybar
 bind = $mainMod CTRL, C, exec, killall -SIGUSR2 waybar

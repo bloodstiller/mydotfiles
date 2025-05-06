@@ -47,7 +47,7 @@ teams
 teamviewer
 tmuxinator
 trezor-bridge-bin
-trufflehog
+vagrant
 vmware-workstation
 wdisplays
 whatweb

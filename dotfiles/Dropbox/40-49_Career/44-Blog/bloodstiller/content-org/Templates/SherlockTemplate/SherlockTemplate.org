@@ -1,13 +1,13 @@
 #+HUGO_BASE_DIR: ~/Dropbox/40-49_Career/44-Blog/bloodstiller
-#+HUGO_SECTION:
-#+filetags: :wtmp:linux:utmp:sherlock:
-#+hugo_custom_front_matter: :title "<sherlock> HTB Sherlock Challenge"
-#+hugo_custom_front_matter: :title "Sherlock <name>"
-#+hugo_custom_front_matter: :description "A practical reference guide for using NetworkManager's command-line interface (nmcli). Essential commands and usage examples for managing network connections in Linux systems."
+#+HUGO_SECTION: Sherlocks
+#+filetags: :linux:sherlock:DFIR:PacketAnalysis:forensics:
+#+hugo_custom_front_matter: :title "<sherlockname> HTB Sherlock Challenge"
+#+hugo_custom_front_matter: :title "Sherlock <sherlockname>"
+#+hugo_custom_front_matter: :description ""
 #+hugo_custom_front_matter: :keywords "HTB, CTF, Linux, Linux administration"
 #+hugo_custom_front_matter: :draft false
 #+hugo_custom_front_matter: :author bloodstiller
-#+hugo_custom_front_matter: :date 2025-03-11
+#+hugo_custom_front_matter: :date 2025-04-30
 #+hugo_custom_front_matter: :toc true
 #+hugo_custom_front_matter: :bold true
 #+hugo_custom_front_matter: :next true
@@ -23,11 +23,11 @@
 #+TODO: TODO(t) IN-PROGRESS(i) NOTES(m) RABBITHOLE!(R) | DONE(d!) HOLD(h) WONT-DO(n)
 :END:
 
-* <sherlock> Hack The Box Sherlock Challenge Writeup:
+* <sherlockname> Hack The Box Sherlock Challenge Writeup:
 :PROPERTIES:
 :ID:       e3f25c99-179f-461d-9310-dd1f026d4ec1
 :END:
-- https://app.hackthebox.com/challenges/<sherlock>
+- https://app.hackthebox.com/sherlocks/<sherlockname>
 
 * Challenge Information:
 :PROPERTIES:
@@ -36,7 +36,7 @@
 - *Difficulty*: 
 - *Category*: 
 - *Points*: 
-- *Description*: 
+- *Scenario*:
 
 * 1. Initial Analysis:
 :PROPERTIES:

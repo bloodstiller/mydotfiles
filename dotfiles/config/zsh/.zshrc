@@ -187,7 +187,7 @@ alias dtu='dotdrop update'
 
 alias dti='dotdrop install'
 
-BROWSER=/usr/bin/brave
+export BROWSER=/usr/bin/firefox
 kali='192.168.56.174'
 
 alias dt='/home/martin/.config/mydotfiles'
@@ -196,7 +196,7 @@ alias cpts='~/Dropbox/40-49_Career/41-Courses/41.22-CPTS'
 
 alias blog='~/Dropbox/40-49_Career/44-Blog/bloodstiller'
 
-alias bx='~/Dropbox/40-49_Career/46-Boxes/46.02-HTB'
+alias bx='~/Dropbox/40-49_Career/44-Blog/bloodstiller/content-org/Walkthroughs/HTB/Boxes'
 
 # Kali VM Aliases
 alias kvms='virsh --connect qemu:///system start Kali'
@@ -355,4 +355,4 @@ alias hot='~/.config/work/HelpDesk/captureScripts/captureHotTimer.sh'
 #fi
 
 # Initialize Starship prompt
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"

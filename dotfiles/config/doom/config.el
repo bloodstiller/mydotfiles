@@ -223,11 +223,57 @@
         ("l" "Links" entry (file "/home/martin/Dropbox/01-09_System/01-Emacs/01.02-OrgGtd/inbox.org")
           "* LINK %?"
          :empty-lines 0)
- ;; Weekly Reviews
-        ("R" "Weekly Review"
-         entry (file+datetree "/home/martin/Dropbox/50-59_PersonalDevelopment/52-Reviews/52.02 Weekly Reviews/WeeklyReviews.org" "Weekly Reviews")
-         "* %?"
-          :empty-lines 0)
+
+;; Weekly Reviews
+("R" "Weekly Review"
+ entry (file+datetree "/home/martin/Dropbox/50-59_PersonalDevelopment/52-Reviews/52.02 Weekly Reviews/WeeklyReviews.org" "Weekly Reviews")
+ "* Week of %U
+** Accomplishments
+*** What did I complete this week?
+-
+*** What am I most proud of?
+-
+*** What progress did I make on my key goals?
+-
+
+** Reflection
+*** What went well this week?
+-
+*** What challenges did I face?
+-
+*** What did I learn?
+-
+
+** Wellbeing
+*** How is my energy level?
+-
+*** What did I do for self-care?
+-
+*** How balanced did my week feel?
+-
+
+** Relationships
+*** Who did I connect with this week?
+-
+*** How did I support others?
+-
+*** Who should I reach out to next week?
+-
+
+** Planning Ahead
+*** What are my top priorities for next week?
+-
+*** What commitments do I have?
+-
+*** What do I need to do differently?
+-
+
+** Gratitude
+*** Three things I'm grateful for:
+1.
+2.
+3."
+ :empty-lines 0)
        )))
 
 ;;;;;;;;;;;;;;;;;;;;;ORG CRYPT
@@ -387,7 +433,7 @@
 (after! org
 (setq org-emphasis-alist
   ;'(("*" (underline :weight black :foreground "#ee9955"))
-  '(("*" (:foreground "#2c3740" :weight bold :background "#5699AF" :box (:line-width 1 :color "#7ab9cf" :style rounded)))
+  '(("*" (:foreground "#c5cdd8" :height 1.1 :weight bold ))
    ;; ("/" (:weight black :background "#745B00" :foreground "#FF3D2B" ))
     ("_" (:weight black :foreground "#79c6ff" ))
     ("=" (underline :weight black :foreground "#b18c00" ))

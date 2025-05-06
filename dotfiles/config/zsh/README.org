@@ -451,7 +451,7 @@ alias dti='dotdrop install'
 :ID:       306eebfd-689f-4c25-bcdc-9098090ce0b2
 :END:
 #+begin_src bash
-BROWSER=/usr/bin/brave
+export BROWSER=/usr/bin/firefox
 kali='192.168.56.174'
 #+end_src
 
@@ -492,7 +492,7 @@ alias blog='~/Dropbox/40-49_Career/44-Blog/bloodstiller'
 :END:
 - I do boxes on HTB and this is a shorcut to that dir
 #+begin_src bash
-alias bx='~/Dropbox/40-49_Career/46-Boxes/46.02-HTB'
+alias bx='~/Dropbox/40-49_Career/44-Blog/bloodstiller/content-org/Walkthroughs/HTB/Boxes'
 #+end_src
 
 * Launch VM's and RDP Sessions:
@@ -877,5 +877,5 @@ alias hot='~/.config/work/HelpDesk/captureScripts/captureHotTimer.sh'
 #+begin_src bash
 
 # Initialize Starship prompt
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
 #+end_src
