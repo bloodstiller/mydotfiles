@@ -4,7 +4,6 @@ alacritty-themes
 anki
 anydesk-bin
 appimagelauncher
-brave-bin
 clipboard-sync
 cryptomator-bin
 debtap
@@ -14,7 +13,9 @@ duplicati-canary-bin
 endeavouros-skel-i3wm
 extension-manager
 filebrowser-bin
+filen-desktop-bin
 flashfocus-git
+freetube-bin
 gnome-shell-extension-pop-shell-git
 google-chrome
 jamesdsp

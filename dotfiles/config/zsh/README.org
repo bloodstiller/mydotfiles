@@ -35,6 +35,8 @@
   - [[#alias---easy-url-encoding-and-decoding][Alias - Easy url encoding and decoding:]]
   - [[#alias---capture-entire-tmux-pane-from-start-of-session][Alias - Capture entire tmux pane from start of session:]]
   - [[#alias---dotrop][Alias - Dotrop:]]
+  - [[#alias---exegol][Alias - Exegol:]]
+- [[#path][Path:]]
 - [[#set-envs][Set ENVS:]]
 - [[#navigation][Navigation:]]
   - [[#navigate---to-dotrdrop-folder-to-manage-dotfiles-easier][Navigate - to dotrdrop folder to manage dotfiles easier:]]
@@ -445,6 +447,21 @@ alias dtu='dotdrop update'
 :END:
 #+begin_src bash
 alias dti='dotdrop install'
+#+end_src
+** Alias - Exegol:
+:PROPERTIES:
+:ID:       c5a1ee2b-2548-49a7-ae45-e4bd97fb5c4d
+:END:
+#+begin_src bash
+alias exegol='sudo -E /home/martin/.local/share/pipx/venvs/exegol/bin/exegol'
+#+end_src
+
+* Path:
+:PROPERTIES:
+:ID:       60dc9b5e-9f8d-4d3b-aeeb-37e4ef65489e
+:END:
+#+begin_src bash
+export PATH="$HOME/.local/bin:$PATH"
 #+end_src
 * Set ENVS:
 :PROPERTIES:

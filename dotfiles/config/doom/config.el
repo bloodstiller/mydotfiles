@@ -751,3 +751,36 @@
         :desc "Insert any date"    "a" #'dt/insert-any-date
         :desc "Insert today's date" "t" #'dt/insert-todays-date
         :desc "Insert current time" "c" #'dt/insert-current-time))
+
+;; 📚 Customize Org Roam buffer window behavior
+(after! org-roam
+  (setq org-roam-buffer-window-parameters '((no-delete-other-windows . t)))
+  (add-to-list 'display-buffer-alist
+               '("\\*org-roam\\*"
+                 (display-buffer-in-side-window)
+                 (side . right)
+                 (window-width . 0.4)
+                 (window-parameters . ((no-other-window . t)
+                                       (no-delete-other-windows . t))))))
+
+;; Floating minibuffer popup with Vertico
+(use-package! vertico-posframe
+  :after vertico
+  :config
+  (vertico-posframe-mode 1)
+  (setq vertico-posframe-poshandler 'posframe-poshandler-frame-center
+        vertico-posframe-border-width 8
+        vertico-posframe-parameters
+        '((left-fringe . 10)
+          (right-fringe . 10)
+          (internal-border-width . 10)
+          (undecorated . t)
+          (no-accept-focus . t)
+          (no-focus-on-map . t)
+          (min-width . t)
+          (min-height . t)
+          (border-width . 10)
+          (child-frame-border-width . 10)
+          (background-color . "#1e1e2e") ; or any dark theme color
+          (internal-border-color . "#585b70") ; slight contrast
+          (alpha . (95 . 95))))) ; slight transparency for soft edge

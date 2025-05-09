@@ -187,6 +187,10 @@ alias dtu='dotdrop update'
 
 alias dti='dotdrop install'
 
+alias exegol='sudo -E /home/martin/.local/share/pipx/venvs/exegol/bin/exegol'
+
+export PATH="$HOME/.local/bin:$PATH"
+
 export BROWSER=/usr/bin/firefox
 kali='192.168.56.174'
 

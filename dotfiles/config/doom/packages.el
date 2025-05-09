@@ -35,3 +35,4 @@
 (package! atomic-chrome)
 ;;(package! git-commit
  ;; :recipe (:host github :repo "magit/magit" :files ("lisp/git-commit.el") :local-repo "magit2"))
+(package! vertico-posframe)

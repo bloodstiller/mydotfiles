@@ -105,6 +105,7 @@ netctl
 network-manager-applet
 networkmanager-openconnect
 networkmanager-openvpn
+nextcloud-client
 ntp
 nushell
 obs-studio
